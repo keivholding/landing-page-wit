@@ -1,1 +1,59 @@
+:root {
+  --font-header: OutfitBold;
+  --font-subheader: OutfitMedium;
+  --font-paragraph: OutfitLight;
+  --color-white: #f4f4f4;
+  --color-salmon: #f59898;
+  --color-violet: #bc93f6;
+  --color-teal: #98e7fe;
+  --color-deepblue: #4d6de0;
+  --color-charcoal: #26272b;
+  --color-background-dark: #26272b;
+  --color-background-light: #fdf9f7;
+  --background-gradient: linear-gradient(
+    280.2deg,
+    #f59898 30%,
+    #bc93f6 60%,
+    #98e7fe 90%
+  );
+}
 
+@font-face {
+  font-family: OutfitBold;
+  src: url(Outfit/Outfit-Bold.ttf);
+}
+
+@font-face {
+  font-family: OutfitMedium;
+  src: url(Outfit/Outfit-Medium.ttf);
+}
+
+@font-face {
+  font-family: OutfitLight;
+  src: url(Outfit/Outfit-Light.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-charcoal);
+  color: var(--color-white);
+}
+
+.main-header {
+  font-family: var(--font-header);
+  font-size: 7rem;
+  background: var(--background-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
