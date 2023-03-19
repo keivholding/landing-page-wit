@@ -1,2 +1,2 @@
-# landing-page-wit
+# Landing Page for wit
 Landing page for wit
