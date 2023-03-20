@@ -17,6 +17,7 @@
     #bc93f6 60%,
     #98e7fe 90%
   );
+  --box-shadow: -7px -7px 14px #2a2d2f, 7px 7px 14px #1a191b;
 }
 
 @font-face {
@@ -70,6 +71,7 @@ a {
 
 a:visited {
   text-decoration: none;
+  color: var(--color-white);
 }
 
 .gradient {
@@ -92,6 +94,7 @@ a:visited {
   border-radius: 50px;
   color: var(--color-white);
   cursor: pointer;
+  transition: all 0.25s ease-in-out;
 }
 
 .btn.secondary {
@@ -131,7 +134,6 @@ a:visited {
 
   .burger-menu {
     display: block;
-    font-size: 1.4rem;
   }
 
   .section-one {
@@ -151,7 +153,7 @@ a:visited {
   }
 }
 
-@media only screen and (min-width: 300) {
+@media only screen and (min-width: 300px) {
   .wit-logo-text {
     display: block;
   }
@@ -192,7 +194,7 @@ a:visited {
   }
 
   .burger-menu {
-    display: none;
+    /* display: none; */
   }
 
   .section-one {
@@ -247,7 +249,7 @@ a:visited {
 header {
   padding: 10px;
   border-radius: 50px;
-  box-shadow: -7px -7px 14px #2a2d2f, 7px 7px 14px #1a191b;
+  box-shadow: var(--box-shadow);
   transition: all 0.3s ease-in-out;
 }
 
@@ -271,6 +273,14 @@ header:hover {
   margin-left: 12px;
 }
 
+.btn-login:hover {
+  background: var(--color-violet);
+}
+
+.btn-start:hover {
+  background: var(--color-deepblue);
+}
+
 .button-burger-container {
   align-items: center;
   justify-content: space-between;
@@ -287,6 +297,52 @@ header:hover .nav-links {
 .link-nav {
   color: var(--color-white);
   transition: all 0.3s ease-in-out;
+}
+
+.burger-menu-btn {
+  font-size: 1.4rem;
+}
+
+.nav-links-burger-container {
+  overflow: hidden;
+  position: absolute;
+  background: var(--color-background-dark);
+  box-shadow: 0px 0px 20px #1a191b;
+  border-radius: 10px 0px 0px 10px;
+  padding: 20px;
+  width: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 85%;
+  margin: auto;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+  z-index: 400;
+}
+
+.nav-links-burger-container.show {
+  position: fixed;
+  opacity: 1;
+  width: 75vw;
+}
+
+.blurry-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  z-index: -9999;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.blurry-overlay.show {
+  position: fixed;
+  z-index: 300;
+  opacity: 1;
+  background: rgba(38, 39, 43, 0.8);
 }
 
 /* <--------- HEADER STYLING ---------> */

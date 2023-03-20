@@ -1,6 +1,9 @@
 // Elements
 
 const header = document.querySelector("header");
+const burgerMenuBtn = document.querySelector(".burger-menu-btn");
+const burgerMenu = document.querySelector(".nav-links-burger-container");
+const blurryOverlay = document.querySelector(".blurry-overlay");
 
 // Elements
 
@@ -17,7 +20,16 @@ const linkHover = function (e) {
   }
 };
 
-header.addEventListener("mouseover", linkHover.bind({ opacity: 0.5 }));
+header.addEventListener("mouseover", linkHover.bind({ opacity: 0.4 }));
 header.addEventListener("mouseout", linkHover.bind({ opacity: 1 }));
 
 // Link Fade Out Effect
+
+// Burger Menu (Mobile)
+
+burgerMenuBtn.addEventListener("click", function () {
+  burgerMenu.classList.add("show");
+  blurryOverlay.classList.add("show");
+});
+
+// Burger Menu (Mobile)
