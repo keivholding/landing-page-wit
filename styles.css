@@ -10,6 +10,7 @@
   --color-charcoal: #26272b;
   --color-background-dark: #26272b;
   --color-background-light: #fdf9f7;
+  --color-link: #c1c1c1;
   --background-gradient: linear-gradient(
     280.2deg,
     #f59898 30%,
@@ -44,16 +45,270 @@ html {
   box-sizing: border-box;
 }
 
+/* <--------- GLOBAL STYLING && RESPONSIVENESS ---------> */
+
 body {
   background: var(--color-charcoal);
   color: var(--color-white);
 }
 
-.main-header {
+.header-text {
   font-family: var(--font-header);
-  font-size: 7rem;
+}
+
+.subheader-text {
+  font-family: var(--font-subheader);
+}
+
+.paragraph-text {
+  font-family: var(--font-paragraph);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+.gradient {
   background: var(--background-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.buttons-header {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  min-width: 128px;
+  padding: 8px 24px;
+  background: transparent;
+  border: 1px solid var(--color-violet);
+  border-radius: 50px;
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.btn.secondary {
+  border-color: var(--color-deepblue);
+}
+
+@media only screen and (min-width: 100px) {
+  .spacing {
+    padding: 20px;
+  }
+
+  .header-bar {
+    justify-content: initial;
+    gap: 10px;
+  }
+
+  .button-burger-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .wit-logo-text {
+    display: none;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .how-works {
+    display: none;
+  }
+
+  .btn-login {
+    display: none;
+  }
+
+  .burger-menu {
+    display: block;
+    font-size: 1.4rem;
+  }
+
+  .section-one {
+    padding-top: 30px;
+  }
+
+  .welcome {
+    font-size: 4rem;
+  }
+
+  .text-main {
+    font-size: 4rem;
+  }
+
+  .top-value-props {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 300) {
+  .wit-logo-text {
+    display: block;
+  }
+
+  .header-bar {
+    gap: 20px;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .spacing {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .btn-login {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .spacing {
+    max-width: 768px;
+  }
+
+  .header-bar {
+    justify-content: space-between;
+  }
+
+  .button-burger-container {
+    display: block;
+    width: auto;
+  }
+
+  .nav-links {
+    gap: 20px;
+    display: flex;
+  }
+
+  .burger-menu {
+    display: none;
+  }
+
+  .section-one {
+    padding-top: 150px;
+  }
+
+  .welcome {
+    font-size: 8rem;
+  }
+
+  .text-main {
+    font-size: 8rem;
+  }
+
+  .top-value-props {
+    flex-direction: row;
+  }
+
+  .how-works-mobile {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .spacing {
+    max-width: 1024px;
+  }
+
+  .nav-links {
+    gap: 60px;
+  }
+
+  .how-works {
+    display: block;
+  }
+
+  .how-works-mobile {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .spacing {
+    max-width: 1280px;
+  }
+}
+
+/* <--------- GLOBAL STYLING && RESPONSIVENESS ---------> */
+
+/* <--------- HEADER STYLING ---------> */
+
+header {
+  padding: 10px;
+  border-radius: 50px;
+  box-shadow: -7px -7px 14px #2a2d2f, 7px 7px 14px #1a191b;
+  transition: all 0.3s ease-in-out;
+}
+
+header:hover {
+  box-shadow: 0px 0px 12px var(--color-white);
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.wit-logo-text {
+  font-size: 2.1rem;
+  margin-left: 12px;
+}
+
+.button-burger-container {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  font-size: 1.5rem;
+}
+
+header:hover .nav-links {
+  font-size: 1.6rem;
+}
+
+.link-nav {
+  color: var(--color-white);
+  transition: all 0.3s ease-in-out;
+}
+
+/* <--------- HEADER STYLING ---------> */
+
+/* <--------- SECTION 1 HOMEPAGE STYLING ---------> */
+
+.homepage-text {
+  text-align: center;
+}
+
+.top-value-props {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.value-props {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* <--------- SECTION 1 HOMEPAGE STYLING ---------> */
