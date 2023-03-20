@@ -27,9 +27,21 @@ header.addEventListener("mouseout", linkHover.bind({ opacity: 1 }));
 
 // Burger Menu (Mobile)
 
-burgerMenuBtn.addEventListener("click", function () {
+const openBurgerMenu = function () {
   burgerMenu.classList.add("show");
   blurryOverlay.classList.add("show");
+};
+
+const closeBurgerMenu = function () {
+  burgerMenu.classList.remove("show");
+  blurryOverlay.classList.remove("show");
+};
+
+burgerMenuBtn.addEventListener("click", openBurgerMenu);
+blurryOverlay.addEventListener("click", closeBurgerMenu);
+
+document.addEventListener("keydown", function (e) {
+  e.key === "Escape" ? closeBurgerMenu() : "";
 });
 
 // Burger Menu (Mobile)

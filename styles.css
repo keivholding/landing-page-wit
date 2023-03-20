@@ -342,7 +342,7 @@ header:hover .nav-links {
   position: fixed;
   z-index: 300;
   opacity: 1;
-  background: rgba(38, 39, 43, 0.8);
+  background: rgba(38, 39, 43, 0.9);
 }
 
 /* <--------- HEADER STYLING ---------> */
