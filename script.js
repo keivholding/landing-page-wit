@@ -4,6 +4,10 @@ const header = document.querySelector("header");
 const burgerMenuBtn = document.querySelector(".burger-menu-btn");
 const burgerMenu = document.querySelector(".nav-links-burger-container");
 const blurryOverlay = document.querySelector(".blurry-overlay");
+const exitBurgerMenuBtn = document.querySelector(".fa-times");
+const iconLink = document.querySelector(".nav-links-mobile");
+const btnLoginBurger = document.querySelector(".btn-login-burger");
+const btnStartBurger = document.querySelector(".btn-start-burger");
 
 // Elements
 
@@ -30,15 +34,22 @@ header.addEventListener("mouseout", linkHover.bind({ opacity: 1 }));
 const openBurgerMenu = function () {
   burgerMenu.classList.add("show");
   blurryOverlay.classList.add("show");
+  iconLink.classList.add("show");
+  btnLoginBurger.classList.add("show");
+  btnStartBurger.classList.add("show");
 };
 
 const closeBurgerMenu = function () {
   burgerMenu.classList.remove("show");
   blurryOverlay.classList.remove("show");
+  iconLink.classList.remove("show");
+  btnLoginBurger.classList.remove("show");
+  btnStartBurger.classList.remove("show");
 };
 
 burgerMenuBtn.addEventListener("click", openBurgerMenu);
 blurryOverlay.addEventListener("click", closeBurgerMenu);
+exitBurgerMenuBtn.addEventListener("click", closeBurgerMenu);
 
 document.addEventListener("keydown", function (e) {
   e.key === "Escape" ? closeBurgerMenu() : "";
