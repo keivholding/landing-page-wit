@@ -8,6 +8,7 @@ const exitBurgerMenuBtn = document.querySelector(".fa-times");
 const iconLink = document.querySelector(".nav-links-mobile");
 const btnLoginBurger = document.querySelector(".btn-login-burger");
 const btnStartBurger = document.querySelector(".btn-start-burger");
+const emailInputHomepage = document.querySelector(".input-homepage");
 
 // Elements
 
@@ -56,3 +57,13 @@ document.addEventListener("keydown", function (e) {
 });
 
 // Burger Menu (Mobile)
+
+// Input field change colour on home page
+
+emailInputHomepage.addEventListener("input", function (e) {
+  e.target.value == ""
+    ? emailInputHomepage.classList.remove("gradient-darker")
+    : emailInputHomepage.classList.add("gradient-darker");
+});
+
+//

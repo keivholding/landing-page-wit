@@ -11,11 +11,18 @@
   --color-background-dark: #26272b;
   --color-background-light: #fdf9f7;
   --color-link: #c1c1c1;
+  --color-icon-background: #3a3b41;
   --background-gradient: linear-gradient(
     280.2deg,
     #f59898 30%,
     #bc93f6 60%,
     #98e7fe 90%
+  );
+  --background-gradient-darker: linear-gradient(
+    280.2deg,
+    #f59898 30%,
+    #bc93f6 60%,
+    #45b5d7 90%
   );
   --box-shadow: -7px -7px 14px #2a2d2f, 7px 7px 14px #1a191b;
 }
@@ -73,8 +80,36 @@ a:visited {
   color: var(--color-white);
 }
 
+input {
+  font-style: italic;
+  background: transparent;
+}
+
+input::placeholder {
+  color: #949494;
+}
+
+input:focus {
+  outline: none;
+}
+
+.fa {
+  cursor: pointer;
+}
+
+.fa:active {
+  cursor: grabbing;
+}
+
 .gradient {
   background: var(--background-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-darker {
+  background: var(--background-gradient-darker);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -278,6 +313,7 @@ header:hover {
 .wit-logo-text {
   font-size: 2.1rem;
   margin-left: 12px;
+  color: var(--color-white);
 }
 
 .btn-login:hover {
@@ -403,7 +439,7 @@ header:hover .nav-links {
 
 .icon-burger {
   font-size: 1.6rem;
-  background: #3a3b41;
+  background: var(--color-icon-background);
   padding: 12px 10px 10px 10px;
   border-radius: 6px;
   min-width: 40px;
@@ -457,6 +493,31 @@ header:hover .nav-links {
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+.cta-home {
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
+  margin: 70px auto 0px auto;
+  align-items: center;
+  background: var(--color-white);
+  color: var(--color-charcoal);
+  border-radius: 50px;
+  padding: 5px 5px 5px 20px;
+}
+
+.input-homepage {
+  width: 100%;
+  border: none;
+  flex-basis: 100%;
+}
+
+.btn.input.homepage {
+  background: var(--color-deepblue);
+  border: none;
+  min-width: 120px;
+  padding: 10px 8px;
 }
 
 /* <--------- SECTION 1 HOMEPAGE STYLING ---------> */
