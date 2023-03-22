@@ -67,3 +67,5 @@ emailInputHomepage.addEventListener("input", function (e) {
 });
 
 //
+
+const testCommit = 10;
