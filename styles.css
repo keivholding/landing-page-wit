@@ -123,7 +123,7 @@ input:focus {
 }
 
 .btn {
-  min-width: 140px;
+  min-width: 145px;
   padding: 8px 24px;
   background: transparent;
   border: 1px solid var(--color-violet);
@@ -135,7 +135,7 @@ input:focus {
 
 .btn.disabled {
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 .btn.secondary {
@@ -649,6 +649,12 @@ header:hover .nav-links {
   gap: 15px;
 }
 
+.email-template[data-approved="true"] .approve-email {
+  background: rgb(64, 151, 64);
+  border-color: rgb(64, 151, 64);
+  box-shadow: 0px 0px 10px rgb(64, 151, 64);
+}
+
 .email {
   position: absolute;
   top: 105px;
@@ -731,4 +737,10 @@ header:hover .nav-links {
   text-align: center;
   margin-top: 20px;
   font-size: 1.4rem;
+}
+
+.approval-left span {
+  font-size: 2rem;
+  margin-left: 5px;
+  margin-right: 5px;
 }
