@@ -1,7 +1,7 @@
-const emailTemplate = document.querySelectorAll(".email-template");
+const emailTemplates = document.querySelectorAll(".email-template");
 
 // this event listener opens the email tabs when view email is clicked
-emailTemplate.forEach((email) => {
+emailTemplates.forEach((email) => {
   email.addEventListener("click", function (e) {
     if (e.target.classList.contains("edit-email")) {
       // clicked the button that is clicked (contains edit-email class) as a class
@@ -42,12 +42,11 @@ const launchCampaignBtn = document.querySelector(".launch-campaign");
 const approveText = document.querySelector(".approval-left");
 
 const canLaunchCampaign = function () {
-  const totalEmails = emailTemplate.filter((email) =>
-    email.classList.contains("yes")
-  );
+  const totalEmails = [...emailTemplates].filter(
+    (email) => email.dataset.approved === "false"
+  ).length;
 
-  console.log(totalEmails);
-  approveText.textContent = `You still need to approve ${totalEmails} emails`;
+  approveText.textContent = `You still need to approve ${totalEmails} emails before launching the campaign!`;
 };
 
 canLaunchCampaign();
