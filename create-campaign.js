@@ -23,7 +23,7 @@ emailTemplate.forEach((email) => {
         ? (emailTemplate.style.minHeight = `${emailHeight + 125}px`)
         : setTimeout(() => {
             emailTemplate.style.minHeight = "100px";
-          }, 800);
+          }, 300);
 
       // these elements are are for toggling the divider, subject, and body of the email -- show and hides
       const divider = emailTemplate.querySelector(".divider-email");
@@ -38,4 +38,16 @@ emailTemplate.forEach((email) => {
   });
 });
 
-const numberOfEmailTemplates = emailTemplate.length;
+const launchCampaignBtn = document.querySelector(".launch-campaign");
+const approveText = document.querySelector(".approval-left");
+
+const canLaunchCampaign = function () {
+  const totalEmails = emailTemplate.filter((email) =>
+    email.classList.contains("yes")
+  );
+
+  console.log(totalEmails);
+  approveText.textContent = `You still need to approve ${totalEmails} emails`;
+};
+
+canLaunchCampaign();

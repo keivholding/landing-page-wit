@@ -133,6 +133,11 @@ input:focus {
   transition: all 0.25s ease-in-out;
 }
 
+.btn.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .btn.secondary {
   border-color: var(--color-deepblue);
 }
@@ -598,6 +603,7 @@ header:hover .nav-links {
 
 .section-two {
   padding-top: 70px;
+  padding-bottom: 40px;
 }
 
 .email-template-header {
@@ -615,7 +621,7 @@ header:hover .nav-links {
   border-radius: 50px;
   margin-bottom: 50px;
   font-size: 2.5rem;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
   overflow: hidden;
 }
 
@@ -699,4 +705,30 @@ header:hover .nav-links {
 /* <--------- SECTION 2 CREATE CAMPAIGN STYLING ---------> */
 
 .launch-campaign-container {
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 70px;
+}
+
+.launch-campaign {
+  background: var(--background-gradient);
+  border: none;
+  width: 50%;
+  margin: 0 auto;
+  font-size: 2rem;
+  color: #26272b;
+  min-height: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+.launch-campaign:hover {
+  transform: scale(1.05);
+}
+
+.approval-left {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.4rem;
 }
