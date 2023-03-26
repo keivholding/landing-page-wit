@@ -12,6 +12,7 @@
   --color-background-light: #fdf9f7;
   --color-link: #c1c1c1;
   --color-icon-background: #3a3b41;
+  --color-divider: #575757;
   --background-gradient: linear-gradient(
     280.2deg,
     #f59898 30%,
@@ -69,6 +70,7 @@ body {
 
 .paragraph-text {
   font-family: var(--font-paragraph);
+  line-height: 20px;
 }
 
 a {
@@ -121,7 +123,7 @@ input:focus {
 }
 
 .btn {
-  min-width: 128px;
+  min-width: 140px;
   padding: 8px 24px;
   background: transparent;
   border: 1px solid var(--color-violet);
@@ -316,11 +318,11 @@ header:hover {
   color: var(--color-white);
 }
 
-.btn-login:hover {
+.btn.primary:hover {
   background: var(--color-violet);
 }
 
-.btn-start:hover {
+.btn.secondary:hover {
   background: var(--color-deepblue);
 }
 
@@ -521,3 +523,180 @@ header:hover .nav-links {
 }
 
 /* <--------- SECTION 1 HOMEPAGE STYLING ---------> */
+
+/* <--------- SECTION 1 CREATE CAMPAIGN STYLING ---------> */
+
+.section-one.campaign {
+  padding-bottom: 70px;
+}
+
+.campaign-name {
+  text-align: center;
+  font-size: 8rem;
+  margin-bottom: 30px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.campaign-instructions {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.step-by-step {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 225px;
+  align-items: center;
+}
+
+.instructions-icon {
+  text-align: center;
+  font-size: 3.5rem;
+  cursor: auto;
+  margin-bottom: 20px;
+  width: fit-content;
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: var(--box-shadow);
+}
+
+.sub-instructions {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.arrow-instructions {
+  display: flex !important;
+  align-content: center;
+  flex-wrap: wrap;
+  font-size: 3rem;
+  cursor: auto;
+}
+
+/* <--------- SECTION 1 CREATE CAMPAIGN STYLING ---------> */
+
+.divider {
+  width: 75%;
+  margin: 0 auto;
+  height: 1px;
+  border-radius: 50px;
+  background: var(--color-white);
+  opacity: 0.5;
+}
+
+/* <--------- SECTION 2 CREATE CAMPAIGN STYLING ---------> */
+
+.section-two {
+  padding-top: 70px;
+}
+
+.email-template-header {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.email-template {
+  position: relative;
+  width: 75%;
+  min-height: 100px;
+  margin: 0 auto;
+  box-shadow: var(--box-shadow);
+  border-radius: 50px;
+  margin-bottom: 50px;
+  font-size: 2.5rem;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.email-description {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  top: 10px;
+  padding: 20px;
+  left: 0;
+}
+
+.email-style span {
+  margin-left: 12px;
+}
+
+.email-recipients {
+  font-size: 1.5rem;
+}
+
+.email-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.email {
+  position: absolute;
+  top: 105px;
+  padding: 20px;
+  transition: all 2s ease-in-out;
+}
+
+.divider-email {
+  position: absolute;
+  height: 1px;
+  width: 96%;
+  background: var(--color-white);
+  margin: 0 auto;
+  top: 100px;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.divider-email.open {
+  opacity: 0.5;
+}
+
+.email-header.header-text {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.subject-email,
+.body-email {
+  font-size: 1.4rem;
+}
+
+.subject-email {
+  transform: translateY(100px);
+  margin-bottom: 50px;
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
+}
+
+.body-email {
+  transform: translateY(300px);
+  opacity: 0;
+  transition: all 1.2s ease-in-out;
+}
+
+.subject-email.open,
+.body-email.open {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+/* <--------- SECTION 2 CREATE CAMPAIGN STYLING ---------> */
+
+.launch-campaign-container {
+}
