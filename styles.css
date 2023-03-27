@@ -544,14 +544,22 @@ header:hover .nav-links {
   padding-bottom: 70px;
 }
 
+.can-edit.campaign {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 20px;
+  font-size: 8rem;
+}
+
+.edit-btn.campaign {
+  font-size: 2rem;
+}
+
 .campaign-name {
   text-align: center;
-  font-size: 8rem;
-  margin-bottom: 30px;
-  width: fit-content;
-  margin: 0 auto;
-  margin-bottom: 40px;
-  padding: 20px;
+  font-size: inherit;
 }
 
 .campaign-instructions {
