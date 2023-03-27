@@ -545,21 +545,22 @@ header:hover .nav-links {
 }
 
 .can-edit.campaign {
+  position: relative;
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   gap: 20px;
   font-size: 8rem;
-}
-
-.edit-btn.campaign {
-  font-size: 2rem;
 }
 
 .campaign-name {
   text-align: center;
   font-size: inherit;
+}
+
+.edit-btn.campaign {
+  font-size: 2rem;
 }
 
 .campaign-instructions {

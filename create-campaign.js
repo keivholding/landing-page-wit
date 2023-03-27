@@ -190,18 +190,6 @@ document.addEventListener("keydown", function (e) {
 
 const canEdit = document.querySelectorAll(".can-edit");
 
-canEdit.forEach((edit) => {
-  edit.addEventListener("click", function (e) {
-    if (e.target.classList.contains("edit-btn")) {
-      const clickedEditBtn = e.target;
-      const editableContent =
-        clickedEditBtn.parentElement.querySelector(".editable");
-
-      editableContent.focus();
-    }
-  });
-});
-
 //
 //
 // EDITING EDITABLE CONTENT
