@@ -55,11 +55,13 @@ const openCloseTabs = function (clicked) {
 
   // these elements are are for toggling the divider, subject, and body of the email -- show and hides
   const divider = emailTemplate.querySelector(".divider-email");
+  const editEmailBtn = emailTemplate.querySelector(".edit-email-btn");
   const subject = emailTemplate.querySelector(".subject-email");
   const body = emailTemplate.querySelector(".body-email");
 
   emailTemplate.classList.toggle("open");
   divider.classList.toggle("open");
+  editEmailBtn.classList.toggle("open");
   subject.classList.toggle("open");
   body.classList.toggle("open");
   clicked.classList.toggle("closed");
@@ -127,12 +129,12 @@ const canLaunchCampaign = function () {
       launchCampaignBtn.classList.remove("disabled");
       break;
     case 1:
-      approveText.innerHTML = `You still need to approve <span>${totalEmails}</span> template email before launching the campaign!`;
+      approveText.innerHTML = `You still need to approve <span>${totalEmails}</span> email template before launching the campaign!`;
       // This needs to be added becuse without it, a user can approve all emails, then decide to go back and the disabled class needs to be added
       launchCampaignBtn.classList.add("disabled");
       break;
     default:
-      approveText.innerHTML = `You still need to approve <span>${totalEmails}</span> template emails before launching the campaign!`;
+      approveText.innerHTML = `You still need to approve <span>${totalEmails}</span> email templates before launching the campaign!`;
   }
 };
 
