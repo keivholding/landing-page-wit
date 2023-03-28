@@ -174,19 +174,17 @@ canLaunchCampaign();
 //
 //
 
-const modal = document.querySelector(".popup-create-campaign");
+const modal = document.querySelector(".popup.create-campaign");
 const goBackBtn = document.querySelector(".go-back");
 const closeXBtn = document.querySelector(".close-modal");
 
 // shows the popup
 const showModal = function () {
-  blurryOverlay.classList.add("show");
   modal.classList.add("show");
 };
 
 // closes the popup
 const closeModal = function () {
-  blurryOverlay.classList.remove("show");
   modal.classList.remove("show");
 };
 

@@ -283,14 +283,6 @@ input:focus {
   .nav-links-burger-container.show {
     display: none;
   }
-
-  .blurry-overlay.show {
-    display: none;
-  }
-
-  .blurry-overlay.desktop.show {
-    display: block;
-  }
 }
 
 @media only screen and (min-width: 1280px) {
@@ -383,24 +375,6 @@ header:hover .nav-links {
   position: fixed;
   opacity: 1;
   width: 75%;
-}
-
-.blurry-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  opacity: 0;
-  z-index: -9999;
-  transition: opacity 0.25s ease-in-out;
-}
-
-.blurry-overlay.show {
-  position: fixed;
-  z-index: 300;
-  opacity: 1;
-  background: rgba(38, 39, 43, 0.9);
 }
 
 .burger-container {

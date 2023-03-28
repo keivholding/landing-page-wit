@@ -250,7 +250,7 @@
 
 /* <--------- POPUP ON LAUNCH CAMPAIGN PAGE ---------> */
 
-.popup-create-campaign {
+.popup {
   position: fixed;
   transform: translate(-50%, -50%) scale(0.5);
   left: 50%;
@@ -267,7 +267,7 @@
   padding: 20px;
 }
 
-.popup-create-campaign.show {
+.popup.show {
   z-index: 400;
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
@@ -282,7 +282,7 @@
   flex-basis: 100%;
 }
 
-.divider.popup {
+.divider-popup {
   margin: inherit;
   margin: 30px 0;
 }
