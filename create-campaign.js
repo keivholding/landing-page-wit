@@ -2,7 +2,7 @@ const emailTemplates = document.querySelectorAll(".email-template");
 
 //
 //
-// THIS ADDS AND EVENT LISTENER TO THE EMAIL TEMPLATES FOR THE EDIT AND APPROVE BUTTONS
+// THIS ADDS AND EVENT LISTENER TO THE EMAIL TEMPLATES FOR THE VIEW, APPROVE, AND EDIT BUTTONS
 //
 //
 
@@ -10,18 +10,20 @@ emailTemplates.forEach((email) => {
   email.addEventListener("click", function (e) {
     const clicked = e.target;
     // if the edit email button is clicked, then the tab opens / closes
-    if (clicked.classList.contains("edit-email")) {
+    if (clicked.classList.contains("view-email")) {
       openCloseTabs(clicked);
       // else if the approve email button is clicked, the the email is marked approved / removed as approved
     } else if (clicked.classList.contains("approve-email")) {
-      approveFunc(clicked);
+      approveEmail(clicked);
+    } else if (clicked.classList.contains("edit-email-btn")) {
+      editEmail(clicked);
     }
   });
 });
 
 //
 //
-// THIS ADDS AND EVENT LISTENER TO THE EMAIL TEMPLATES FOR THE EDIT AND APPROVE BUTTONS
+// THIS ADDS AND EVENT LISTENER TO THE EMAIL TEMPLATES FOR THE VIEW, APPROVE, AND EDIT BUTTONS
 //
 //
 
@@ -32,7 +34,7 @@ emailTemplates.forEach((email) => {
 //
 
 const openCloseTabs = function (clicked) {
-  // clicked the button that is clicked (contains edit-email class) as a class
+  // clicked is the button that is clicked (contains view-email class) as a class
 
   // emailTemplate is the closest parent with the div class .email-template. We then use this to find all of the children
   const emailTemplate = clicked.closest(".email-template");
@@ -79,11 +81,11 @@ const openCloseTabs = function (clicked) {
 //
 //
 
-const approveFunc = function (clicked) {
+const approveEmail = function (clicked) {
   // this selects the parent element
   const emailTemplate = clicked.closest(".email-template");
-  // this selects the sibling edit-email button and makes it disabled (user can't click it to edit email)
-  const siblingEditEmail = emailTemplate.querySelector(".edit-email");
+  // this selects the sibling view-email button and makes it disabled (user can't click it to edit email)
+  const siblingEditEmail = emailTemplate.querySelector(".view-email");
   siblingEditEmail.classList.toggle("disabled");
 
   // This toggles back and forth when the email approved button is clicked again
@@ -106,6 +108,25 @@ const approveFunc = function (clicked) {
 //
 //
 // THIS FUNCTION MANIPULATES WHAT HAPPENS WHEN APPROVE EMAIL IS CLICKED //
+//
+//
+
+//
+//
+// EDITING EMAIL FUNCTION
+//
+//
+
+const editEmail = function (clicked) {
+  // this selects the parent element
+  const emailTemplate = clicked.closest(".email-template");
+  const subjectText = emailTemplate.querySelector(".subject-text").innerText;
+  const bodyText = emailTemplate.querySelector(".body-text").innerText;
+};
+
+//
+//
+// EDITING EMAIL FUNCTION
 //
 //
 
@@ -153,7 +174,7 @@ canLaunchCampaign();
 //
 //
 
-const modal = document.querySelector(".launch-campaign-popup-container");
+const modal = document.querySelector(".popup-create-campaign");
 const goBackBtn = document.querySelector(".go-back");
 const closeXBtn = document.querySelector(".close-modal");
 
@@ -181,19 +202,5 @@ document.addEventListener("keydown", function (e) {
 //
 //
 // WHEN LAUNCH CAMPAIGN IS CLICKED
-//
-//
-
-//
-//
-// EDITING EDITABLE CONTENT
-//
-//
-
-const canEdit = document.querySelectorAll(".can-edit");
-
-//
-//
-// EDITING EDITABLE CONTENT
 //
 //

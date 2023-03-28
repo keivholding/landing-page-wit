@@ -659,17 +659,18 @@ header:hover .nav-links {
   left: 0;
 }
 
-.email-style span {
+.email-left span {
   margin-left: 12px;
+}
+
+.email-right {
+  gap: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .email-recipients {
   font-size: 1.5rem;
-}
-
-.email-buttons {
-  display: flex;
-  gap: 15px;
 }
 
 .email-template[data-approved="true"] .approve-email {
@@ -788,7 +789,7 @@ header:hover .nav-links {
 
 /* <--------- POPUP ON LAUNCH CAMPAIGN PAGE ---------> */
 
-.launch-campaign-popup-container {
+.popup-create-campaign {
   position: fixed;
   transform: translate(-50%, -50%) scale(0.5);
   left: 50%;
@@ -797,14 +798,15 @@ header:hover .nav-links {
   box-shadow: var(--box-shadow);
   border-radius: 12px;
   min-width: 500px;
-  min-height: 500px;
+  max-height: 500px;
+  overflow: auto;
   z-index: -9999;
   opacity: 0;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   padding: 20px;
 }
 
-.launch-campaign-popup-container.show {
+.popup-create-campaign.show {
   z-index: 400;
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
@@ -851,11 +853,9 @@ ol.popup-paragraph {
 }
 
 .modal-buttons-container {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  justify-content: flex-end;
 }
 
 .go-back {
