@@ -145,6 +145,24 @@ input:focus {
   border-color: var(--color-deepblue);
 }
 
+.blurry-background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: var(--color-charcoal);
+  opacity: 0;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.blurry-background.show {
+  opacity: 0.8;
+  transform: translateX(0%);
+  z-index: 1;
+}
+
 @media only screen and (min-width: 100px) {
   .spacing {
     padding: 20px;

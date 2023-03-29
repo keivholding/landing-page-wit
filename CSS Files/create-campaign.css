@@ -21,7 +21,8 @@
 }
 
 .edit-btn.campaign {
-  font-size: 2rem;
+  font-size: 4rem;
+  color: #a0a0a0;
 }
 
 .campaign-instructions {
@@ -142,7 +143,7 @@
 
 .email {
   position: absolute;
-  top: 115px;
+  top: 105px;
   padding: 20px;
   transition: all 2s ease-in-out;
 }
@@ -196,6 +197,7 @@
   transform: translateY(100px);
   margin-bottom: 50px;
   opacity: 0;
+  width: 80%;
   transition: all 0.7s ease-in-out;
 }
 
@@ -335,9 +337,10 @@ ol.popup-paragraph {
 
 /* <--------- EDIT EMAIL POPUP ---------> */
 
-.popup.edit-email {
-  width: 75%;
-  height: 75%;
+.popup.edit-email,
+.popup.edit-campaign-name {
+  min-width: 60%;
+  min-height: fit-content;
 }
 
 .subject-edit-email {
@@ -349,7 +352,7 @@ ol.popup-paragraph {
   margin-bottom: 10px;
 }
 
-.subject-input,
+.input,
 .body-textarea {
   width: 100%;
   padding: 10px;
@@ -357,8 +360,10 @@ ol.popup-paragraph {
   border: none;
   background: var(--color-white);
   outline: none;
+  resize: none;
+  font-size: 1.5rem;
 }
 
-.subject-input {
+.input {
   border-radius: 50px;
 }
