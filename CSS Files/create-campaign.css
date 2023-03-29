@@ -142,7 +142,7 @@
 
 .email {
   position: absolute;
-  top: 105px;
+  top: 115px;
   padding: 20px;
   transition: all 2s ease-in-out;
 }
@@ -302,14 +302,16 @@ ol.popup-paragraph {
   margin-top: 10px;
 }
 
-.official-launch {
+.official-launch,
+.save-changes {
   background: var(--background-gradient);
   color: var(--color-charcoal);
   border: none;
   transition: all 0.3s ease-in-out;
 }
 
-.official-launch:hover {
+.official-launch:hover,
+.save-changes:hover {
   transform: scale(1.1);
 }
 
@@ -330,3 +332,33 @@ ol.popup-paragraph {
 }
 
 /* <--------- POPUP ON LAUNCH CAMPAIGN PAGE ---------> */
+
+/* <--------- EDIT EMAIL POPUP ---------> */
+
+.popup.edit-email {
+  width: 75%;
+  height: 75%;
+}
+
+.subject-edit-email {
+  margin-bottom: 30px;
+}
+
+.edit-email-header {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subject-input,
+.body-textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 7px;
+  border: none;
+  background: var(--color-white);
+  outline: none;
+}
+
+.subject-input {
+  border-radius: 50px;
+}

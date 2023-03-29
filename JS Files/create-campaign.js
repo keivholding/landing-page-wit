@@ -9,7 +9,7 @@ const emailTemplates = document.querySelectorAll(".email-template");
 emailTemplates.forEach((email) => {
   email.addEventListener("click", function (e) {
     const clicked = e.target;
-    // if the edit email button is clicked, then the tab opens / closes
+    // if the view email button is clicked, then the tab opens / closes
     if (clicked.classList.contains("view-email")) {
       openCloseTabs(clicked);
       // else if the approve email button is clicked, the the email is marked approved / removed as approved
@@ -46,7 +46,7 @@ const openCloseTabs = function (clicked) {
 
   // if the tab is closed, the then tab opens, else there's a delay and then it closes
   if (clicked.classList.contains("closed")) {
-    emailTemplate.style.minHeight = `${emailHeight + 125}px`;
+    emailTemplate.style.minHeight = `${emailHeight + 130}px`;
     clicked.textContent = "Close Email";
   } else {
     setTimeout(() => {
@@ -117,12 +117,63 @@ const approveEmail = function (clicked) {
 //
 //
 
+const popupEditEmail = document.querySelector(".popup.edit-email");
+const subjectTextEdit = document.querySelector(".subject-input");
+const bodyTextEdit = document.querySelector(".body-textarea");
+const goBackEditBtn = document.querySelector(".go-back.edit");
+const closeXEditBtn = document.querySelector(".close-modal-edit");
+const saveChangesBtn = document.querySelector(".save-changes");
+
 const editEmail = function (clicked) {
   // this selects the parent element
   const emailTemplate = clicked.closest(".email-template");
-  const subjectText = emailTemplate.querySelector(".subject-text").innerText;
-  const bodyText = emailTemplate.querySelector(".body-text").innerText;
+  const subjectTextTemplate = emailTemplate.querySelector(".subject-text");
+  const bodyTextTemplate = emailTemplate.querySelector(".body-text");
+
+  subjectTextEdit.value = subjectTextTemplate.innerText;
+  bodyTextEdit.value = bodyTextTemplate.innerText;
+  bodyTextEdit.style.height = `${bodyTextEdit.scrollHeight}px`;
+
+  popupEditEmail.classList.add("show");
+
+  // this event listener makes it so that when save changes is clicked at the bottom, the tempalte text is automatically updated to what the edit text was changed to. it also closes the popup and closes the tab
+  saveChangesBtn.addEventListener("click", function () {
+    subjectTextTemplate.innerText = subjectTextEdit.value;
+    bodyTextTemplate.innerText = bodyTextEdit.value;
+
+    closeEditEmail();
+
+    // emailHeight is the body of the email --> is the height of the email. We use this to tell emailtemplate how much it needs to grow
+    const emailHeight = emailTemplate
+      .querySelector(".email")
+      .getBoundingClientRect().height;
+
+    // recalculates the height of the email
+    emailTemplate.style.minHeight = `${emailHeight + 130}px`;
+  });
 };
+
+// this function closes the popup
+const closeEditEmail = function () {
+  popupEditEmail.classList.remove("show");
+
+  // Needs to be added as it "resets those values" --> otherwise bug
+  setTimeout(() => {
+    subjectTextEdit.value = "";
+    bodyTextEdit.textContent = "";
+    bodyTextEdit.style.height = "0px";
+  }, 500);
+};
+
+goBackEditBtn.addEventListener("click", closeEditEmail);
+closeXEditBtn.addEventListener("click", closeEditEmail);
+
+// this recalculates the height of the textarea when a change occurs
+bodyTextEdit.addEventListener("input", function () {
+  // auto is needed because it 'collapses' the textarea and sort of resets it so we can properly calculate scrollHeight ('0') would also work
+  bodyTextEdit.style.height = "auto";
+  bodyTextEdit.style.height = `${bodyTextEdit.scrollHeight}px`;
+});
 
 //
 //
@@ -194,7 +245,11 @@ closeXBtn.addEventListener("click", closeModal);
 
 // closes popup when escape is pressed
 document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && modal.classList.contains("show")) closeModal();
+  if (e.key === "Escape" && modal.classList.contains("show")) {
+    closeModal();
+  } else if (e.key === "Escape" && popupEditEmail.classList.contains("show")) {
+    closeEditEmail();
+  }
 });
 
 //
