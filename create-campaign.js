@@ -175,8 +175,8 @@ const editEmail = function (clicked) {
   const emailTemplate = clicked.closest(".email-template");
   const subjectTextTemplate = emailTemplate.querySelector(".subject-text");
   const bodyTextTemplate = emailTemplate.querySelector(".body-text");
-
-  console.log(subjectTextTemplate);
+  const style = emailTemplate.querySelector(".style-data");
+  const id = emailTemplate.dataset.id;
 
   subjectTextEdit.value = subjectTextTemplate.innerText;
   bodyTextEdit.value = bodyTextTemplate.innerText;
@@ -186,7 +186,7 @@ const editEmail = function (clicked) {
   blurryBackground.classList.add("show");
 
   // this event listener makes it so that when save changes is clicked at the bottom, the tempalte text is automatically updated to what the edit text was changed to. it also closes the popup and closes the tab
-  saveChangesBtn.addEventListener("click", function () {
+  const saveChanges = function () {
     subjectTextTemplate.innerText = subjectTextEdit.value;
     bodyTextTemplate.innerText = bodyTextEdit.value;
 
@@ -199,7 +199,36 @@ const editEmail = function (clicked) {
 
     // recalculates the height of the email
     emailTemplate.style.minHeight = `${emailHeight + 120}px`;
-  });
+
+    // Update Backend
+    const url = "https://3973-208-118-225-163.ngrok.io/api/upsertTemplate";
+    const data = {
+      subject: subjectTextEdit.value,
+      body: bodyTextEdit.value,
+      style: style.innerText,
+      id: id,
+    };
+
+    console.log(data);
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
+    saveChangesBtn.removeEventListener("click", saveChanges);
+  };
+
+  saveChangesBtn.addEventListener("click", saveChanges);
 };
 
 // this function closes the popup
