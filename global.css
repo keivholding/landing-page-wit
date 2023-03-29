@@ -30,17 +30,17 @@
 
 @font-face {
   font-family: OutfitBold;
-  src: url(/Outfit/Outfit-Bold.ttf);
+  src: url(/Outfit-Bold.ttf);
 }
 
 @font-face {
   font-family: OutfitMedium;
-  src: url(/Outfit/Outfit-Medium.ttf);
+  src: url(/Outfit-Medium.ttf);
 }
 
 @font-face {
   font-family: OutfitLight;
-  src: url(/Outfit/Outfit-Light.ttf);
+  src: url(/Outfit-Light.ttf);
 }
 
 * {
