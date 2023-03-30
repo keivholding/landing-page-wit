@@ -94,14 +94,6 @@ input:focus {
   outline: none;
 }
 
-.fa {
-  cursor: pointer;
-}
-
-.fa:active {
-  cursor: grabbing;
-}
-
 .gradient {
   background: var(--background-gradient);
   -webkit-background-clip: text;
@@ -161,6 +153,15 @@ input:focus {
   opacity: 0.8;
   transform: translateX(0%);
   z-index: 1;
+}
+
+.divider {
+  width: 75%;
+  margin: 0 auto;
+  height: 1px;
+  border-radius: 50px;
+  background: var(--color-white);
+  opacity: 0.5;
 }
 
 @media only screen and (min-width: 100px) {

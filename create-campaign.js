@@ -209,7 +209,6 @@ const editEmail = function (clicked) {
       id: id,
     };
 
-    console.log(data);
     fetch(url, {
       method: "POST",
       headers: {

@@ -71,15 +71,6 @@
 
 /* <--------- SECTION 1 CREATE CAMPAIGN STYLING ---------> */
 
-.divider {
-  width: 75%;
-  margin: 0 auto;
-  height: 1px;
-  border-radius: 50px;
-  background: var(--color-white);
-  opacity: 0.5;
-}
-
 /* <--------- SECTION 2 CREATE CAMPAIGN STYLING ---------> */
 
 .section-two {

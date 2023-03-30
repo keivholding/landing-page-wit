@@ -1,0 +1,100 @@
+.section-one.my-campaigns {
+  padding-top: 100px;
+  padding-bottom: 70px;
+  font-size: 8rem;
+}
+
+.my-campaigns-header {
+  text-align: center;
+}
+
+.campaign-analytics {
+  display: flex;
+  margin-top: 30px;
+  background: var(--color-charcoal);
+  box-shadow: var(--box-shadow);
+  padding: 30px 0;
+  justify-content: space-evenly;
+  border-radius: 10px;
+}
+
+.analytics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+}
+
+.number-analytics {
+  font-size: 4rem;
+}
+
+.analytics-name {
+  font-size: 1.4rem;
+  margin-top: 5px;
+  color: #8c8c8c;
+}
+
+.divider-analytics {
+  width: 1px;
+  height: 100px;
+  background: #8c8c8c;
+  opacity: 0.3;
+}
+
+.question-time-saved {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #8c8c8c;
+}
+
+.question-icon {
+  font-size: 1.7rem;
+  margin-top: 5px;
+  margin-left: 7px;
+  cursor: pointer;
+}
+
+.time-saved-popup-container {
+  position: absolute;
+  right: -45px;
+  top: 18px;
+  width: 400px;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.time-saved-popup-inner {
+  font-size: 1.4rem;
+  padding: 10px;
+  color: var(--color-white);
+  border-radius: 10px;
+  background: rgba(244, 244, 244, 0.15);
+  border: 1px solid rgba(244, 244, 244, 0.5);
+  transform: translateX(500px);
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.time-saved-popup-inner.show {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.popup-from {
+  position: absolute;
+  top: -14px;
+  font-size: 2rem;
+  right: 29px;
+  color: var(--color-white);
+  opacity: 0;
+  transform: translateX(300px);
+  transition: all 0.7s ease-in-out;
+}
+
+.popup-from.show {
+  opacity: 0.5;
+  transform: translateX(0px);
+}
