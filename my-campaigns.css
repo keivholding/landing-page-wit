@@ -1,10 +1,12 @@
+/* <--------- SECTION 1 ACCOUNT ANALYTICS ---------> */
+
 .section-one.my-campaigns {
   padding-top: 100px;
   padding-bottom: 70px;
   font-size: 8rem;
 }
 
-.my-campaigns-header {
+.analytics-header {
   text-align: center;
 }
 
@@ -97,4 +99,17 @@
 .popup-from.show {
   opacity: 0.5;
   transform: translateX(0px);
+}
+
+/* <--------- SECTION 1 ACCOUNT ANALYTICS ---------> */
+
+.section-two {
+  padding-top: 70px;
+  padding-bottom: 40px;
+}
+
+.my-campaigns-header {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 50px;
 }
