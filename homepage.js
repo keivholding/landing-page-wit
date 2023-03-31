@@ -18,25 +18,3 @@ emailInputHomepage.addEventListener("input", function (e) {
 // INPUT FIELD CHANGES COLOR ON HOME PAGE (AS USER TYPES)
 //
 //
-
-// TESTING
-
-document.addEventListener("DOMContentLoaded", function () {
-  const googleAuthButton = document.getElementById("google-auth-button");
-
-  googleAuthButton.addEventListener("click", function handleAuth() {
-    fetch("https://3973-208-118-225-163.ngrok.io/api/googleGetAuthUrl", {
-      method: "POST",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const { authUrl } = data;
-        window.location.href = authUrl;
-      })
-      .catch((error) => {
-        console.error("Error fetching Google auth URL:", error);
-      });
-  });
-});
-
-// TESTING
