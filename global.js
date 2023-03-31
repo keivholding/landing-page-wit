@@ -7,14 +7,15 @@
 const start = document.querySelector(".btn-start");
 
 start.addEventListener("click", function () {
-  console.log(`yes`);
-
   const url = "https://sales-machine.vercel.app/api/signin/google";
 
   fetch(url, {
     method: "GET",
   })
-    .then((response) => console.log(response.headers.get("X-Redirect-Url")))
+    .then((response) => response.json())
+    .then((data) => {
+      window.location.href = data.signinRedirectUrl;
+    })
     .catch((error) => {
       console.error("Error:", error);
     });
