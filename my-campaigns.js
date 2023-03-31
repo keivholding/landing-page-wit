@@ -24,6 +24,105 @@ saveTimeQuestion.addEventListener("mouseout", showCloseTimePopup);
 
 //
 //
+// ADDING CAMPAIGNS TO THE TABLE
+//
+//
+
+const tableBody = document.querySelector(".table-body.campaigns");
+
+const activeUserCampaigns = [
+  `<tr class="table-row">
+                        <td>
+                            <input type="checkbox" class="table-checkbox">
+                        </td>
+                        <td class="campaign-details-table">
+                            <div class="campaign-details">
+                                <div class="campaign-name">This is my mintry fresh campaign name that is going
+                                    to
+                                    push everything
+                                    unfortunately</div>
+                                <div class="campaign-created">Created on May 5th, 2022</div>
+                            </div>
+                        </td>
+                        <td class="emails-sent-table">105</td>
+                        <td class="emails-opened-table">39</td>
+                        <td class="responses-table">31</td>
+                        <td class="meetings-booked-table">22</td>
+                        <td class="sales-table">7</td>
+                        <td class="time-saved-table">22h</td>
+                        <td class="view-campaign">
+                            <div class="campaign-buttons">
+                                <a href="#">
+                                    <div class="btn view-btn primary">View Campaign</div>
+                                </a>
+                                <div class="btn download-csv secondary">Download CSV</div>
+                            </div>
+                        </td>
+                    </tr>`,
+  `<tr class="table-row">
+                        <td>
+                            <input type="checkbox" class="table-checkbox">
+                        </td>
+                        <td class="campaign-details-table">
+                            <div class="campaign-details">
+                                <div class="campaign-name">I am going to target this demographic</div>
+                                <div class="campaign-created">Created on June 22nd, 2022</div>
+                            </div>
+                        </td>
+                        <td>56</td>
+                        <td>22</td>
+                        <td>14</td>
+                        <td>9</td>
+                        <td>3</td>
+                        <td>16h</td>
+                        <td class="view-campaign">
+                            <div class="campaign-buttons">
+                                <a href="#">
+                                    <div class="btn view-btn primary">View Campaign</div>
+                                </a>
+                                <div class="btn download-csv secondary">Download CSV</div>
+                            </div>
+                        </td>
+                    </tr>`,
+  `<tr class="table-row">
+                        <td>
+                            <input type="checkbox" class="table-checkbox">
+                        </td>
+                        <td class="campaign-details-table">
+                            <div class="campaign-details">
+                                <div class="campaign-name">Cool bro campaign you know</div>
+                                <div class="campaign-created">Created on December 31st, 2021</div>
+                            </div>
+                        </td>
+                        <td>113</td>
+                        <td>49</td>
+                        <td>30</td>
+                        <td>15</td>
+                        <td>3</td>
+                        <td>32h</td>
+                        <td class="view-campaign">
+                            <div class="campaign-buttons">
+                                <a href="#">
+                                    <div class="btn view-btn primary">View Campaign</div>
+                                </a>
+                                <div class="btn download-csv secondary">Download CSV</div>
+                            </div>
+                        </td>
+                    </tr>`,
+];
+
+activeUserCampaigns.forEach((campaign) => {
+  tableBody.insertAdjacentHTML("afterbegin", campaign);
+});
+
+//
+//
+// ADDING CAMPAIGNS TO THE TABLE
+//
+//
+
+//
+//
 // CHECKBOX FUNCTION FOR THE TABLE
 //
 //
@@ -53,12 +152,19 @@ campaignTable.addEventListener("click", function (e) {
       // need to call here because when we check, we want to show the to-do buttons
       showToDoButtons();
 
+      // If every checkbox is ticked, then the selectAllCheckbox will apear ticked as well!
+      if (selectedArray.length === allCheckboxes.length) {
+        selectAllCheckbox.checked = true;
+        selectAllCheckbox.setAttribute("checked", "");
+      }
+
       // if we are unticking the checkbox, we're removing checked from it, + making the row not appear as selected + making the all checkbox button not ticked (important!)
     } else {
       e.target.removeAttribute("checked");
       campaignRow.removeAttribute("selected");
       e.target.checked = false;
       selectAllCheckbox.checked = false;
+      selectAllCheckbox.removeAttribute("checked");
 
       // this finds the index of the row that was unselected and removes it from the selected array
       selectedArray.splice(
@@ -79,6 +185,7 @@ campaignTable.addEventListener("click", function (e) {
     // if we are ticking the all checkbox, then we are selecting ALL of the checkboxes and setting checked to true for each one
     if (selectAllCheckbox.checked) {
       selectAllCheckbox.checked = true;
+      selectAllCheckbox.setAttribute("checked", "");
 
       allCheckboxes.forEach((checkbox) => {
         checkbox.setAttribute("checked", "");
@@ -98,6 +205,7 @@ campaignTable.addEventListener("click", function (e) {
       // if we are unselecting the all box, then we are removing
     } else {
       selectAllCheckbox.checked = false;
+      selectAllCheckbox.removeAttribute("checked");
 
       // removing the checked attribute for all checkboxes
       allCheckboxes.forEach((checkbox) => {
@@ -145,21 +253,20 @@ const showToDoButtons = function () {
     }, 400);
 
     setTimeout(() => {
-      downloadBtn.classList.remove("show");
+      archiveBtn.classList.remove("show");
     }, 300);
 
     setTimeout(() => {
-      archiveBtn.classList.remove("show");
+      downloadBtn.classList.remove("show");
     }, 150);
 
     campaignNumber.classList.remove("show");
   } else {
     campaignContainer.classList.add("show");
 
-    downloadBtn.classList.add("show");
-
+    archiveBtn.classList.add("show");
     setTimeout(() => {
-      archiveBtn.classList.add("show");
+      downloadBtn.classList.add("show");
     }, 150);
 
     setTimeout(() => {
@@ -173,3 +280,16 @@ const showToDoButtons = function () {
 // CHECKBOX FUNCTION FOR THE TABLE
 //
 //
+
+const campaigns = {
+  data: [
+    {
+      id: 2,
+      created_at: "2023-03-28T18:33:35.840126+00:00",
+      name: "Campaign 1",
+      user_id: null,
+      who_to_target: null,
+      what_to_include: null,
+    },
+  ],
+};

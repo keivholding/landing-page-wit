@@ -158,6 +158,23 @@ button.archive.show,
   color: #8c8c8c;
 }
 
+.filters-container {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.filter-type {
+  background: none;
+  border: none;
+  margin: 0px 5px;
+  font-size: 1.6rem;
+  font-style: italic;
+  color: #8c8c8c;
+}
+
 table {
   text-align: center;
 }
@@ -251,7 +268,7 @@ tr[selected="true"] {
   display: flex;
   gap: 10px;
   top: 35px;
-  right: 3px;
+  right: 30px;
   opacity: 0;
   transform: translateX(200px);
   transition: all 0.3s ease-in-out;

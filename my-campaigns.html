@@ -160,110 +160,53 @@
             <div class="campaigns-container">
                 <div class="my-campaigns-header header-text">My Campaigns</div>
                 <div class="campaign-todo-buttons-number">
-                    <button class="btn primary todo download paragraph-text">Download CSV</button>
-                    <button class="btn secondary todo archive paragraph-text">Archive</button>
+                    <button class="btn primary todo archive paragraph-text">Archive</button>
+                    <button class="btn secondary todo download paragraph-text">Download CSV</button>
                     <div class="paragraph-text number-campaigns">1 Campaign Selected</div>
                 </div>
             </div>
 
-            <table class="campaigns" cellspacing="0">
-                <thead class="header-text table-header">
-                    <tr>
-                        <th class="table-5"><input type="checkbox" class="table-checkbox-all"></th>
-                        <th class="table-28">Campaign Name</th>
-                        <th class="table-10">Emails Sent</th>
-                        <th class="table-15">Emails Opened</th>
-                        <th class="table-10">Responses</th>
-                        <th class="table-15">Meetings Booked</th>
-                        <th class="table-7">Sales</th>
-                        <th class="table-10">Time Saved</th>
-                    </tr>
-                </thead>
-                <tbody class="paragraph-text table-body">
-                    <tr class="table-row">
-                        <td>
-                            <input type="checkbox" class="table-checkbox">
-                        </td>
-                        <td class="campaign-details-table">
-                            <div class="campaign-details">
-                                <div class="campaign-name">This is my mintry fresh campaign name that is going
-                                    to
-                                    push everything
-                                    unfortunately</div>
-                                <div class="campaign-created">Created on May 5th, 2022</div>
-                            </div>
-                        </td>
-                        <td class="emails-sent-table">105</td>
-                        <td class="emails-opened-table">39</td>
-                        <td class="responses-table">31</td>
-                        <td class="meetings-booked-table">22</td>
-                        <td class="sales-table">7</td>
-                        <td class="time-saved-table">22h</td>
-                        <td class="view-campaign">
-                            <div class="campaign-buttons">
-                                <a href="#">
-                                    <div class="btn view-btn primary">View Campaign</div>
-                                </a>
-                                <div class="btn download-csv secondary">Download CSV</div>
-                            </div>
-                        </td>
-                    </tr>
+            <div class="table-and-filter">
+                <div class="filters-container">
 
-                    <tr class="table-row">
-                        <td>
-                            <input type="checkbox" class="table-checkbox">
-                        </td>
-                        <td class="campaign-details-table">
-                            <div class="campaign-details">
-                                <div class="campaign-name">I am going to target this demographic</div>
-                                <div class="campaign-created">Created on June 22nd, 2022</div>
-                            </div>
-                        </td>
-                        <td>56</td>
-                        <td>22</td>
-                        <td>14</td>
-                        <td>9</td>
-                        <td>3</td>
-                        <td>16h</td>
-                        <td class="view-campaign">
-                            <div class="campaign-buttons">
-                                <a href="#">
-                                    <div class="btn view-btn primary">View Campaign</div>
-                                </a>
-                                <div class="btn download-csv secondary">Download CSV</div>
-                            </div>
-                        </td>
-                    </tr>
+                    <label for="filter" class="subheader-text filter-by">Filtered By:</label>
 
-                    <tr class="table-row">
-                        <td>
-                            <input type="checkbox" class="table-checkbox">
-                        </td>
-                        <td class="campaign-details-table">
-                            <div class="campaign-details">
-                                <div class="campaign-name">Cool bro campaign you know</div>
-                                <div class="campaign-created">Created on December 31st, 2021</div>
-                            </div>
-                        </td>
-                        <td>113</td>
-                        <td>49</td>
-                        <td>30</td>
-                        <td>15</td>
-                        <td>3</td>
-                        <td>32h</td>
-                        <td class="view-campaign">
-                            <div class="campaign-buttons">
-                                <a href="#">
-                                    <div class="btn view-btn primary">View Campaign</div>
-                                </a>
-                                <div class="btn download-csv secondary">Download CSV</div>
-                            </div>
-                        </td>
-                    </tr>
+                    <div class="filter-by-container">
+                        <select name="filter" id="filter" class="filter-type paragraph-text">
+                            <option value="volvo">Creation Date</option>
+                            <option value="saab">Emails Sent</option>
+                            <option value="opel">Emails Opened</option>
+                            <option value="audi">Responses</option>
+                            <option value="audi">Meetings Booked</option>
+                            <option value="audi">Sales</option>
+                            <option value="audi">Time Saved</option>
+                        </select>
+                    </div>
 
-                </tbody>
-            </table>
+                </div>
 
+                <table class="campaigns" cellspacing="0">
+                    <thead class="header-text table-header">
+                        <tr>
+                            <th class="table-5"><input type="checkbox" class="table-checkbox-all"></th>
+                            <th class="table-28">Campaign Name</th>
+                            <th class="table-10">Emails Sent</th>
+                            <th class="table-15">Emails Opened</th>
+                            <th class="table-10">Responses</th>
+                            <th class="table-15">Meetings Booked</th>
+                            <th class="table-7">Sales</th>
+                            <th class="table-10">Time Saved</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="paragraph-text table-body campaigns">
+
+                        <!-- CAMPAIGNS ENTERED HERE -->
+
+                    </tbody>
+                </table>
+
+            </div>
 
         </section>
 
