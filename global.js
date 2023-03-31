@@ -11,7 +11,10 @@ start.addEventListener("click", function () {
 
   const url = "https://sales-machine.vercel.app/api/signin/google";
 
-  fetch(url)
+  fetch(url, {
+    method: "GET",
+    mode: "no-cors",
+  })
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
