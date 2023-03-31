@@ -13,12 +13,8 @@ start.addEventListener("click", function () {
 
   fetch(url, {
     method: "GET",
-    mode: "no-cors",
   })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Success:", data);
-    })
+    .then((response) => console.log(response.headers.get("X-Redirect-Url")))
     .catch((error) => {
       console.error("Error:", error);
     });
