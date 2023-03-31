@@ -7,6 +7,8 @@
 const start = document.querySelector(".btn-start");
 
 start.addEventListener("click", function () {
+  console.log(`yes`);
+
   const url = "https://sales-machine.vercel.app/api/signin/google";
 
   fetch(url)
