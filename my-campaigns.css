@@ -173,4 +173,36 @@ table th {
   width: 20%;
 }
 
+.campaign-buttons {
+  position: absolute;
+  display: flex;
+  gap: 15px;
+  top: 20px;
+  right: 3px;
+  opacity: 0;
+  transform: translateX(200px);
+  transition: all 0.3s ease-in-out;
+}
+
+tr:hover .campaign-buttons {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.view-btn {
+  background: var(--color-violet);
+}
+
+.view-btn:hover {
+  box-shadow: 0px 0px 10px var(--color-violet);
+}
+
+.download-csv {
+  background: var(--color-deepblue);
+}
+
+.download-csv:hover {
+  box-shadow: 0px 0px 10px var(--color-deepblue);
+}
+
 /* <--------- SECTION 2 CAMPAIGN TABLE ---------> */
