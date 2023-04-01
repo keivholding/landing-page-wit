@@ -1,3 +1,30 @@
+//
+//
+// GETS CAMPAIGN DATA FROM LOGGED IN ACCOUNT
+//
+//
+
+console.log("campaign");
+
+const url = "https://salesmachine.vercel.app/api/getCampaigns";
+fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    accessToken: localStorage.getItem("witSMAccessToken"),
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log({ data }));
+
+//
+//
+// GETS CAMPAIGN DATA FROM LOGGED IN ACCOUNT
+//
+//
+
 const campaigns = {
   data: [
     {
