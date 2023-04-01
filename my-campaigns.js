@@ -6,7 +6,7 @@
 
 console.log("campaign2");
 
-const url = "https://salesmachine.vercel.app/api/getCampaigns";
+const url = "https://sales-machine.vercel.app/api/getCampaigns";
 fetch(url, {
   method: "POST",
   headers: {
