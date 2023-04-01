@@ -17,16 +17,16 @@ function getTokensFromUrl() {
 const accessToken = getTokensFromUrl();
 console.log(accessToken);
 
-const url = "https://salesmachine.vercel.app/api/getCampaigns";
-fetch(url, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ accessToken }),
-})
-  .then((response) => response.json())
-  .then((data) => console.log({ data }));
+// const url = "https://salesmachine.vercel.app/api/getCampaigns";
+// fetch(url, {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({ accessToken }),
+// })
+//   .then((response) => response.json())
+//   .then((data) => console.log({ data }));
 
 //
 //
