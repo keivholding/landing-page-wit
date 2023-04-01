@@ -1,11 +1,13 @@
-console.log(`login11`);
+console.log(`testTEST`);
 
 function getTokensFromUrl() {
-  const hashParams = new URLSearchParams(window.location.hash.substring(1));
-  const accessToken = hashParams.get("access_token");
-  const refreshToken = hashParams.get("refresh_token");
+  const url = window.location.href;
+  const urlObj = new URL(url);
+  const searchParams = new URLSearchParams(urlObj.search);
+  const accessToken = searchParams.get("accessToken");
+  const refreshToken = searchParams.get("refreshToken");
 
-  console.log(hashParams, accessToken, refreshToken);
+  console.log(url, urlObj, searchParams, accessToken, refreshToken);
 
   if (accessToken && refreshToken) {
     console.log("Access Token:", accessToken);
