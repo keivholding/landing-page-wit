@@ -232,7 +232,6 @@ tr[selected="true"] {
   overflow: hidden;
   text-overflow: ellipsis;
   border-bottom: 1px solid rgba(244, 244, 244, 0.3);
-  border-left: 1px solid rgba(244, 244, 244, 0.3);
 }
 
 .table-body td:first-of-type {
@@ -281,16 +280,16 @@ tr[selected="true"] {
   position: absolute;
   display: flex;
   gap: 10px;
-  top: 35px;
-  right: 30px;
+  bottom: 5px;
+  right: -25px;
   opacity: 0;
-  transform: translateX(200px);
+  transform: translateX(200px) scale(0);
   transition: all 0.3s ease-in-out;
 }
 
 tr:hover .campaign-buttons {
   opacity: 1;
-  transform: translateX(0px);
+  transform: translateX(0px) scale(0.8);
 }
 
 .view-btn {

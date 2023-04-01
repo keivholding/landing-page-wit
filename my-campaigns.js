@@ -1,55 +1,146 @@
-//
-//
-// WHEN YOU HOVER ON THE SAVED TIME ANALYTICS
-//
-//
-
-const saveTimeQuestion = document.querySelector(".question-icon");
-const saveTimeBox = document.querySelector(".time-saved-popup-inner");
-const saveTimeIcon = document.querySelector(".popup-from");
-
-const showCloseTimePopup = function () {
-  saveTimeBox.classList.toggle("show");
-  saveTimeIcon.classList.toggle("show");
+const campaigns = {
+  data: [
+    {
+      user_id: null,
+      id: 1,
+      name: "Fast Food Restaurants on Shopify",
+      created_at: "2023-03-31T18:33:35.840126+00:00",
+      emails_sent: 182,
+      emails_opened: 56,
+      responses: 40,
+      meetings_booked: 32,
+      sales: 18,
+      who_to_target: null,
+      what_to_include: null,
+    },
+    {
+      user_id: null,
+      id: 2,
+      name: "Grocery Stores In Colombia [using discounts]",
+      created_at: "2023-03-28T18:33:35.840126+00:00",
+      emails_sent: 57,
+      emails_opened: 32,
+      responses: 23,
+      meetings_booked: 22,
+      sales: 13,
+      who_to_target: null,
+      what_to_include: null,
+    },
+    {
+      user_id: null,
+      id: 3,
+      name: "Retargeting Fast Food Restaurants on Shopify (cold targeting)",
+      created_at: "2023-03-21T18:33:35.840126+00:00",
+      emails_sent: 77,
+      emails_opened: 33,
+      responses: 27,
+      meetings_booked: 25,
+      sales: 19,
+      who_to_target: null,
+      what_to_include: null,
+    },
+    {
+      user_id: null,
+      id: 4,
+      name: "First launch campaign w/ Deborah",
+      created_at: "2023-02-28T18:33:35.840126+00:00",
+      emails_sent: 27,
+      emails_opened: 12,
+      responses: 7,
+      meetings_booked: 5,
+      sales: 2,
+      who_to_target: null,
+      what_to_include: null,
+    },
+  ],
 };
 
-saveTimeQuestion.addEventListener("mouseover", showCloseTimePopup);
-saveTimeQuestion.addEventListener("mouseout", showCloseTimePopup);
-
 //
 //
-// WHEN YOU HOVER ON THE SAVED TIME ANALYTICS
+// UPDATING ACCOUNT ANALYTICS
 //
 //
 
+const emailsSent = document.querySelector(".number-analytics.emails-sent");
+const emailsOpened = document.querySelector(".number-analytics.emails-opened");
+const emailsResponded = document.querySelector(
+  ".number-analytics.email-responses"
+);
+const meetingsBooked = document.querySelector(
+  ".number-analytics.meetings-booked"
+);
+const sales = document.querySelector(".number-analytics.sales");
+const timeSaved = document.querySelector(".number-analytics.time-saved");
+
+let sent = 0;
+let opens = 0;
+let responses = 0;
+let meetings = 0;
+let salesGenerated = 0;
+let timeHour = 0;
+let timeMinute = 0;
+
+campaigns.data.forEach((campaign) => {
+  sent += campaign.emails_sent;
+  opens += campaign.emails_opened;
+  responses += campaign.responses;
+  meetings += campaign.meetings_booked;
+  salesGenerated += campaign.sales;
+  timeHour += Math.floor(campaign.sent * 13.5);
+});
+
+timeHour = Math.floor((sent * 13.5) / 60);
+
+emailsSent.textContent = sent;
+emailsOpened.textContent = opens;
+emailsResponded.textContent = responses;
+meetingsBooked.textContent = meetings;
+sales.textContent = salesGenerated;
+timeSaved.textContent = `${getFormattedNumber(timeHour)}h`;
 //
 //
-// ADDING CAMPAIGNS TO THE TABLE
+// UPDATING ACCOUNT ANALYTICS
+//
+//
+
+//
+//
+// UPDATING THE TABLE
 //
 //
 
 const tableBody = document.querySelector(".table-body.campaigns");
 
-const activeUserCampaigns = [
-  `<tr class="table-row">
+campaigns.data.forEach((campaign) => {
+  const html = `<tr class="table-row">
                         <td>
                             <input type="checkbox" class="table-checkbox">
                         </td>
                         <td class="campaign-details-table">
                             <div class="campaign-details">
-                                <div class="campaign-name">This is my mintry fresh campaign name that is going
-                                    to
-                                    push everything
-                                    unfortunately</div>
-                                <div class="campaign-created">Created on May 5th, 2022</div>
+                                <div class="campaign-name">${
+                                  campaign.name
+                                }</div>
+                                <div class="campaign-created">${getDateDifference(
+                                  campaign.created_at
+                                )}</div>
                             </div>
                         </td>
-                        <td class="emails-sent-table">105</td>
-                        <td class="emails-opened-table">39</td>
-                        <td class="responses-table">31</td>
-                        <td class="meetings-booked-table">22</td>
-                        <td class="sales-table">7</td>
-                        <td class="time-saved-table">22h</td>
+                        <td class="emails-sent-table">${
+                          campaign.emails_sent
+                        }</td>
+                        <td class="emails-opened-table">${
+                          campaign.emails_opened
+                        }</td>
+                        <td class="responses-table">${campaign.responses}</td>
+                        <td class="meetings-booked-table">${
+                          campaign.meetings_booked
+                        }</td>
+                        <td class="sales-table">${campaign.sales}</td>
+                        <td class="time-saved-table">
+                        ${getFormattedNumber(
+                          Math.floor((campaign.emails_sent * 13.5) / 60)
+                        )}h
                         <td class="view-campaign">
                             <div class="campaign-buttons">
                                 <a href="#">
@@ -58,66 +149,14 @@ const activeUserCampaigns = [
                                 <div class="btn download-csv secondary">Download CSV</div>
                             </div>
                         </td>
-                    </tr>`,
-  `<tr class="table-row">
-                        <td>
-                            <input type="checkbox" class="table-checkbox">
-                        </td>
-                        <td class="campaign-details-table">
-                            <div class="campaign-details">
-                                <div class="campaign-name">I am going to target this demographic</div>
-                                <div class="campaign-created">Created on June 22nd, 2022</div>
-                            </div>
-                        </td>
-                        <td>56</td>
-                        <td>22</td>
-                        <td>14</td>
-                        <td>9</td>
-                        <td>3</td>
-                        <td>16h</td>
-                        <td class="view-campaign">
-                            <div class="campaign-buttons">
-                                <a href="#">
-                                    <div class="btn view-btn primary">View Campaign</div>
-                                </a>
-                                <div class="btn download-csv secondary">Download CSV</div>
-                            </div>
-                        </td>
-                    </tr>`,
-  `<tr class="table-row">
-                        <td>
-                            <input type="checkbox" class="table-checkbox">
-                        </td>
-                        <td class="campaign-details-table">
-                            <div class="campaign-details">
-                                <div class="campaign-name">Cool bro campaign you know</div>
-                                <div class="campaign-created">Created on December 31st, 2021</div>
-                            </div>
-                        </td>
-                        <td>113</td>
-                        <td>49</td>
-                        <td>30</td>
-                        <td>15</td>
-                        <td>3</td>
-                        <td>32h</td>
-                        <td class="view-campaign">
-                            <div class="campaign-buttons">
-                                <a href="#">
-                                    <div class="btn view-btn primary">View Campaign</div>
-                                </a>
-                                <div class="btn download-csv secondary">Download CSV</div>
-                            </div>
-                        </td>
-                    </tr>`,
-];
+                    </tr>`;
 
-activeUserCampaigns.forEach((campaign) => {
-  tableBody.insertAdjacentHTML("afterbegin", campaign);
+  tableBody.insertAdjacentHTML("beforeend", html);
 });
 
 //
 //
-// ADDING CAMPAIGNS TO THE TABLE
+// UPDATING THE TABLE
 //
 //
 
@@ -281,15 +320,26 @@ const showToDoButtons = function () {
 //
 //
 
-const campaigns = {
-  data: [
-    {
-      id: 2,
-      created_at: "2023-03-28T18:33:35.840126+00:00",
-      name: "Campaign 1",
-      user_id: null,
-      who_to_target: null,
-      what_to_include: null,
-    },
-  ],
+//
+//
+// WHEN YOU HOVER ON THE SAVED TIME ANALYTICS
+//
+//
+
+const saveTimeQuestion = document.querySelector(".question-icon");
+const saveTimeBox = document.querySelector(".time-saved-popup-inner");
+const saveTimeIcon = document.querySelector(".popup-from");
+
+const showCloseTimePopup = function () {
+  saveTimeBox.classList.toggle("show");
+  saveTimeIcon.classList.toggle("show");
 };
+
+saveTimeQuestion.addEventListener("mouseover", showCloseTimePopup);
+saveTimeQuestion.addEventListener("mouseout", showCloseTimePopup);
+
+//
+//
+// WHEN YOU HOVER ON THE SAVED TIME ANALYTICS
+//
+//
