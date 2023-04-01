@@ -5,6 +5,8 @@ function getTokensFromUrl() {
   const accessToken = hashParams.get("access_token");
   const refreshToken = hashParams.get("refresh_token");
 
+  console.log(hashParams, accessToken, refreshToken);
+
   if (accessToken && refreshToken) {
     console.log("Access Token:", accessToken);
     console.log("Refresh Token:", refreshToken);
