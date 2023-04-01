@@ -169,18 +169,24 @@
             <div class="table-and-filter">
                 <div class="filters-container">
 
-                    <label for="filter" class="subheader-text filter-by">Filtered By:</label>
+                    <div class="filter-left">
+                        <label for="filter" class="subheader-text filter-by">Filtered By:</label>
 
-                    <div class="filter-by-container">
-                        <select name="filter" id="filter" class="filter-type paragraph-text">
-                            <option value="volvo">Creation Date</option>
-                            <option value="saab">Emails Sent</option>
-                            <option value="opel">Emails Opened</option>
-                            <option value="audi">Responses</option>
-                            <option value="audi">Meetings Booked</option>
-                            <option value="audi">Sales</option>
-                            <option value="audi">Time Saved</option>
-                        </select>
+                        <div class="filter-by-container">
+                            <select name="filter" id="filter" class="filter-type paragraph-text">
+                                <option value="Creation Date">Creation Date</option>
+                                <option value="Emails Sent">Emails Sent</option>
+                                <option value="Emails Opened">Emails Opened</option>
+                                <option value="Responses">Responses</option>
+                                <option value="Meetings BOoked">Meetings Booked</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Time Saved">Time Saved</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="filter-right">
+                        <button class="btn paragraph-text archived">Archived Campaigns</button>
                     </div>
 
                 </div>
