@@ -1,3 +1,31 @@
+function getTokensFromUrl() {
+  const hashParams = new URLSearchParams(window.location.hash.substring(1));
+  const accessToken = hashParams.get("access_token");
+  const refreshToken = hashParams.get("refresh_token");
+
+  if (accessToken && refreshToken) {
+    console.log("Access Token:", accessToken);
+    console.log("Refresh Token:", refreshToken);
+  } else {
+    console.error("Access token or refresh token is missing in the URL.");
+  }
+}
+
+getTokensFromUrl();
+
+console.log(accessToken);
+
+const url = "https://salesmachine.vercel.app/api/getCampaigns";
+fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ accessToken }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log({ data }));
+
 const campaigns = {
   data: [
     {
@@ -89,6 +117,7 @@ const meetingsBooked = document.querySelector(
 );
 const sales = document.querySelector(".number-analytics.sales");
 const timeSaved = document.querySelector(".number-analytics.time-saved");
+const timeSavedPopup = document.querySelector(".time-saved-popup.number");
 
 let sent = 0;
 let opens = 0;
@@ -96,7 +125,6 @@ let responses = 0;
 let meetings = 0;
 let salesGenerated = 0;
 let timeHour = 0;
-let timeMinute = 0;
 
 // loops through each campaign adding up all the data
 campaigns.data.forEach((campaign) => {
@@ -105,7 +133,7 @@ campaigns.data.forEach((campaign) => {
   responses += campaign.responses;
   meetings += campaign.meetings_booked;
   salesGenerated += campaign.sales;
-  timeHour += Math.floor(campaign.sent * 13.5);
+  timeHour += Math.floor((campaign.emails_sent * 13.5) / 60);
 });
 
 // these update the account statistics
@@ -114,7 +142,10 @@ emailsOpened.textContent = opens;
 emailsResponded.textContent = responses;
 meetingsBooked.textContent = meetings;
 sales.textContent = salesGenerated;
-timeSaved.textContent = `${getFormattedNumber(timeHour)}h`;
+timeSaved.textContent = timeSavedPopup.textContent = `${getFormattedNumber(
+  timeHour
+)}h`;
+
 //
 //
 // UPDATING ACCOUNT ANALYTICS
@@ -245,12 +276,14 @@ archiveBtnView.addEventListener("click", function () {
 
 const campaignTable = document.querySelector(".campaigns");
 const selectAllCheckbox = document.querySelector(".table-checkbox-all");
-let allCampaignRows = document.querySelectorAll(".table-row");
-let allCheckboxes = document.querySelectorAll(".table-checkbox");
 const selectedArray = [];
 
 // this function makes it so that when we
 campaignTable.addEventListener("click", function (e) {
+  // These need to be added here as the rows and checkboxes will change when the achrive button is clicked (so these will get updated)
+  const allCampaignRows = document.querySelectorAll(".table-row");
+  const allCheckboxes = document.querySelectorAll(".table-checkbox");
+
   // if the checkbox we click has table-checkbox (the table checkboxes)
   if (e.target.classList.contains("table-checkbox")) {
     // this selects the table row of the checkbox
@@ -295,10 +328,6 @@ campaignTable.addEventListener("click", function (e) {
 
   // If the checkbox that we click is the all checkbox button
   if (e.target.classList.contains("table-checkbox-all")) {
-    // These need to be added here as the rows and checkboxes will change when the achrive button is clicked (so these will get updated)
-    allCampaignRows = document.querySelectorAll(".table-row");
-    allCheckboxes = document.querySelectorAll(".table-checkbox");
-
     // when all is clicked, we need to 'reset' the array so that there aren't any duplicates
     selectedArray.splice(0, selectedArray.length);
 
@@ -345,8 +374,6 @@ campaignTable.addEventListener("click", function (e) {
       showToDoButtons();
     }
   }
-
-  console.log(selectedArray);
 });
 
 const campaignContainer = document.querySelector(".campaigns-container");
