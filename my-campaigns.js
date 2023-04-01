@@ -4,7 +4,7 @@
 //
 //
 
-console.log("campaign");
+console.log("campaign2");
 
 const url = "https://salesmachine.vercel.app/api/getCampaigns";
 fetch(url, {
