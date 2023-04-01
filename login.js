@@ -1,4 +1,4 @@
-console.log(`login`);
+console.log(`login11`);
 
 function getTokensFromUrl() {
   const hashParams = new URLSearchParams(window.location.hash.substring(1));
@@ -15,15 +15,17 @@ function getTokensFromUrl() {
   }
 }
 
-const accessToken = getTokensFromUrl();
+getTokensFromUrl();
 
-const url = "https://salesmachine.vercel.app/api/getCampaigns";
-fetch(url, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ accessToken }),
-})
-  .then((response) => response.json())
-  .then((data) => console.log({ data }));
+// const url = "https://salesmachine.vercel.app/api/getCampaigns";
+// fetch(url, {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({
+//     accessToken: localStorage.getItem("witSMAccessToken"),
+//   }),
+// })
+//   .then((response) => response.json())
+//   .then((data) => console.log({ data }));
