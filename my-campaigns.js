@@ -12,6 +12,7 @@ const campaigns = {
       sales: 18,
       who_to_target: null,
       what_to_include: null,
+      is_archived: false,
     },
     {
       user_id: null,
@@ -25,6 +26,7 @@ const campaigns = {
       sales: 13,
       who_to_target: null,
       what_to_include: null,
+      is_archived: false,
     },
     {
       user_id: null,
@@ -38,6 +40,7 @@ const campaigns = {
       sales: 19,
       who_to_target: null,
       what_to_include: null,
+      is_archived: true,
     },
     {
       user_id: null,
@@ -51,6 +54,21 @@ const campaigns = {
       sales: 2,
       who_to_target: null,
       what_to_include: null,
+      is_archived: false,
+    },
+    {
+      user_id: null,
+      id: 1,
+      name: "Fast Food Restaurants on Shopify",
+      created_at: "2023-03-31T18:33:35.840126+00:00",
+      emails_sent: 182,
+      emails_opened: 56,
+      responses: 40,
+      meetings_booked: 32,
+      sales: 18,
+      who_to_target: null,
+      what_to_include: null,
+      is_archived: true,
     },
   ],
 };
@@ -80,6 +98,7 @@ let salesGenerated = 0;
 let timeHour = 0;
 let timeMinute = 0;
 
+// loops through each campaign adding up all the data
 campaigns.data.forEach((campaign) => {
   sent += campaign.emails_sent;
   opens += campaign.emails_opened;
@@ -89,8 +108,7 @@ campaigns.data.forEach((campaign) => {
   timeHour += Math.floor(campaign.sent * 13.5);
 });
 
-timeHour = Math.floor((sent * 13.5) / 60);
-
+// these update the account statistics
 emailsSent.textContent = sent;
 emailsOpened.textContent = opens;
 emailsResponded.textContent = responses;
@@ -111,35 +129,45 @@ timeSaved.textContent = `${getFormattedNumber(timeHour)}h`;
 
 const tableBody = document.querySelector(".table-body.campaigns");
 
-campaigns.data.forEach((campaign) => {
-  const html = `<tr class="table-row">
+// Default is the unarchived campaign view --> archive toggle
+const updateTable = function (unarchivedView = true) {
+  // this toggles between the archived and unarchived tables
+  const viewableTable = unarchivedView
+    ? campaigns.data.filter((campaign) => campaign.is_archived === false)
+    : campaigns.data.filter((campaign) => campaign.is_archived === true);
+
+  // this loops through the viewableTable above and displayes each of the campaigns in the table
+  for (let i = 0; i < viewableTable.length; i++) {
+    const html = `<tr class="table-row">
                         <td>
                             <input type="checkbox" class="table-checkbox">
                         </td>
                         <td class="campaign-details-table">
                             <div class="campaign-details">
                                 <div class="campaign-name">${
-                                  campaign.name
+                                  viewableTable[i].name
                                 }</div>
                                 <div class="campaign-created">${getDateDifference(
-                                  campaign.created_at
+                                  viewableTable[i].created_at
                                 )}</div>
                             </div>
                         </td>
                         <td class="emails-sent-table">${
-                          campaign.emails_sent
+                          viewableTable[i].emails_sent
                         }</td>
                         <td class="emails-opened-table">${
-                          campaign.emails_opened
+                          viewableTable[i].emails_opened
                         }</td>
-                        <td class="responses-table">${campaign.responses}</td>
+                        <td class="responses-table">${
+                          viewableTable[i].responses
+                        }</td>
                         <td class="meetings-booked-table">${
-                          campaign.meetings_booked
+                          viewableTable[i].meetings_booked
                         }</td>
-                        <td class="sales-table">${campaign.sales}</td>
+                        <td class="sales-table">${viewableTable[i].sales}</td>
                         <td class="time-saved-table">
                         ${getFormattedNumber(
-                          Math.floor((campaign.emails_sent * 13.5) / 60)
+                          Math.floor((viewableTable[i].emails_sent * 13.5) / 60)
                         )}h
                         <td class="view-campaign">
                             <div class="campaign-buttons">
@@ -151,12 +179,61 @@ campaigns.data.forEach((campaign) => {
                         </td>
                     </tr>`;
 
-  tableBody.insertAdjacentHTML("beforeend", html);
-});
+    tableBody.insertAdjacentHTML("beforeend", html);
+  }
+
+  // adds show to each row (and makes the pop up) --> animation
+  document.querySelectorAll(".table-row").forEach((row, index) => {
+    setTimeout(() => {
+      row.classList.add("show");
+    }, 200 * index + 100);
+  });
+};
+
+// Need to call from the get-go so you see the first table on page load
+updateTable();
 
 //
 //
 // UPDATING THE TABLE
+//
+//
+
+//
+//
+// WHEN ARCHIVE BUTTON IS CLICKED
+//
+//
+
+const archiveBtnView = document.querySelector(".archived");
+let toggle = true;
+
+// When the achived (showing table) is clicked --> top right of table
+archiveBtnView.addEventListener("click", function () {
+  // Deselects the all checkbocx button when it is clicked
+  selectAllCheckbox.checked = false;
+  selectAllCheckbox.removeAttribute("checked");
+
+  // this refreshes the table (deletes existing html)
+  tableBody.innerHTML = "";
+
+  // toggles whether we are showing the archive or unarchive
+  toggle = !toggle;
+
+  // Updates the archive text
+  toggle
+    ? (archiveBtnView.textContent = "View Archived Campaigns")
+    : (archiveBtnView.textContent = "View Unarchived Campaigns");
+
+  // this deletes the selectedArray selections
+  selectedArray.splice(0, selectedArray.length);
+
+  updateTable(toggle);
+});
+
+//
+//
+// WHEN ARCHIVE BUTTON IS CLICKED
 //
 //
 
@@ -167,9 +244,9 @@ campaigns.data.forEach((campaign) => {
 //
 
 const campaignTable = document.querySelector(".campaigns");
-const allCheckboxes = document.querySelectorAll(".table-checkbox");
-const allCampaignRows = document.querySelectorAll(".table-row");
 const selectAllCheckbox = document.querySelector(".table-checkbox-all");
+let allCampaignRows = document.querySelectorAll(".table-row");
+let allCheckboxes = document.querySelectorAll(".table-checkbox");
 const selectedArray = [];
 
 // this function makes it so that when we
@@ -218,6 +295,10 @@ campaignTable.addEventListener("click", function (e) {
 
   // If the checkbox that we click is the all checkbox button
   if (e.target.classList.contains("table-checkbox-all")) {
+    // These need to be added here as the rows and checkboxes will change when the achrive button is clicked (so these will get updated)
+    allCampaignRows = document.querySelectorAll(".table-row");
+    allCheckboxes = document.querySelectorAll(".table-checkbox");
+
     // when all is clicked, we need to 'reset' the array so that there aren't any duplicates
     selectedArray.splice(0, selectedArray.length);
 
@@ -264,6 +345,8 @@ campaignTable.addEventListener("click", function (e) {
       showToDoButtons();
     }
   }
+
+  console.log(selectedArray);
 });
 
 const campaignContainer = document.querySelector(".campaigns-container");

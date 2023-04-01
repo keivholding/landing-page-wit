@@ -200,6 +200,18 @@ table.campaigns {
   box-shadow: var(--box-shadow);
   border-radius: 10px;
   overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.table-row {
+  opacity: 0;
+  transform: translateY(200px);
+  transition: all 0.7s ease-in-out !important;
+}
+
+.table-row.show {
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 table th {
@@ -232,10 +244,6 @@ tr[selected="true"] {
   overflow: hidden;
   text-overflow: ellipsis;
   border-bottom: 1px solid rgba(244, 244, 244, 0.3);
-}
-
-.table-body td:first-of-type {
-  border-left: none;
 }
 
 .table-5 {
