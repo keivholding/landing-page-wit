@@ -12,8 +12,8 @@ function getTokensFromUrl() {
   }
 }
 
-const accessTokenFunc = getTokensFromUrl();
-console.log(accessTokenFunc);
+const accessToken = getTokensFromUrl();
+console.log(accessToken);
 
 const url = "https://salesmachine.vercel.app/api/getCampaigns";
 fetch(url, {
