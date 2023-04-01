@@ -17,9 +17,10 @@ fetch(url, {
   }),
 })
   .then((response) => response.json())
-  .then((data) => console.log({ data }));
+  .then((data) => {
+    console.log(data.name);
+  });
 
-console.log(data);
 //
 //
 // GETS CAMPAIGN DATA FROM LOGGED IN ACCOUNT
