@@ -4,8 +4,6 @@
 //
 //
 
-console.log("campaign22");
-
 const url = "https://sales-machine.vercel.app/api/getCampaigns";
 fetch(url, {
   method: "POST",
@@ -18,7 +16,7 @@ fetch(url, {
 })
   .then((response) => response.json())
   .then((data) => {
-    console.log(data.name);
+    console.log(data);
   });
 
 //
