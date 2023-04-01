@@ -10,8 +10,6 @@ function getTokensFromUrl() {
     console.log("Refresh Token:", refreshToken);
     localStorage.setItem("witSMAccessToken", accessToken);
     localStorage.setItem("witSMRefreshToken", refreshToken);
-  } else {
-    console.error("Access token or refresh token is missing in the URL.");
   }
 }
 
