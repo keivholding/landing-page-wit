@@ -176,7 +176,8 @@ const editEmail = function (clicked) {
   const subjectTextTemplate = emailTemplate.querySelector(".subject-text");
   const bodyTextTemplate = emailTemplate.querySelector(".body-text");
   const style = emailTemplate.querySelector(".style-data");
-  const id = emailTemplate.dataset.id;
+  const campaignID = emailTemplate.dataset.campaignid;
+  const templateID = emailTemplate.dataset.templateid;
 
   subjectTextEdit.value = subjectTextTemplate.innerText;
   bodyTextEdit.value = bodyTextTemplate.innerText;
@@ -201,12 +202,13 @@ const editEmail = function (clicked) {
     emailTemplate.style.minHeight = `${emailHeight + 120}px`;
 
     // Update Backend
-    const url = "https://3973-208-118-225-163.ngrok.io/api/upsertTemplate";
+    const url = "https://sales-machine.vercel.app/api/upsertTemplate";
     const data = {
       subject: subjectTextEdit.value,
       body: bodyTextEdit.value,
       style: style.innerText,
-      id: id,
+      campaignID: campaignID,
+      templateID: templateID,
     };
 
     fetch(url, {
@@ -214,7 +216,10 @@ const editEmail = function (clicked) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        accessToken: localStorage.getItem("witSMAccessToken"),
+        data,
+      }),
     })
       .then((response) => response.json())
       .then((data) => {
