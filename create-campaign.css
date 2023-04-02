@@ -276,6 +276,10 @@
   flex-basis: 100%;
 }
 
+.close-modal {
+  flex-basis: 30%;
+}
+
 .divider-popup {
   margin: inherit;
   margin: 30px 0;

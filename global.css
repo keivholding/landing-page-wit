@@ -185,6 +185,11 @@ input:focus {
   opacity: 0;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
 .progress {
   background: rgba(255, 255, 255, 0.1);
   justify-content: flex-start;

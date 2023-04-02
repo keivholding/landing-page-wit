@@ -374,7 +374,6 @@ canLaunchCampaign();
 //
 
 const modal = document.querySelector(".popup.create-campaign");
-const goBackBtn = document.querySelector(".go-back");
 const closeXBtn = document.querySelector(".close-modal");
 
 // shows the popup
@@ -390,7 +389,6 @@ const closeModal = function () {
 };
 
 launchCampaignBtn.addEventListener("click", showModal);
-goBackBtn.addEventListener("click", closeModal);
 closeXBtn.addEventListener("click", closeModal);
 
 // closes popup when escape is pressed
@@ -415,3 +413,65 @@ document.addEventListener("keydown", function (e) {
 // WHEN LAUNCH CAMPAIGN IS CLICKED
 //
 //
+
+//
+//
+//
+//
+//
+
+const authenticateEmailBtn = document.querySelector(".authenticate-email");
+const officialLaunchBtn = document.querySelector(".official-launch");
+
+authenticateEmailBtn.addEventListener("click", function () {
+  fetch(`https://sales-machine.vercel.app/api/googleGetAuthUrl`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      original_url: window.location.href,
+      accessToken: localStorage.getItem("witSMAccessToken"),
+      refreshToken: localStorage.getItem("witSMRefreshToken"),
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log({ data });
+      let { authUrl } = data;
+      authUrl += `&original_url=${window.location.href}&api=createEmails&campaignID=${templates.campaignID}`;
+      console.log({ authUrl });
+      window.location.href = authUrl;
+    });
+});
+
+officialLaunchBtn.addEventListener("click", function () {
+  fetch(`https://sales-machine.vercel.app/api/createEmails`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      campaignId: campaignId,
+      accessToken: localStorage.getItem("witSMAccessToken"),
+      refreshToken: localStorage.getItem("witSMRefreshToken"),
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log({ data }));
+});
+
+//
+//
+// AUTHENTICATE EMAIL
+//
+//
+
+const urlSearchParams = new URLSearchParams(window.location.search);
+const popup = urlSearchParams.get("popup");
+
+if (popup === "true") {
+  officialLaunchBtn.classList.remove("disabled");
+  authenticateEmailBtn.classList.add("disabled");
+  showModal();
+}

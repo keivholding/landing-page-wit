@@ -1,9 +1,21 @@
+// Image URL to preload
+var imageURL = "wit-logo.png";
+
+// Create a new Image object and set its src attribute to the image URL
+var img = new Image();
+img.src = imageURL;
+
 const body = document.querySelector("body");
 
-const html = `<div class="loading">
-<div class="progress">
-<div class="progress-value"></div>
-</div>
+const html = `
+<div class="loading">
+     <div class="logo-container">
+          <img class="wit-image" src="wit-logo.png" style="max-width: 35px;"></img>
+          <div class="wit-logo-text header-text">wit.</div>
+     </div>
+     <div class="progress">
+          <div class="progress-value"></div>
+     </div>
 </div>`;
 
 body.insertAdjacentHTML("afterbegin", html);
