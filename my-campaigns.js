@@ -422,6 +422,7 @@ document.querySelector(".blahblah").addEventListener("click", function () {
       console.log({ data });
       let { authUrl } = data;
       console.log({ authUrl });
+      authUrl += `&original_url=${window.location.href}`;
       window.location.href = authUrl;
     });
 });
