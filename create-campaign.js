@@ -455,9 +455,11 @@ const showTemplates = function (templates) {
         accessToken: localStorage.getItem("witSMAccessToken"),
         refreshToken: localStorage.getItem("witSMRefreshToken"),
       }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log({ data }));
+    }).then(() =>
+      window.location.replace(
+        "https://keivholding.github.io/landing-page-wit/my-campaigns.html"
+      )
+    );
   });
 
   //
