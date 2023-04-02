@@ -1,3 +1,68 @@
+const templates = {
+  data: [
+    {
+      subject: "Food & Beverage Sample Subject!",
+      body: "Dear [Recipient],<br><br>We've settled on a Food & Beverage sample style that we're excited about. It's a unique blend of sweet, savory, and spicy flavors, and we'd love for you to come try it out. Are you available for a tasting session next week?<br><br>Thank you,<br><br>[Your Name]",
+      style: "Inviting",
+      template_id: 6,
+      campaign_id: 7,
+    },
+    {
+      subject: "Hi there, this is the subject!",
+      body: "Dear [Recipient],<br><br>We're thrilled to share our new Food & Beverage sample style with you. It's a delicious blend of sweet, savory, and spicy flavors that we believe will be a hit with your customers. Are you interested in purchasing this new product? We're thrilled to share our new Food & Beverage sample style with you. It's a delicious blend of sweet, savory, and spicy flavors that we believe will be a hit with your customers. Are you interested in purchasing this new product?<br><br>Thank you,<br><br>[Your Name]",
+      style: "Pursuasive",
+      template_id: 17,
+      campaign_id: 7,
+    },
+  ],
+};
+
+//
+//
+// SHOWING THE EMAIL TEMPLATES
+//
+//
+
+const insertEmails = document.querySelector(".emails-entered-here");
+
+templates.data.forEach((template) => {
+  const html = `<div class="email-template" data-approved="false" data-campaign-id="${template.campaign_id}" data-template-id="${template.template_id}">
+                <div class="email-description">
+                    <div class="email-left header-text">Style: <span class="gradient style-data">${template.style}</span></div>
+                    <div class="email-right">
+                        <div class="email-recipients paragraph-text">5 recipients</div>
+                        <button class="btn secondary view-email closed paragraph-text">View Email</button>
+                        <button class="btn primary approve-email paragraph-text">Approve Email</button>
+                    </div>
+                </div>
+
+                <div class="divider-email"></div>
+                <button class="btn paragraph-text edit-email-btn">Edit Email</button>
+
+                <div class="email">
+                    <div class="subject-email header-text">
+                        <div class="email-header header-text">Subject:</div>
+                        <div class="subject-text paragraph-text">${template.subject}
+                        </div>
+                    </div>
+
+                    <div class="body-email">
+                        <div class="email-header header-text">Body:</div>
+                        <div class="body-text paragraph-text">${template.body}
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+
+  insertEmails.insertAdjacentHTML("afterbegin", html);
+});
+
+//
+//
+// SHOWING THE EMAIL TEMPLATES
+//
+//
+
 //
 //
 // EDIT CAMPAIGN NAME

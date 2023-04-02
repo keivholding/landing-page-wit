@@ -164,6 +164,63 @@ input:focus {
   opacity: 0.5;
 }
 
+/* LOADING */
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  background: var(--color-charcoal);
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.loading.show {
+  opacity: 0;
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 40px;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.progress-value {
+  box-shadow: 0 10px 40px -10px var(--color-white);
+  border-radius: 100px;
+  background: var(--color-white);
+  height: 30px;
+  width: 0;
+  animation: load 2s normal forwards;
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+  }
+  30% {
+    width: 30%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* LOADING */
+
 @media only screen and (min-width: 100px) {
   .spacing {
     padding: 20px;

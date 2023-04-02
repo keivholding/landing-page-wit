@@ -136,6 +136,7 @@
   position: absolute;
   top: 105px;
   padding: 20px;
+  width: 100%;
   transition: all 2s ease-in-out;
 }
 

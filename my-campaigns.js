@@ -15,7 +15,13 @@ fetch(url, {
   }),
 })
   .then((response) => response.json())
-  .then((data) => myFunc(data.data));
+  .then((data) => {
+    if (data.data === "login-redirect-user") {
+      window.location.href = "http://www.example.com";
+    } else {
+      showCampaignsAndAnalytics(data.data);
+    }
+  });
 
 //
 //
@@ -23,7 +29,8 @@ fetch(url, {
 //
 //
 
-const myFunc = function (campaigns) {
+// this function is called when the data is finished loading (important to wrap everything below in this function)
+const showCampaignsAndAnalytics = function (campaigns) {
   console.log(campaigns);
 
   //
@@ -94,38 +101,37 @@ const myFunc = function (campaigns) {
       ? campaigns.filter((campaign) => campaign.archived === null)
       : campaigns.filter((campaign) => campaign.archived === true);
 
-    // this loops through the viewableTable above and displayes each of the campaigns in the table
-    for (let i = 0; i < viewableTable.length; i++) {
-      const html = `<tr class="table-row">
+    console.log(viewableTable);
+
+    viewableTable.forEach((campaign) => {
+      const html = `<tr class="table-row" data-campaign-id="${campaign.id}">
                         <td>
                             <input type="checkbox" class="table-checkbox">
                         </td>
                         <td class="campaign-details-table">
                             <div class="campaign-details">
                                 <div class="campaign-name">${
-                                  viewableTable[i].name
+                                  campaign.name
                                 }</div>
                                 <div class="campaign-created">${getDateDifference(
-                                  viewableTable[i].created_at
+                                  campaign.created_at
                                 )}</div>
                             </div>
                         </td>
                         <td class="emails-sent-table">${
-                          viewableTable[i].emails_sent
+                          campaign.emails_sent
                         }</td>
                         <td class="emails-opened-table">${
-                          viewableTable[i].emails_opened
+                          campaign.emails_opened
                         }</td>
-                        <td class="responses-table">${
-                          viewableTable[i].responses
-                        }</td>
+                        <td class="responses-table">${campaign.responses}</td>
                         <td class="meetings-booked-table">${
-                          viewableTable[i].meetings_booked
+                          campaign.meetings_booked
                         }</td>
-                        <td class="sales-table">${viewableTable[i].sales}</td>
+                        <td class="sales-table">${campaign.sales}</td>
                         <td class="time-saved-table">
                         ${getFormattedNumber(
-                          Math.floor((viewableTable[i].emails_sent * 13.5) / 60)
+                          Math.floor((campaign.emails_sent * 13.5) / 60)
                         )}h
                         <td class="view-campaign">
                             <div class="campaign-buttons">
@@ -138,7 +144,7 @@ const myFunc = function (campaigns) {
                     </tr>`;
 
       tableBody.insertAdjacentHTML("beforeend", html);
-    }
+    });
 
     // adds show to each row (and makes the pop up) --> animation
     document.querySelectorAll(".table-row").forEach((row, index) => {
@@ -186,6 +192,10 @@ const myFunc = function (campaigns) {
     // this deletes the selectedArray selections
     selectedArray.splice(0, selectedArray.length);
 
+    // makes it so that the to do buttons go away
+    showToDoButtons();
+
+    // toggles the view
     updateTable(toggle);
   });
 
@@ -309,6 +319,7 @@ const myFunc = function (campaigns) {
   const campaignNumber = document.querySelector(".number-campaigns");
 
   const showToDoButtons = function () {
+    console.log(`yes`);
     const length = selectedArray.length;
 
     switch (length) {
@@ -323,7 +334,7 @@ const myFunc = function (campaigns) {
     }
 
     // If the selected array doesn't have any elements, then we hide these buttons, else we show
-    if (selectedArray.length === 0) {
+    if (length === 0) {
       setTimeout(() => {
         campaignContainer.classList.remove("show");
       }, 400);
@@ -341,6 +352,7 @@ const myFunc = function (campaigns) {
       campaignContainer.classList.add("show");
 
       archiveBtn.classList.add("show");
+
       setTimeout(() => {
         downloadBtn.classList.add("show");
       }, 150);
