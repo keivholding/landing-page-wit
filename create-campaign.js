@@ -492,27 +492,3 @@ const showTemplates = function (templates) {
   //
   //
 };
-
-document.querySelector(".blahblah").addEventListener("click", function () {
-  console.log(`yes`);
-
-  fetch(`https://sales-machine.vercel.app/api/googleGetAuthUrl`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      original_url: window.location.href,
-      accessToken: localStorage.getItem("witSMAccessToken"),
-      refreshToken: localStorage.getItem("witSMRefreshToken"),
-    }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log({ data });
-      let { authUrl } = data;
-      authUrl += `&original_url=${window.location.href}&api=createEmails&campaignID=${templates.campaignID}`;
-      console.log({ authUrl });
-      window.location.href = authUrl;
-    });
-});
