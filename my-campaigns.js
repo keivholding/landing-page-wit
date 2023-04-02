@@ -31,8 +31,6 @@ fetch(url, {
 
 // this function is called when the data is finished loading (important to wrap everything below in this function)
 const showCampaignsAndAnalytics = function (campaigns) {
-  console.log(campaigns);
-
   //
   //
   // UPDATING ACCOUNT ANALYTICS
@@ -100,8 +98,6 @@ const showCampaignsAndAnalytics = function (campaigns) {
     const viewableTable = unarchivedView
       ? campaigns.filter((campaign) => campaign.archived === null)
       : campaigns.filter((campaign) => campaign.archived === true);
-
-    console.log(viewableTable);
 
     viewableTable.forEach((campaign) => {
       const html = `<tr class="table-row" data-campaign-id="${campaign.id}">
@@ -319,7 +315,6 @@ const showCampaignsAndAnalytics = function (campaigns) {
   const campaignNumber = document.querySelector(".number-campaigns");
 
   const showToDoButtons = function () {
-    console.log(`yes`);
     const length = selectedArray.length;
 
     switch (length) {
