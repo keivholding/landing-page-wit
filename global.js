@@ -1,34 +1,5 @@
 //
 //
-// CREATING AN ACCOUNT
-//
-//
-
-const start = document.querySelector(".btn-start");
-
-start.addEventListener("click", function () {
-  const url = "https://sales-machine.vercel.app/api/signin/google";
-
-  fetch(url, {
-    method: "GET",
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      window.location.href = data.signinRedirectUrl;
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-});
-
-//
-//
-// CREATING AN ACCOUNT
-//
-//
-
-//
-//
 // LINK FADE OUT EFFECT (HEADER)
 //
 //

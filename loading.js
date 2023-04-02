@@ -21,5 +21,5 @@ window.addEventListener("load", function () {
     setTimeout(() => {
       loading.style.zIndex = "-9999";
     }, 400);
-  }, 400);
+  }, 500);
 });
