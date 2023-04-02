@@ -421,7 +421,6 @@ document.querySelector(".blahblah").addEventListener("click", function () {
     .then((data) => {
       console.log({ data });
       let { authUrl } = data;
-      authUrl += `&original_url=${window.location.href}&api=createEmails&campaignID=${templates.campaignID}`;
       console.log({ authUrl });
       window.location.href = authUrl;
     });
