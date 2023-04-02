@@ -387,6 +387,22 @@ const showCampaignsAndAnalytics = function (campaigns) {
   // WHEN YOU HOVER ON THE SAVED TIME ANALYTICS
   //
   //
+
+  //
+  //
+  // FILTERING THE CAMPAIGNS
+  //
+  //
+
+  const filterType = document.querySelector(".filter-type");
+
+  console.log(filterType);
+
+  //
+  //
+  // FILTERING THE CAMPAIGNS
+  //
+  //
 };
 
 // check threads for new replies
@@ -402,27 +418,3 @@ fetch(`https://sales-machine.vercel.app/api/checkThreads`, {
 })
   .then((response) => response.json())
   .then((data) => console.log({ data }));
-
-document.querySelector(".blahblah").addEventListener("click", function () {
-  console.log(`yes`);
-
-  fetch(`https://sales-machine.vercel.app/api/googleGetAuthUrl`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      original_url: window.location.href,
-      accessToken: localStorage.getItem("witSMAccessToken"),
-      refreshToken: localStorage.getItem("witSMRefreshToken"),
-    }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log({ data });
-      let { authUrl } = data;
-      console.log({ authUrl });
-      authUrl += `&original_url=${window.location.href}`;
-      window.location.href = authUrl;
-    });
-});
