@@ -15,11 +15,11 @@ loading.style.zIndex = "9999";
 window.addEventListener("load", function () {
   setTimeout(() => {
     // adds the class show so that it fades out
-    loading.classList.add("show");
+    loading.classList.add("hide");
 
     // when the opacity transition is finished, it gets moved to the back with z-index
     setTimeout(() => {
       loading.style.zIndex = "-9999";
     }, 400);
-  }, 500);
+  }, 0);
 });
