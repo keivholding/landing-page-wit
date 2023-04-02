@@ -494,6 +494,8 @@ const showTemplates = function (templates) {
 };
 
 document.querySelector(".blahblah").addEventListener("click", function () {
+  console.log(`yes`);
+
   fetch(`https://sales-machine.vercel.app/api/googleGetAuthUrl`, {
     method: "POST",
     headers: {
