@@ -451,7 +451,7 @@ const showTemplates = function (templates) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        campaignId: campaignId,
+        campaignID: 7,
         accessToken: localStorage.getItem("witSMAccessToken"),
         refreshToken: localStorage.getItem("witSMRefreshToken"),
       }),
