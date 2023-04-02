@@ -18,6 +18,7 @@ fetch(url, {
   .then((data) => {
     if (data.data === "login-redirect-user") {
       window.location.href = "http://www.example.com";
+      console.log(data);
     } else {
       showCampaignsAndAnalytics(data.data);
     }
