@@ -59,10 +59,22 @@
   padding-bottom: 40px;
 }
 
-.create-form {
-  font-size: 4rem;
+.form-header-container {
   text-align: center;
   margin-bottom: 70px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.create-form {
+  font-size: 4rem;
+}
+
+.template-button {
+  width: 20%;
+  margin: 0 auto;
 }
 
 .form-box {
@@ -144,11 +156,12 @@
   background: transparent;
   min-height: 54px;
   border-radius: 10px;
-  padding: 10px;
+  padding: 15px;
   border: 3px solid transparent;
   box-shadow: inset -4px -4px 2px #2a2d2f, inset 5px 5px 4px #18191b;
   outline: none;
   transition: all 0.3s ease-in-out;
+  font-size: 1.5rem;
   color: var(--color-white);
 }
 
@@ -175,7 +188,8 @@
   gap: 15px;
 }
 
-.gender-btn {
+.gender-btn,
+.btn.location {
   border: 1px solid var(--color-white);
   transition: all 0.3s ease-in-out;
   display: flex;
@@ -183,20 +197,34 @@
   justify-content: center;
   gap: 7px;
   font-size: 1.4rem;
+  opacity: 0.5;
 }
 
-.gender-btn:hover {
-  color: var(--color-charcoal);
-  background: var(--color-white);
+.gender-btn:hover,
+.btn.location:hover {
+  opacity: 0.8;
 }
 
-.gender-btn.active {
-  color: var(--color-charcoal);
-  background: var(--color-white);
-  box-shadow: 0px 0px 10px var(--color-white);
+.gender-btn.active,
+.btn.location.active {
+  opacity: 1;
+  box-shadow: 0px 0px 7px rgba(244, 244, 244, 1);
 }
 
 .gender-icon {
   font-size: 1.3em;
+}
+
+.radio-buttons-container.social-buttons {
+  flex-direction: column;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.bottom.social-buttons {
+  margin-bottom: 20px;
 }
 /* <--------- SECTION 2 FORM ---------> */

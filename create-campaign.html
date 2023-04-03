@@ -134,7 +134,10 @@
 
         <section class="section-two form">
 
-            <div class="create-form header-text">Campaign Details</div>
+            <div class="form-header-container">
+                <div class="create-form and-button header-text">Campaign Details</div>
+                <button class="btn primary template-button">SEE EXAMPLE TEMPLATE</button>
+            </div>
 
             <form action="#" method="POST">
 
@@ -250,7 +253,8 @@
                             <div class="input-form">
                                 <div class="label-form-and-description">
                                     <label class="label-form subheader-text" for="location">Location:</label>
-                                    <p class="paragraph-text form-description">Where are your customers located?</p>
+                                    <p class="paragraph-text form-description">Where would you like your customers to be
+                                        found?</p>
                                 </div>
                                 <input class="input-form-field paragraph-text" id="location" name="location">
                             </div>
@@ -261,20 +265,30 @@
                                     <p class="paragraph-text form-description">Where do your target customers spend
                                         their time?</p>
                                 </div>
-                                <div class="radio-buttons-container">
 
-                                    <button id="male-btn" class="btn gender-btn paragraph-text" value="male"><i
-                                            class="fa fa-mars gender-icon" aria-hidden="true"></i> Male</button>
+                                <div class="radio-buttons-container social-buttons">
 
-                                    <button id="female-btn" class="btn gender-btn paragraph-text" value="female"><i
-                                            class="fa fa-venus gender-icon" aria-hidden="true"></i> Female</button>
+                                    <div class="top social-buttons">
+                                        <button id="linkedin" class="btn location paragraph-text"
+                                            value="linkedin">LinkedIn</button>
 
-                                    <button id="both-btn" class="btn gender-btn paragraph-text"
-                                        value="both-male-female"><i class="fa fa-venus-mars gender-icon"
-                                            aria-hidden="true"></i>
-                                        Both</button>
+                                        <button id="shopify" class="btn location paragraph-text"
+                                            value="shopify">Shopify</button>
 
-                                    <input type="hidden" class="gender-input" id="gender-input" name="gender" value="">
+                                        <button id="youtube" class="btn location paragraph-text" value="youtube">
+                                            YouTube</button>
+                                    </div>
+
+                                    <div class="bottom social-buttons">
+                                        <button id="twitter" class="btn location paragraph-text" value="twitter">
+                                            Twitter</button>
+
+                                        <button id="tiktok" class="btn location paragraph-text" value="tiktok">
+                                            TikTok</button>
+                                    </div>
+
+                                    <input type="hidden" class="hangout-input" id="hangout-input" name="hangout"
+                                        value="">
 
                                 </div>
                             </div>
