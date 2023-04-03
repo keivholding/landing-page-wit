@@ -380,6 +380,7 @@ const showTemplates = function (templates) {
 
   const modal = document.querySelector(".popup.create-campaign");
   const closeXBtn = document.querySelector(".close-modal");
+  const goBackBtn = document.querySelector(".go-back");
 
   // shows the popup
   const showModal = function () {
@@ -395,6 +396,7 @@ const showTemplates = function (templates) {
 
   launchCampaignBtn.addEventListener("click", showModal);
   closeXBtn.addEventListener("click", closeModal);
+  goBackBtn.addEventListener("click", closeModal);
 
   // closes popup when escape is pressed
   document.addEventListener("keydown", function (e) {
@@ -415,40 +417,11 @@ const showTemplates = function (templates) {
 
   //
   //
-  // WHEN LAUNCH CAMPAIGN IS CLICKED
+  // WHEN LAUNCH CAMPAIGN IS CLICKED (EMAILS SENT)
   //
   //
 
-  //
-  //
-  //
-  //
-  //
-
-  const authenticateEmailBtn = document.querySelector(".authenticate-email");
   const officialLaunchBtn = document.querySelector(".official-launch");
-
-  authenticateEmailBtn.addEventListener("click", function () {
-    fetch(`https://sales-machine.vercel.app/api/googleGetAuthUrl`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        original_url: window.location.href,
-        accessToken: localStorage.getItem("witSMAccessToken"),
-        refreshToken: localStorage.getItem("witSMRefreshToken"),
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log({ data });
-        let { authUrl } = data;
-        authUrl += `&original_url=${window.location.href}&api=createEmails&campaignID=${templates.campaignID}`;
-        console.log({ authUrl });
-        window.location.href = authUrl;
-      });
-  });
 
   officialLaunchBtn.addEventListener("click", function () {
     fetch(`https://sales-machine.vercel.app/api/createEmails`, {
@@ -470,31 +443,7 @@ const showTemplates = function (templates) {
 
   //
   //
-  // AUTHENTICATE EMAIL
-  //
-  //
-
-  //
-  //
-  // searches for popup in the URL
-  //
-  //
-
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const popup = urlSearchParams.get("popup");
-
-  // if popup is present, then we show the modal again and they can click on launch campaign
-  if (popup === "true") {
-    officialLaunchBtn.classList.remove("disabled");
-    authenticateEmailBtn.classList.add("disabled");
-    emailTemplates.forEach((email) => (email.dataset.approved = "true"));
-    canLaunchCampaign();
-    showModal();
-  }
-
-  //
-  //
-  // searches for popup in the URL
+  // WHEN LAUNCH CAMPAIGN IS CLICKED (EMAILS SENT)
   //
   //
 };
