@@ -62,10 +62,15 @@ const adjustHeight = function (textarea) {
 };
 
 seeTemplateBtn.addEventListener("click", function () {
-  one.value =
-    "We're an end-to-end sales prospecting service that helps our customers find high-quality leads for their businesses. We create personalized email templates for each lead and use an automated email system to send them. Using machine learning, we analyze the performance of each template to identify the most effective ones, helping you streamline your sales process, boost your revenue, and grow your business with confidence.";
+  one.value = `We're an end-to-end sales prospecting service that helps our customers find high-quality leads for their businesses. We create personalized email templates for each lead and use an automated email system to send them. Using machine learning, we analyze the performance of each template to identify the most effective ones, helping streamline our customer's sales process to free up their time to actually focus on growing their businesses!`;
+
+  two.value = `Save Time: Automate your whole sales prospecting pipeline from lead sourcing to emailing so you can focus on closing deals.\n\nPersonalized Messaging: Customized email templates increase the chances of converting leads to customers.\n\nResults that Improve Over Time: Our machine learning algorithm tracks the performance of each email template, so, with each iteration, the algorithm gets better at determining which email will perform given the lead's demographic.`;
+
+  three.value = `Identifying the right audience: Difficulty in identifying the target audience most likely to be interested in your product or service.\n\nTime-consuming: Finding leads, verifying those leads, then crafting a personalized, high-converting email is very time consuming.`;
 
   adjustHeight(one);
+  adjustHeight(two);
+  adjustHeight(three);
 });
 
 const one = document.querySelector("#product-description");
