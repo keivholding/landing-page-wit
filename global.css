@@ -94,6 +94,10 @@ input:focus {
   outline: none;
 }
 
+textarea {
+  resize: none;
+}
+
 .gradient {
   background: var(--background-gradient);
   -webkit-background-clip: text;

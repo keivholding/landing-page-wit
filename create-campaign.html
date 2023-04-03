@@ -86,10 +86,207 @@
 
         <section class="section-one form">
 
-            <div class="form-header header-text">Create a Campaign</div>
+
+            <div class="create-campaign container">
+
+                <div class="form-header header-text">Create a Campaign</div>
+
+                <div class="step-by-step">
+
+                    <div class="step-one steps">
+                        <i class="fa fa-pencil-square-o instructions-icon" aria-hidden="true"></i>
+                        <p class="paragraph-text sub-instructions">Fill in the form below so we can have a much better
+                            idea of who you are targeting.</p>
+                    </div>
+
+                    <i class="fa fa-arrow-right arrow-instructions" aria-hidden="true"></i>
+
+
+                    <div class="step-two steps">
+                        <i class="fa fa-users instructions-icon" aria-hidden="true"></i>
+                        <p class="paragraph-text sub-instructions">Based on what you fill in, we will find high-quality,
+                            verified leads for you.</p>
+                    </div>
+
+                    <i class="fa fa-arrow-right arrow-instructions" aria-hidden="true"></i>
+
+                    <div class="step-three steps">
+                        <i class="fa fa-envelope-o instructions-icon" aria-hidden="true"></i>
+                        <p class="paragraph-text sub-instructions">Our algorithm will determine what kind of email each
+                            lead will resonate most with.</p>
+                    </div>
+
+                    <i class="fa fa-arrow-right arrow-instructions" aria-hidden="true"></i>
+
+                    <div class="step-four steps">
+                        <i class="fa fa-check-square-o instructions-icon" aria-hidden="true"></i>
+                        <p class="paragraph-text sub-instructions">We will then write those email templates for you
+                            to approve on the next page.</p>
+                    </div>
+
+                </div>
+
+            </div>
 
         </section>
 
+        <div class="divider"></div>
+
+        <section class="section-two form">
+
+            <div class="create-form header-text">Campaign Details</div>
+
+            <form action="#" method="POST">
+
+                <div class="form-field">
+
+                    <div class="about-company form-box">
+
+                        <div class="whole-input-form">
+
+                            <div class="form-field-descriptor top">
+                                <div class="divider left-right-form"></div>
+                                <div class="form-box-header header-text">About Your Company</div>
+                                <div class="divider left-right-form"></div>
+                            </div>
+
+                            <div class="input-form">
+                                <div class="label-form-and-description">
+                                    <label class="label-form subheader-text" for="product-description">Product
+                                        Description:</label>
+                                    <p class="paragraph-text form-description">Give a detailed description of your
+                                        product or service to help us better understand how it benefits your
+                                        customers.
+                                        This will enable us to create more effective emails tailored to their needs
+                                        and
+                                        pain points.</p>
+                                </div>
+                                <textarea class="input-form-field paragraph-text" id="product-description"
+                                    name="product-description"></textarea>
+                            </div>
+
+                            <div class="input-form">
+                                <div class="label-form-and-description">
+                                    <label class="label-form subheader-text" for="value-props">Unique Value
+                                        Props:</label>
+                                    <p class="paragraph-text form-description">Why should a customer choose you over
+                                        a
+                                        competitor? How do you stand out?</p>
+                                </div>
+                                <textarea class="input-form-field paragraph-text" id="value-props"
+                                    name="value-props"></textarea>
+                            </div>
+
+                            <div class="input-form">
+                                <div class="label-form-and-description">
+                                    <label class="label-form subheader-text" for="pain-points">Pain Points:</label>
+                                    <p class="paragraph-text form-description">What pain points do you solve for
+                                        your
+                                        customers?</p>
+                                </div>
+                                <textarea class="input-form-field paragraph-text" id="pain-points"
+                                    name="pain-points"></textarea>
+                            </div>
+
+                            <div class="form-field-descriptor">
+                                <div class="divider left-right-form"></div>
+                                <div class="form-box-header header-text">About Your Target Customer</div>
+                                <div class="divider left-right-form"></div>
+                            </div>
+
+                            <div class="input-form">
+                                <div class="label-form-and-description">
+                                    <label class="label-form subheader-text" for="gender">Gender:</label>
+                                    <p class="paragraph-text form-description"></p>
+                                </div>
+
+                                <div class="radio-buttons-container">
+
+                                    <button id="male-btn" class="btn gender-btn paragraph-text" value="male"><i
+                                            class="fa fa-mars gender-icon" aria-hidden="true"></i> Male</button>
+
+                                    <button id="female-btn" class="btn gender-btn paragraph-text" value="female"><i
+                                            class="fa fa-venus gender-icon" aria-hidden="true"></i> Female</button>
+
+                                    <button id="both-btn" class="btn gender-btn paragraph-text"
+                                        value="both-male-female"><i class="fa fa-venus-mars gender-icon"
+                                            aria-hidden="true"></i>
+                                        Both</button>
+
+                                    <input type="hidden" class="gender-input" id="gender-input" name="gender" value="">
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="input-form age">
+                                <div class="label-form-and-description ">
+                                    <div class="subheader-text label-form">Age Range:</div>
+                                    <p class="paragraph-text form-description"></p>
+                                </div>
+
+                                <div class="min-max-age">
+                                    <div class="label-form-and-description">
+                                        <label class="label-form subheader-text min-max" for="min-age">Min
+                                            age:</label>
+                                        <input type="number" min="18" class="input-form-field paragraph-text"
+                                            id="min-age" name="min-age">
+                                    </div>
+
+                                    <p class="paragraph-text dashed-age">—</p>
+
+
+                                    <div class="label-form-and-description">
+                                        <label class="label-form subheader-text min-max" for="max-age">Max
+                                            age:</label>
+
+                                        <input type="number" max="99" class="input-form-field paragraph-text"
+                                            id="max-age" name="max-age">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-form">
+                                <div class="label-form-and-description">
+                                    <label class="label-form subheader-text" for="location">Location:</label>
+                                    <p class="paragraph-text form-description">Where are your customers located?</p>
+                                </div>
+                                <input class="input-form-field paragraph-text" id="location" name="location">
+                            </div>
+
+                            <div class="input-form">
+                                <div class="label-form-and-description">
+                                    <label class="label-form subheader-text" for="hangout">Hangout:</label>
+                                    <p class="paragraph-text form-description">Where do your target customers spend
+                                        their time?</p>
+                                </div>
+                                <div class="radio-buttons-container">
+
+                                    <button id="male-btn" class="btn gender-btn paragraph-text" value="male"><i
+                                            class="fa fa-mars gender-icon" aria-hidden="true"></i> Male</button>
+
+                                    <button id="female-btn" class="btn gender-btn paragraph-text" value="female"><i
+                                            class="fa fa-venus gender-icon" aria-hidden="true"></i> Female</button>
+
+                                    <button id="both-btn" class="btn gender-btn paragraph-text"
+                                        value="both-male-female"><i class="fa fa-venus-mars gender-icon"
+                                            aria-hidden="true"></i>
+                                        Both</button>
+
+                                    <input type="hidden" class="gender-input" id="gender-input" name="gender" value="">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="submit" value="Submit">
+
+                </ form>
+
+        </section>
 
     </div>
 
