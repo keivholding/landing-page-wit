@@ -199,6 +199,10 @@
   transition: all 1.2s ease-in-out;
 }
 
+.body-text {
+  white-space: pre-wrap;
+}
+
 .subject-email.open,
 .body-email.open {
   transform: translateY(0px);

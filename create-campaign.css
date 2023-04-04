@@ -61,7 +61,7 @@
 
 .form-header-container {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -72,9 +72,16 @@
   font-size: 4rem;
 }
 
-.template-button {
-  width: 20%;
-  margin: 0 auto;
+.whole-input-form {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  min-height: 500px;
+}
+
+.whole-input-form.clicked {
+  min-height: 715px;
 }
 
 .form-box {
@@ -87,15 +94,30 @@
   margin: 0 auto;
 }
 
+.form-box.top {
+  transform: translateX(-1200px);
+  transition: all 0.3s ease-in-out;
+}
+
+.form-box.bottom {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  transform: translateX(1200px);
+  transition: all 0.3s ease-in-out;
+}
+
+.form-box.top.active,
+.form-box.bottom.active {
+  transform: translateX(0px);
+}
+
 .form-field-descriptor {
   display: flex;
   align-items: center;
   width: 100%;
   margin: 35px auto 50px auto;
-}
-
-.form-field-descriptor.top {
-  margin: 20px auto 60px auto;
 }
 
 .form-box-header {
@@ -131,24 +153,6 @@
 
 .form-description {
   color: #8c8c8c;
-  font-size: 1.4rem;
-}
-
-.input-form.age {
-  margin-bottom: 20px;
-}
-
-.min-max-age {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.dashed-age {
-  font-size: 2rem;
-}
-
-.min-max {
   font-size: 1.4rem;
 }
 
@@ -227,4 +231,26 @@
 .bottom.social-buttons {
   margin-bottom: 20px;
 }
+
+.forward-backward-form-buttons {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  font-size: 2rem;
+  margin-top: 60px;
+}
+
+.form-direction {
+  transition: all 0.2s ease-in-out;
+}
+
+.pages-form:before {
+  content: "Pages 1 / 2";
+}
+
+.pages-form.clicked:before {
+  content: "Pages 2 / 2";
+}
+
 /* <--------- SECTION 2 FORM ---------> */

@@ -54,31 +54,34 @@ allSocialBtns.forEach((btn) =>
   })
 );
 
-const seeTemplateBtn = document.querySelector(".template-button");
+const formDirectionBtns = document.querySelectorAll(".form-direction");
+const formBoxTop = document.querySelector(".form-box.top");
+const formBoxBottom = document.querySelector(".form-box.bottom");
+const wholeInputForm = document.querySelector(".whole-input-form");
+const sectionTwo = document.querySelector(".section-two");
+const pagesForm = document.querySelector(".pages-form");
 
-const adjustHeight = function (textarea) {
-  const scrollHeight = textarea.scrollHeight;
-  textarea.style.height = `${scrollHeight + 7}px`;
-};
+formDirectionBtns.forEach((btn) =>
+  btn.addEventListener("click", function () {
+    formDirectionBtns.forEach((btn) => btn.classList.toggle("disabled"));
+    formBoxTop.classList.toggle("active");
+    formBoxBottom.classList.toggle("active");
+    wholeInputForm.classList.toggle("clicked");
+    sectionTwo.scrollIntoView({ behavior: "smooth" });
+    pagesForm.classList.toggle("clicked");
+  })
+);
 
-seeTemplateBtn.addEventListener("click", function () {
-  one.value = `We're an end-to-end sales prospecting service that helps our customers find high-quality leads for their businesses. We create personalized email templates for each lead and use an automated email system to send them. Using machine learning, we analyze the performance of each template to identify the most effective ones, helping streamline our customer's sales process to free up their time to actually focus on growing their businesses!`;
+const totalInputFields = wholeInputForm.querySelectorAll(".input-form").length;
 
-  two.value = `Save Time: Automate your whole sales prospecting pipeline from lead sourcing to emailing so you can focus on closing deals.\n\nPersonalized Messaging: Customized email templates increase the chances of converting leads to customers.\n\nResults that Improve Over Time: Our machine learning algorithm tracks the performance of each email template, so, with each iteration, the algorithm gets better at determining which email will perform given the lead's demographic.`;
+wholeInputForm.addEventListener("click", function () {
+  const percentageInc = 100 / totalInputFields;
 
-  three.value = `Identifying the right audience: Difficulty in identifying the target audience most likely to be interested in your product or service.\n\nTime-consuming: Finding leads, verifying those leads, then crafting a personalized, high-converting email is very time consuming.`;
+  const inputFormField = document.querySelectorAll(".input-form-field");
 
-  adjustHeight(one);
-  adjustHeight(two);
-  adjustHeight(three);
+  inputFormField.forEach((field) => {
+    console.log(field.value === "");
+  });
+
+  console.log(inputFormField);
 });
-
-const one = document.querySelector("#product-description");
-const two = document.querySelector("#value-props");
-const three = document.querySelector("#pain-points");
-const four = document.querySelector("#both-btn");
-const five = document.querySelector("#min-age");
-const six = document.querySelector("#max-age");
-const seven = document.querySelector("#location");
-const eight = document.querySelector("#linkedin");
-const nine = document.querySelector("#twitter");

@@ -132,7 +132,8 @@ textarea {
   outline: none;
 }
 
-.btn.disabled {
+.btn.disabled,
+.disabled {
   pointer-events: none;
   opacity: 0.2;
 }
@@ -477,6 +478,14 @@ header:hover .nav-links {
   font-size: 1.6rem;
   width: 100%;
   text-align: right;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:active {
+  cursor: grabbing;
 }
 
 .burger-content {

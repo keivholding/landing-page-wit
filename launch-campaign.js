@@ -5,7 +5,7 @@ fetch(`https://sales-machine.vercel.app/api/getTemplates`, {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    campaignID: 10,
+    campaignID: 100,
     accessToken: localStorage.getItem("witSMAccessToken"),
     refreshToken: localStorage.getItem("witSMRefreshToken"),
   }),
@@ -430,7 +430,7 @@ const showTemplates = function (templates) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        campaignID: 10,
+        campaignID: 100,
         accessToken: localStorage.getItem("witSMAccessToken"),
         refreshToken: localStorage.getItem("witSMRefreshToken"),
       }),
