@@ -5,7 +5,7 @@ fetch(`https://sales-machine.vercel.app/api/getTemplates`, {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    campaignID: 100,
+    campaignID: 10,
     accessToken: localStorage.getItem("witSMAccessToken"),
     refreshToken: localStorage.getItem("witSMRefreshToken"),
   }),
@@ -84,15 +84,40 @@ const showTemplates = function (templates) {
   const goBackCampaignBtn = document.querySelector(".go-back.campaign");
   const closeXCampaignBtn = document.querySelector(".close-modal-campaign");
 
+  // Displays the campaign name
+  campaignNameTemplate.innerText = templates[0].campaigns.name;
+
+  // Edit campaign function
   editCampaignBtn.addEventListener("click", function () {
     campaignNameEdit.value = campaignNameTemplate.innerText;
 
     popupEditCampaignName.classList.add("show");
     blurryBackground.classList.add("show");
 
+    // when save changes is clicked, the campaign name and backend are updated
     saveChangesCampaignBtn.addEventListener("click", function () {
       campaignNameTemplate.innerText = campaignNameEdit.value;
       closeEditCampaign();
+
+      //update backend
+      const url = "https://sales-machine.vercel.app/api/campaigns/upsertName";
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          accessToken: localStorage.getItem("witSMAccessToken"),
+          campaignID: 10,
+          campaignName: campaignNameEdit.value,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.data === "login-redirect-user") {
+            window.location.href = "http://www.example.com";
+          }
+        });
     });
   });
 
@@ -430,7 +455,7 @@ const showTemplates = function (templates) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        campaignID: 100,
+        campaignID: 10,
         accessToken: localStorage.getItem("witSMAccessToken"),
         refreshToken: localStorage.getItem("witSMRefreshToken"),
       }),

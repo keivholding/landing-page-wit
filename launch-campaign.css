@@ -23,6 +23,12 @@
 .edit-btn.campaign {
   font-size: 4rem;
   color: #a0a0a0;
+  cursor: pointer;
+}
+
+.close-modal-campaign,
+.edit-btn.campaign {
+  cursor: pointer;
 }
 
 .campaign-instructions {
