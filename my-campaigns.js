@@ -396,8 +396,6 @@ const showCampaignsAndAnalytics = function (campaigns) {
 
   const filterType = document.querySelector(".filter-type");
 
-  console.log(filterType);
-
   //
   //
   // FILTERING THE CAMPAIGNS
