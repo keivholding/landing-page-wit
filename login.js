@@ -21,6 +21,7 @@ start.addEventListener("click", function () {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data.signinRedirectUrl);
       window.location.href = data.signinRedirectUrl;
     })
     .catch((error) => {

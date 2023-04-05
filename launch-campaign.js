@@ -1,3 +1,15 @@
+// grabs the campaign ID from the URL
+function campaignIdUrl() {
+  const url = window.location.href;
+  const urlObj = new URL(url);
+  const searchParams = new URLSearchParams(urlObj.search);
+  const campaignID = searchParams.get("campaignID");
+
+  return campaignID;
+}
+
+const campaignID = campaignIdUrl();
+
 // Get Templates
 fetch(`https://sales-machine.vercel.app/api/getTemplates`, {
   method: "POST",
@@ -5,7 +17,7 @@ fetch(`https://sales-machine.vercel.app/api/getTemplates`, {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    campaignID: 10,
+    campaignID: campaignID,
     accessToken: localStorage.getItem("witSMAccessToken"),
     refreshToken: localStorage.getItem("witSMRefreshToken"),
   }),
@@ -99,7 +111,7 @@ const showTemplates = function (templates) {
       campaignNameTemplate.innerText = campaignNameEdit.value;
       closeEditCampaign();
 
-      //update backend
+      //update backend when the campaign name is changed and saved
       const url = "https://sales-machine.vercel.app/api/campaigns/upsertName";
       fetch(url, {
         method: "POST",
@@ -108,7 +120,7 @@ const showTemplates = function (templates) {
         },
         body: JSON.stringify({
           accessToken: localStorage.getItem("witSMAccessToken"),
-          campaignID: 10,
+          campaignID: campaignID,
           campaignName: campaignNameEdit.value,
         }),
       })
@@ -296,7 +308,7 @@ const showTemplates = function (templates) {
       // recalculates the height of the email
       emailTemplate.style.minHeight = `${emailHeight + 120}px`;
 
-      // Update Backend
+      // Update Backend when email is edited and saved
       const url = "https://sales-machine.vercel.app/api/upsertTemplate";
       const data = {
         subject: subjectTextEdit.value,
@@ -448,6 +460,7 @@ const showTemplates = function (templates) {
 
   const officialLaunchBtn = document.querySelector(".official-launch");
 
+  // this sends the emails out
   officialLaunchBtn.addEventListener("click", function () {
     fetch(`https://sales-machine.vercel.app/api/createEmails`, {
       method: "POST",
@@ -455,7 +468,7 @@ const showTemplates = function (templates) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        campaignID: 10,
+        campaignID: campaignID,
         accessToken: localStorage.getItem("witSMAccessToken"),
         refreshToken: localStorage.getItem("witSMRefreshToken"),
       }),
