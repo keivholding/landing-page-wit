@@ -45,7 +45,7 @@ const showTemplates = function (templates) {
                 <div class="email-description">
                     <div class="email-left header-text">Style: <span class="gradient style-data">${template.style}</span></div>
                     <div class="email-right">
-                        <div class="email-recipients paragraph-text">5 recipients</div>
+                        <div class="email-recipients paragraph-text">1 recipient</div>
                         <button class="btn secondary view-email closed paragraph-text">View Email</button>
                         <button class="btn primary approve-email paragraph-text">Approve Email</button>
                     </div>
