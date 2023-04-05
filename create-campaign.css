@@ -187,12 +187,34 @@
   border: 3px solid var(--color-deepblue);
 }
 
+.industry-select {
+  height: 40px;
+  width: 40%;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background: none;
+  color: var(--color-white);
+  border: 1px solid rgba(244, 244, 244, 0.3);
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.industry-select:hover {
+  border: 1px solid rgba(244, 244, 244, 0.5);
+}
+
 .radio-buttons-container {
   display: flex;
   gap: 15px;
 }
 
-.gender-btn,
+.num-employees-container {
+  display: flex;
+  gap: 15px;
+}
+
+.num-employees,
 .btn.location {
   border: 1px solid var(--color-white);
   transition: all 0.3s ease-in-out;
@@ -204,12 +226,12 @@
   opacity: 0.5;
 }
 
-.gender-btn:hover,
+.num-employees:hover,
 .btn.location:hover {
   opacity: 0.8;
 }
 
-.gender-btn.active,
+.num-employees.active,
 .btn.location.active {
   opacity: 1;
   box-shadow: 0px 0px 7px rgba(244, 244, 244, 1);
@@ -219,7 +241,7 @@
   font-size: 1.3em;
 }
 
-.radio-buttons-container.social-buttons {
+.radio-buttons-container {
   flex-direction: column;
 }
 
@@ -238,7 +260,7 @@
   justify-content: center;
   gap: 50px;
   font-size: 2rem;
-  margin-top: 60px;
+  margin: 60px 0;
 }
 
 .form-direction {
@@ -246,11 +268,48 @@
 }
 
 .pages-form:before {
-  content: "Pages 1 / 2";
+  content: "Page 1 / 2";
 }
 
 .pages-form.clicked:before {
-  content: "Pages 2 / 2";
+  content: "Page 2 / 2";
+}
+
+.submit-container {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+  transition: all 0.5s ease-in-out;
+}
+
+.submit-container.show {
+  transform: translateY(0px);
+}
+
+.submit-button {
+  transform: scale(1.4);
+  background: var(--background-gradient);
+  color: var(--color-charcoal);
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+  transform: scale(1.5);
+}
+
+.submit-button.disabled {
+  transform: scale(1);
 }
 
 /* <--------- SECTION 2 FORM ---------> */
