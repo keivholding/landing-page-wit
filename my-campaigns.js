@@ -405,16 +405,18 @@ const showCampaignsAndAnalytics = function (campaigns) {
   //
 };
 
-// check threads for new replies
-fetch(`https://sales-machine.vercel.app/api/checkThreads`, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    accessToken: localStorage.getItem("witSMAccessToken"),
-    refreshToken: localStorage.getItem("witSMRefreshToken"),
-  }),
-})
-  .then((response) => response.json())
-  .then((data) => console.log({ data }));
+setInterval(() => {
+  // check threads for new replies
+  fetch(`https://sales-machine.vercel.app/api/checkThreads`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      accessToken: localStorage.getItem("witSMAccessToken"),
+      refreshToken: localStorage.getItem("witSMRefreshToken"),
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log({ data }));
+}, 60000);
