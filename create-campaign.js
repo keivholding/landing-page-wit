@@ -9,27 +9,38 @@ allTextarea.forEach((textarea) =>
   })
 );
 
-const allRadioEmployeeBtns = document.querySelectorAll(".num-employees");
-const hiddenInputNumEmployees = document.querySelector(".num-employees-input");
+const hasButtonsForm = document.querySelectorAll(".has-buttons");
 
-// this loops through all of the radio # employee buttons
-allRadioEmployeeBtns.forEach((button) =>
-  button.addEventListener("click", function (e) {
-    // prevent default makes it so that the form isn't submitted
-    e.preventDefault();
+// when any of the form buttons are clicked
+const formButtons = function (e) {
+  // prevent default makes it so that the form isn't submitted
+  e.preventDefault();
 
-    // this selects the button that was clicked even if the font-awesome icon was clicked
-    const clickedButton = e.target.closest(".num-employees");
+  if (!e.target.classList.contains("btn")) return;
 
-    // we are updating the input value based on the button that isclicked!
-    hiddenInputNumEmployees.value = "";
-    hiddenInputNumEmployees.value = clickedButton.value;
+  // this selects the input form (the parent)
+  const inputForm = e.target.closest(".input-form");
+  // this selects the button that was clicked
+  const clickedButton = e.target.closest(".btn");
+  // this selects the input (hidden type) where the value is stored
+  const fieldValue = inputForm.querySelector("input");
+  // this selects all of the buttons
+  const allBtns = inputForm.querySelectorAll(".btn");
 
-    // adding / remove active classes
-    allRadioEmployeeBtns.forEach((button) => button.classList.remove("active"));
+  // we are updating the input value based on the button that is clicked!
+  fieldValue.value = "";
+  fieldValue.value = clickedButton.value;
 
-    clickedButton.classList.add("active");
-  })
+  // remove active classes from all the buttons
+  allBtns.forEach((button) => button.classList.remove("active"));
+
+  // adds active class to the clicked button
+  clickedButton.classList.add("active");
+};
+
+// Loops through the divs that have buttons and adds click event listener
+hasButtonsForm.forEach((btnForm) =>
+  btnForm.addEventListener("click", formButtons)
 );
 
 const allSocialBtns = document.querySelectorAll(".location");

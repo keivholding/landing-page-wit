@@ -209,12 +209,16 @@
   gap: 15px;
 }
 
-.num-employees-container {
+.num-employees-container,
+.annual-revenue-container,
+.monthly-active-users-container {
   display: flex;
   gap: 15px;
 }
 
 .num-employees,
+.annual-revenue,
+.monthly-active-users,
 .btn.location {
   border: 1px solid var(--color-white);
   transition: all 0.3s ease-in-out;
@@ -227,11 +231,15 @@
 }
 
 .num-employees:hover,
+.annual-revenue:hover,
+.monthly-active-users:hover,
 .btn.location:hover {
   opacity: 0.8;
 }
 
 .num-employees.active,
+.annual-revenue.active,
+.monthly-active-users.active,
 .btn.location.active {
   opacity: 1;
   box-shadow: 0px 0px 7px rgba(244, 244, 244, 1);
