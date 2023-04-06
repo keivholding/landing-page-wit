@@ -16,12 +16,14 @@ const formButtons = function (e) {
   // prevent default makes it so that the form isn't submitted
   e.preventDefault();
 
-  if (!e.target.classList.contains("btn")) return;
+  // this selects the button that was clicked
+  const clickedButton = e.target.closest(".btn");
+
+  // if clicked button doesn't exist, then return
+  if (!clickedButton) return;
 
   // this selects the input form (the parent)
   const inputForm = e.target.closest(".input-form");
-  // this selects the button that was clicked
-  const clickedButton = e.target.closest(".btn");
   // this selects the input (hidden type) where the value is stored
   const fieldValue = inputForm.querySelector("input");
   // this selects all of the buttons
