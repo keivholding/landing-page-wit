@@ -144,6 +144,7 @@
                     <div class="form-box top active">
 
                         <div class="form-first-page active">
+
                             <div class="form-field-descriptor">
                                 <div class="divider left-right-form"></div>
                                 <div class="form-box-header header-text">About Your Target Customer</div>
@@ -156,7 +157,7 @@
                                     <p class="paragraph-text form-description"></p>
                                 </div>
 
-                                <select class="industry-select" name="industry" required>
+                                <select class="select-form industry-select" name="industry" required>
                                     <option value="">— Select an Industry —</option>
                                     <option value="not-important">Not Important</option>
                                     <option value="Accounting">Accounting</option>
@@ -329,8 +330,49 @@
                                 </select>
                             </div>
 
+                            <div class="input-form">
+                                <div class="label-form-and-description">
+                                    <label class="label-form subheader-text" for="num-employees">Number of
+                                        Employees:</label>
+                                    <p class="paragraph-text form-description"></p>
+                                </div>
 
-                            <div class="input-form has-buttons">
+                                <select class="select-form employees-select" name="num-employees" required>
+                                    <option value="">— Select Number of Employees —</option>
+                                    <option value="not-important">Not Important</option>
+                                    <option value="1-10">1 - 10</option>
+                                    <option value="10-25">10 - 25</option>
+                                    <option value="25-50">25 - 50</option>
+                                    <option value="50-100">50 - 100</option>
+                                    <option value="100-250">100 - 250</option>
+                                    <option value="250-500">250 - 500</option>
+                                    <option value="500-1,000">500 - 1,000</option>
+                                    <option value="1,000+">1,000+</option>
+                                </select>
+                            </div>
+
+                            <div class="input-form">
+                                <div class="label-form-and-description">
+                                    <label class="label-form subheader-text" for="annual-revenue">Annual
+                                        Revenue:</label>
+                                    <p class="paragraph-text form-description"></p>
+                                </div>
+
+                                <select class="select-form annual-revenue" name="annual-revenue" required>
+                                    <option value="">— Select Annual Revenue —</option>
+                                    <option value="not-important">Not Important</option>
+                                    <option value="0-25,000">0 - $25k</option>
+                                    <option value="25,000-50,000">$25k - $50k</option>
+                                    <option value="50,000-100,000">$50k - $100k</option>
+                                    <option value="100,000-250,000">$100k - $250k</option>
+                                    <option value="250,000-500,000">$250k - $500k</option>
+                                    <option value="500,000-1,000,000">$500k - $1m</option>
+                                    <option value="">$1m+</option>
+                                </select>
+                            </div>
+
+
+                            <!-- <div class="input-form has-buttons">
                                 <div class="label-form-and-description">
                                     <label class="label-form subheader-text" for="num-employees">Number of
                                         Employees:</label>
@@ -341,33 +383,103 @@
 
                                     <div class="button-form-container first">
 
-                                        <button id="1-25" class="btn form-btn paragraph-text" value="1-25"><span
-                                                class="text-below-btn">1
+                                        <button id="1-25" class="btn form-btn num-employees paragraph-text"
+                                            value="1-25">
+                                            <div class="top-icons">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                            </div>
+                                            <span class="text-below-btn">1
                                                 -
-                                                25</span></button>
+                                                25</span>
+                                        </button>
 
-                                        <button id="25-50" class="btn form-btn paragraph-text" value="25-50">25 -
-                                            50</button>
+                                        <button id="25-50" class="btn form-btn num-employees paragraph-text"
+                                            value="25-50">
+                                            <div class="top-icons">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                            </div>
+                                            <span class="text-below-btn">25
+                                                -
+                                                50</span>
+                                        </button>
 
-                                        <button id="50-100" class="btn form-btn paragraph-text" value="50-100">
-                                            50 - 100</button>
+                                        <button id="50-100" class="btn form-btn num-employees paragraph-text"
+                                            value="50-100">
+                                            <div class="top-icons">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                <i class="fa fa-user" aria-hidden="true"></i><i class="fa fa-user"
+                                                    aria-hidden="true"></i>
+                                            </div>
+
+                                            <span class="text-below-btn">50
+                                                -
+                                                100</span>
+                                        </button>
 
                                     </div>
 
                                     <div class="button-form-container second">
 
-                                        <button id="100-250" class="btn form-btn paragraph-text" value="100-250">
-                                            100 - 250</button>
+                                        <button id="100-250" class="btn form-btn num-employees paragraph-text"
+                                            value="100-250">
+                                            <div class="all-icons">
+                                                <div class="top-icons">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="bottom-icons">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
 
-                                        <button id="250-1000" class="btn form-btn paragraph-text" value="250-1000">
-                                            250 - 1000</button>
+                                            <span class="text-below-btn">100
+                                                -
+                                                250</span>
+                                        </button>
 
-                                        <button id="1000+" class="btn form-btn paragraph-text" value="1000+">
-                                            1000+</button>
+                                        <button id="250-1000" class="btn form-btn num-employees paragraph-text"
+                                            value="250-1000">
+                                            <div class="all-icons">
+                                                <div class="top-icons">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="bottom-icons">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
 
-                                        <button id="not-important-employees" class="btn form-btn paragraph-text"
-                                            value="not-important">
-                                            Not Important</button>
+                                            <span class="text-below-btn">250
+                                                -
+                                                1000</span>
+                                        </button>
+
+                                        <button id="1000+" class="btn form-btn num-employees paragraph-text"
+                                            value="1000+">
+                                            <div class="all-icons">
+                                                <div class="top-icons">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="bottom-icons">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <span class="text-below-btn">1000+</span>
+                                        </button>
+
+                                        <button id="not-important-employees"
+                                            class="btn form-btn num-employees paragraph-text" value="not-important">
+                                            <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+                                            <span class="text-below-btn">Not
+                                                Important</span></button>
                                     </div>
 
                                     <input type="hidden" class="num-employees-input" id="num-employees-input"
@@ -387,34 +499,95 @@
 
                                     <div class="button-form-container first">
 
-                                        <button id="0-25000" class="btn form-btn paragraph-text" value="0-25000">$0
-                                            -
-                                            $25k</button>
+                                        <button id="0-25000" class="btn form-btn paragraph-text" value="0-25000">
+                                            <div class="top-icons">
+                                                <i class="fa fa-money" aria-hidden="true"></i>
+                                            </div>
+                                            <span class="text-below-btn">0
+                                                -
+                                                $25k</span>
+                                        </button>
 
-                                        <button id="25-50" class="btn form-btn paragraph-text" value="25000-50000">$25k
-                                            -
-                                            $50k</button>
+                                        <button id="25-50" class="btn form-btn paragraph-text" value="25000-50000">
+                                            <div class="top-icons">
+                                                <i class="fa fa-money" aria-hidden="true"></i>
+                                                <i class="fa fa-money" aria-hidden="true"></i>
+                                            </div>
+                                            <span class="text-below-btn">$25k
+                                                -
+                                                $50k</span>
+                                        </button>
 
                                         <button id="50-100" class="btn form-btn paragraph-text" value="50000-100000">
-                                            $50k - $100k</button>
+                                            <div class="top-icons">
+                                                <i class="fa fa-money" aria-hidden="true"></i>
+                                                <i class="fa fa-money" aria-hidden="true"></i>
+                                                <i class="fa fa-money" aria-hidden="true"></i>
+                                            </div>
+                                            <span class="text-below-btn">$50k
+                                                -
+                                                $100k</span>
+                                        </button>
 
                                     </div>
 
                                     <div class="button-form-container second">
 
                                         <button id="100-250" class="btn form-btn paragraph-text" value="100000-250000">
-                                            $100k - $250k</button>
+                                            <div class="all-icons">
+                                                <div class="top-icons">
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="bottom-icons">
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <span class="text-below-btn">$100k
+                                                -
+                                                $250k</span>
+                                        </button>
 
                                         <button id="250-1000" class="btn form-btn paragraph-text"
                                             value="250000-1000000">
-                                            $250k - $1m</button>
+                                            <div class="all-icons">
+                                                <div class="top-icons">
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="bottom-icons">
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <span class="text-below-btn">$250k
+                                                -
+                                                $1m</span>
+                                        </button>
 
                                         <button id="1000+" class="btn form-btn paragraph-text" value="1000000+">
-                                            $1m+</button>
+                                            <div class="all-icons">
+                                                <div class="top-icons">
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="bottom-icons">
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <span class="text-below-btn">$1m+</span>
+                                        </button>
 
                                         <button id="not-important-employees" class="btn form-btn paragraph-text"
                                             value="not-important">
-                                            Not Important</button>
+                                            <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+                                            <span class="text-below-btn">Not Important</span>
+                                        </button>
                                     </div>
 
                                     <input type="hidden" class="annual-revenue-input" id="annual-revenue-input"
@@ -466,13 +639,19 @@
                                         id="monthly-active-users-input" name="monthly-active-users" value="" required>
 
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="input-form">
                                 <div class="label-form-and-description">
                                     <label class="label-form subheader-text" for="location">Location:</label>
-                                    <p class="paragraph-text form-description">Where are your customers located? i.e.
-                                        Cambridge, Massachusetts, United States</p>
+                                    <div class="not-important-paragraph-btn">
+                                        <p class="paragraph-text form-description">Where are your customers located?
+                                            i.e.
+                                            Cambridge, Massachusetts, United States, or, even more broadly, United
+                                            States
+                                        </p>
+                                        <button class="btn not-important-btn">Not Important</button>
+                                    </div>
                                 </div>
                                 <input class="input-form-field paragraph-text" id="location" name="location" required>
                             </div>
@@ -501,6 +680,20 @@
 
                                 </div>
                             </div>
+
+                            <div class="input-form">
+                                <div class="label-form-and-description">
+                                    <label class="label-form subheader-text" for="product-description">Other:</label>
+                                    <div class="not-important-paragraph-btn">
+                                        <p class="paragraph-text form-description">Are there any other details you would
+                                            like to add about your target customer not mentioned above?</p>
+                                        <button class="btn not-important-btn">Not Important</button>
+                                    </div>
+                                </div>
+                                <textarea class="input-form-field paragraph-text" id="product-description"
+                                    name="product-description" required></textarea>
+                            </div>
+
                         </div>
                     </div>
 

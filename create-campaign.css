@@ -140,6 +140,10 @@
   margin-bottom: 0;
 }
 
+.input-form.has-buttons {
+  margin-bottom: 70px;
+}
+
 .label-form-and-description {
   display: flex;
   flex-direction: column;
@@ -154,6 +158,26 @@
 .form-description {
   color: #8c8c8c;
   font-size: 1.4rem;
+}
+
+.not-important-paragraph-btn {
+  display: flex;
+  margin-top: -6px;
+  gap: 10px;
+  align-items: center;
+}
+
+.not-important-btn {
+  font-size: 1.2rem;
+  min-width: fit-content;
+  border: 1px solid rgba(244, 244, 244, 0.3);
+  color: rgba(244, 244, 244, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.not-important-btn:hover {
+  border: 1px solid rgba(244, 244, 244, 1);
+  color: rgba(244, 244, 244, 1);
 }
 
 .input-form-field {
@@ -187,7 +211,7 @@
   border: 3px solid var(--color-deepblue);
 }
 
-.industry-select {
+.select-form {
   height: 40px;
   width: 40%;
   outline: none;
@@ -200,18 +224,19 @@
   cursor: pointer;
 }
 
-.industry-select:hover {
+.select-form:hover {
   border: 1px solid rgba(244, 244, 244, 0.5);
 }
 
 .radio-buttons-container {
   display: flex;
-  gap: 15px;
+  gap: 40px;
 }
 
 .button-form-container {
   display: flex;
-  gap: 15px;
+  gap: 40px;
+  position: relative;
 }
 
 .form-btn {
@@ -223,23 +248,45 @@
   gap: 7px;
   font-size: 1.4rem;
   opacity: 0.5;
+  height: 60px;
+  min-width: 60px !important;
+  padding: 0 0;
 }
 
 .form-btn:hover {
   opacity: 0.8;
 }
 
+.form-btn.num-employees:hover {
+  border: 1px solid var(--color-teal);
+  color: var(--color-teal);
+}
+
 .form-btn.active {
+  border: 1px solid var(--color-teal);
+  color: var(--color-teal);
   opacity: 1;
-  box-shadow: 0px 0px 7px rgba(244, 244, 244, 1);
+  box-shadow: 0px 0px 7px var(--color-teal);
 }
 
-.gender-icon {
-  font-size: 1.3em;
+span.text-below-btn {
+  position: absolute;
+  bottom: -30px;
+  font-size: 1.2rem;
 }
 
-.radio-buttons-container {
+.all-icons {
+  gap: 7px;
+  display: flex;
   flex-direction: column;
+}
+
+.top-icons,
+.bottom-icons {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  font-size: 1rem;
 }
 
 .social-buttons {

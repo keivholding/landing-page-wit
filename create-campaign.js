@@ -9,42 +9,6 @@ allTextarea.forEach((textarea) =>
   })
 );
 
-const hasButtonsForm = document.querySelectorAll(".has-buttons");
-
-// when any of the form buttons are clicked
-const formButtons = function (e) {
-  // prevent default makes it so that the form isn't submitted
-  e.preventDefault();
-
-  // this selects the button that was clicked
-  const clickedButton = e.target.closest(".btn");
-
-  // if clicked button doesn't exist, then return
-  if (!clickedButton) return;
-
-  // this selects the input form (the parent)
-  const inputForm = e.target.closest(".input-form");
-  // this selects the input (hidden type) where the value is stored
-  const fieldValue = inputForm.querySelector("input");
-  // this selects all of the buttons
-  const allBtns = inputForm.querySelectorAll(".btn");
-
-  // we are updating the input value based on the button that is clicked!
-  fieldValue.value = "";
-  fieldValue.value = clickedButton.value;
-
-  // remove active classes from all the buttons
-  allBtns.forEach((button) => button.classList.remove("active"));
-
-  // adds active class to the clicked button
-  clickedButton.classList.add("active");
-};
-
-// Loops through the divs that have buttons and adds click event listener
-hasButtonsForm.forEach((btnForm) =>
-  btnForm.addEventListener("click", formButtons)
-);
-
 const allSocialBtns = document.querySelectorAll(".location");
 const targeting = document.querySelector(".targeting-input");
 const notImportantTargeting = document.querySelector(
@@ -157,3 +121,70 @@ const btnObserver = new IntersectionObserver(showRemoveBtn, {
 });
 
 btnObserver.observe(sectionTwo);
+
+//
+// Making it so that the user can click "Not Important" buttons
+//
+
+const allNotImportantBtns = document.querySelectorAll(".not-important-btn");
+
+allNotImportantBtns.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // Selects the parent form div
+    const parentDiv = e.target.closest(".input-form");
+    // Selects the text area field where we can now add "Not Important!"" to it
+    const textContent = parentDiv.querySelector(".input-form-field");
+
+    textContent.value = "Not Important!";
+  });
+});
+
+//
+// Making it so that the user can click "Not Important" buttons
+//
+
+//
+// THIS IS FOR WHEN WE HAD BUTTONS WITH IMAGES ON THE FORM
+//
+
+// const hasButtonsForm = document.querySelectorAll(".has-buttons");
+
+// // when any of the form buttons are clicked
+// const formButtons = function (e) {
+//   // prevent default makes it so that the form isn't submitted
+//   e.preventDefault();
+
+//   // this selects the button that was clicked
+//   const clickedButton = e.target.closest(".btn");
+
+//   // if clicked button doesn't exist, then return
+//   if (!clickedButton) return;
+
+//   // this selects the input form (the parent)
+//   const inputForm = e.target.closest(".input-form");
+//   // this selects the input (hidden type) where the value is stored
+//   const fieldValue = inputForm.querySelector("input");
+//   // this selects all of the buttons
+//   const allBtns = inputForm.querySelectorAll(".btn");
+
+//   // we are updating the input value based on the button that is clicked!
+//   fieldValue.value = "";
+//   fieldValue.value = clickedButton.value;
+
+//   // remove active classes from all the buttons
+//   allBtns.forEach((button) => button.classList.remove("active"));
+
+//   // adds active class to the clicked button
+//   clickedButton.classList.add("active");
+// };
+
+// // Loops through the divs that have buttons and adds click event listener
+// hasButtonsForm.forEach((btnForm) =>
+//   btnForm.addEventListener("click", formButtons)
+// );
+
+//
+// THIS IS FOR WHEN WE HAD BUTTONS WITH IMAGES ON THE FORM
+//
