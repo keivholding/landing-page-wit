@@ -149,7 +149,10 @@ const valueProps = document.querySelector("#value-props");
 const painPoints = document.querySelector("#pain-points");
 const submitFormBtn = document.querySelector(".submit-button");
 const textCampaign = document.querySelector(".campaign-text-btn");
-const progressBarAfter = document.querySelector(".progress-bar-form::after");
+const progressBarComplete = document.querySelector(
+  ".progress-bar-form-complete"
+);
+const percentDescription = document.querySelector(".progress-bar-desc-form");
 
 const incompleteForm = [
   industry,
@@ -191,7 +194,11 @@ const checkFormStatus = function () {
     textCampaign.textContent = "Make sure to fill in every part of the form!";
   }
 
-  // const percentComplete = `${(completedForm.length / 9) * 100}px`;
+  const percentComplete = (completedForm.length / 9) * 100;
+
+  progressBarComplete.style.width = `${percentComplete}%`;
+
+  percentDescription.textContent = `${percentComplete.toFixed(0)}% Complete`;
 };
 
 // we are checking the form status every second
