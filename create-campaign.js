@@ -275,3 +275,13 @@ setInterval(() => {
 //
 //
 //
+
+
+// TEMPORARY FORM SUBMISSION
+var form = document.getElementById("create-campaign");
+
+// Add a submit event listener to the form
+form.addEventListener("submit", function (event) {
+  // Prevent the default form submission behavior
+  window.location.href = "https://salesmachineai.io/launch-campaign.html?campaignID=11";
+});
