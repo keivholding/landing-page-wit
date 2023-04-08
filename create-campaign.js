@@ -9,7 +9,6 @@ allTextarea.forEach((textarea) =>
   textarea.addEventListener("input", function (e) {
     const scrollHeight = e.target.scrollHeight;
     e.target.style.height = `${scrollHeight}px`;
-    checkFormStatus();
   })
 );
 
@@ -60,41 +59,13 @@ socialButtonsContainer.addEventListener("click", function (e) {
 //
 
 //
-// Checks whether the whole form has been completed
+// User can go to the form page 2 or back to page 1
 //
-
-const wholeInputForm = document.querySelector(".whole-input-form");
-const formBoxBottom = document.querySelector(".form-box.bottom");
-const industry = document.querySelector(".industry-select");
-const locationInput = document.querySelector("#location");
-const productDesc = document.querySelector("#product-description");
-const valueProps = document.querySelector("#value-props");
-const painPoints = document.querySelector("#pain-points");
-const submitFormBtn = document.querySelector(".submit-button");
-
-const checkFormStatus = function () {
-  if (
-    formBoxBottom.classList.contains("active") &&
-    industry.value !== "" &&
-    hiddenInputNumEmployees.value !== "" &&
-    targetingInput.value !== "" &&
-    locationInput.value !== "" &&
-    productDesc.value !== "" &&
-    valueProps.value !== "" &&
-    painPoints.value !== ""
-  ) {
-    submitFormBtn.classList.remove("disabled");
-  } else {
-    submitFormBtn.classList.add("disabled");
-  }
-};
-
-wholeInputForm.addEventListener("click", checkFormStatus);
 
 const formDirectionBtns = document.querySelectorAll(".form-direction");
 const formBoxTop = document.querySelector(".form-box.top");
 const sectionTwo = document.querySelector(".section-two");
-const pagesForm = document.querySelector(".pages-form");
+const formBoxBottom = document.querySelector(".form-box.bottom");
 
 // this makes it so that when the user clicks "next page", then the page switches and other stuff happens
 formDirectionBtns.forEach((btn) =>
@@ -102,15 +73,12 @@ formDirectionBtns.forEach((btn) =>
     formDirectionBtns.forEach((btn) => btn.classList.toggle("disabled"));
     formBoxTop.classList.toggle("active");
     formBoxBottom.classList.toggle("active");
-    wholeInputForm.classList.toggle("clicked");
     sectionTwo.scrollIntoView({ behavior: "smooth" });
-    pagesForm.classList.toggle("clicked");
-    checkFormStatus();
   })
 );
 
 //
-// Checks whether the whole form has been completed
+// User can go to the form page 2 or back to page 1
 //
 
 //
@@ -164,6 +132,51 @@ allNotImportantBtns.forEach((btn) => {
 
 //
 // Making it so that the user can click "Not Important" buttons
+//
+
+//
+// Checks whether the whole form has been completed
+//
+
+const industry = document.querySelector(".industry-select");
+const employees = document.querySelector(".employees-select");
+const revenue = document.querySelector(".annual-revenue");
+const locationInput = document.querySelector("#location");
+const targeting = document.querySelector(".targeting-input");
+const other = document.querySelector("#other");
+const productDesc = document.querySelector("#product-description");
+const valueProps = document.querySelector("#value-props");
+const painPoints = document.querySelector("#pain-points");
+const submitFormBtn = document.querySelector(".submit-button");
+const textCampaign = document.querySelector(".campaign-text-btn");
+
+const checkFormStatus = function () {
+  if (
+    industry.value !== "" &&
+    employees.value !== "" &&
+    revenue.value !== "" &&
+    locationInput.value !== "" &&
+    targeting.value !== "" &&
+    other.value !== "" &&
+    productDesc.value !== "" &&
+    valueProps.value !== "" &&
+    painPoints.value !== ""
+  ) {
+    submitFormBtn.classList.remove("disabled");
+    textCampaign.textContent = "You're ready to launch your campaign!";
+  } else {
+    submitFormBtn.classList.add("disabled");
+    textCampaign.textContent = "Make sure to fill in every part of the form!";
+  }
+};
+
+// we are checking the form status every second
+setInterval(() => {
+  checkFormStatus();
+}, 1000);
+
+//
+// Checks whether the whole form has been completed
 //
 
 //
