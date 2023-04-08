@@ -209,9 +209,17 @@
   border: 3px solid var(--color-deepblue);
 }
 
+.select-at-top {
+  display: flex;
+}
+
+.input-form.same-line {
+  width: 100%;
+}
+
 .select-form {
   height: 40px;
-  width: 40%;
+  width: 90%;
   outline: none;
   border-radius: 5px;
   border: none;
@@ -297,8 +305,12 @@ span.text-below-btn {
   justify-content: center;
   align-items: center;
   border: none;
-  opacity: 0.5;
+  opacity: 0.6;
   background: rgba(244, 244, 244, 0.5);
+}
+
+.targeting-btn:hover {
+  opacity: 0.8;
 }
 
 .targeting-btn.active {

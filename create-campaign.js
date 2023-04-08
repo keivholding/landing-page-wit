@@ -150,18 +150,38 @@ const painPoints = document.querySelector("#pain-points");
 const submitFormBtn = document.querySelector(".submit-button");
 const textCampaign = document.querySelector(".campaign-text-btn");
 
+const incompleteForm = [
+  industry,
+  employees,
+  revenue,
+  locationInput,
+  targeting,
+  other,
+  productDesc,
+  valueProps,
+  painPoints,
+];
+
+const completedForm = [];
+
 const checkFormStatus = function () {
-  if (
-    industry.value !== "" &&
-    employees.value !== "" &&
-    revenue.value !== "" &&
-    locationInput.value !== "" &&
-    targeting.value !== "" &&
-    other.value !== "" &&
-    productDesc.value !== "" &&
-    valueProps.value !== "" &&
-    painPoints.value !== ""
-  ) {
+  // loops through the incomplete form array and checks whether there is a value. if there is, we splice the incomplete array at the index and move it to the complete array
+  incompleteForm.forEach((input, index) => {
+    if (input.value !== "") {
+      incompleteForm.splice(index, 1);
+      completedForm.push(input);
+    }
+  });
+
+  // loops through the complete form array and checks whether there is an empty value (user removed something). If there is, we splice the complete array at the index and move it back to the incomplete array
+  completedForm.forEach((input, index) => {
+    if (input.value === "") {
+      completedForm.splice(index, 1);
+      incompleteForm.push(input);
+    }
+  });
+
+  if (completedForm.length === 9) {
     submitFormBtn.classList.remove("disabled");
     textCampaign.textContent = "You're ready to launch your campaign!";
   } else {
