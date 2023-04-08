@@ -96,21 +96,25 @@
 
 .form-box.top {
   transform: translateX(-1200px);
-  transition: all 0.3s ease-in-out;
 }
 
 .form-box.bottom {
+  transform: translateX(1200px);
+}
+
+.form-box.top,
+.form-box.bottom {
   position: absolute;
-  top: 20px;
+  top: 0;
   left: 0;
   right: 0;
-  transform: translateX(1200px);
-  transition: all 0.3s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .form-box.top.active,
 .form-box.bottom.active {
   transform: translateX(0px);
+  position: relative;
 }
 
 .form-field-descriptor {
@@ -294,8 +298,20 @@ span.text-below-btn {
   gap: 15px;
 }
 
-.bottom.social-buttons {
-  margin-bottom: 20px;
+.targeting-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  opacity: 0.5;
+  background: rgba(244, 244, 244, 0.5);
+}
+
+.targeting-btn.active {
+  background: rgba(244, 244, 244, 1);
+  color: var(--color-charcoal);
+  box-shadow: 0px 0px 7px var(--color-white);
+  opacity: 1;
 }
 
 .forward-backward-form-buttons {

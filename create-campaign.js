@@ -1,3 +1,7 @@
+//
+// Makes it so that the textarea height changes based on how tall the inner content it
+//
+
 const allTextarea = document.querySelectorAll("textarea");
 
 // this loops through all of the text areas and adds an event listener for when an input is changed. It then changes the height of that text area so the user doesn't have to scroll
@@ -9,55 +13,60 @@ allTextarea.forEach((textarea) =>
   })
 );
 
-const allSocialBtns = document.querySelectorAll(".location");
-const targeting = document.querySelector(".targeting-input");
+//
+// Makes it so that the textarea height changes based on how tall the inner content it
+//
+
+//
+// Adjusting the social Buttons value and active classes (shopify, linkedin, etc)
+//
+
+const socialButtonsContainer = document.querySelector(".social-buttons");
 const notImportantTargeting = document.querySelector(
   "#not-important-targeting"
 );
+const targetingInput = document.querySelector(".targeting-input");
+const targetingBtns = document.querySelectorAll(".targeting-btn");
 
 // this adjusts the value for the targeting (shopify, linkedin, etc) buttons.
-allSocialBtns.forEach((btn) =>
-  btn.addEventListener("click", function (e) {
-    e.preventDefault();
+socialButtonsContainer.addEventListener("click", function (e) {
+  e.preventDefault();
 
-    const prevValue = targeting.value;
-    const clickedValue = e.target.value;
+  // this makes it so that the input value is reset each time there is a new click so that we don't get duplicates when we loop through the active classes at the bottom
+  targetingInput.value = "";
 
-    e.target.classList.toggle("active");
+  const clickedBtn = e.target.closest(".targeting-btn");
 
-    // if not important is clicked, then we're going to remove the active class from all of the other buttons and make the target value = to not important
-    if (e.target === notImportantTargeting) {
-      allSocialBtns.forEach((btn) => btn.classList.remove("active"));
-      notImportantTargeting.classList.add("active");
-      targeting.value = "";
-      targeting.value = notImportantTargeting.value;
+  // If the clicked button is the not important button, then we remove the active classes from all of the other buttons
+  if (clickedBtn === notImportantTargeting) {
+    targetingBtns.forEach((btn) => btn.classList.remove("active"));
+    notImportantTargeting.classList.add("active");
+    // if it isn't the not important button, then we remove the active class from the not important button and add it to the clicked button
+  } else {
+    notImportantTargeting.classList.remove("active");
+    clickedBtn.classList.toggle("active");
+  }
+
+  // we are looping through each of the buttons, and if the button has a class "active", then we are adding the btns value to the input value with a space in between
+  targetingBtns.forEach((btn) => {
+    if (btn.classList.contains("active")) {
+      targetingInput.value += btn.value + " ";
     }
+  });
+});
 
-    // if the button clicked is not the important button, we're going to remove the important from the value
-    // this makes it so that the targeting value is concatenated like shopify --> shopify linkedin --> etc
-    if (e.target !== notImportantTargeting) {
-      targeting.value = `${clickedValue} ${prevValue}`;
-      notImportantTargeting.classList.remove("active");
-      targeting.value = targeting.value.replaceAll(
-        `${notImportantTargeting.value}`,
-        ""
-      );
-    }
+//
+// Adjusting the social Buttons value and active classes (shopify, linkedin, etc)
+//
 
-    // this makes it so that if the button is clicked again (not active), then we replace that value in targeting value
-    allSocialBtns.forEach((btn) => {
-      if (!btn.classList.contains("active")) {
-        targeting.value = targeting.value.replaceAll(`${btn.value}`, "");
-      }
-    });
-  })
-);
+//
+// Checks whether the whole form has been completed
+//
 
 const wholeInputForm = document.querySelector(".whole-input-form");
 const formBoxBottom = document.querySelector(".form-box.bottom");
 const industry = document.querySelector(".industry-select");
 const locationInput = document.querySelector("#location");
-const targetingInput = document.querySelector(".targeting-input");
 const productDesc = document.querySelector("#product-description");
 const valueProps = document.querySelector("#value-props");
 const painPoints = document.querySelector("#pain-points");
@@ -94,11 +103,19 @@ formDirectionBtns.forEach((btn) =>
     formBoxTop.classList.toggle("active");
     formBoxBottom.classList.toggle("active");
     wholeInputForm.classList.toggle("clicked");
-    wholeInputForm.scrollIntoView({ behavior: "smooth" });
+    sectionTwo.scrollIntoView({ behavior: "smooth" });
     pagesForm.classList.toggle("clicked");
     checkFormStatus();
   })
 );
+
+//
+// Checks whether the whole form has been completed
+//
+
+//
+// Makes it so that the create campaign button only pops up when a user scrolls down the page
+//
 
 const submitBtnContainer = document.querySelector(".submit-container");
 
@@ -123,6 +140,10 @@ const btnObserver = new IntersectionObserver(showRemoveBtn, {
 btnObserver.observe(sectionTwo);
 
 //
+// Makes it so that the create campaign button only pops up when a user scrolls down the page
+//
+
+//
 // Making it so that the user can click "Not Important" buttons
 //
 
@@ -143,6 +164,17 @@ allNotImportantBtns.forEach((btn) => {
 
 //
 // Making it so that the user can click "Not Important" buttons
+//
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 
 //
@@ -187,4 +219,15 @@ allNotImportantBtns.forEach((btn) => {
 
 //
 // THIS IS FOR WHEN WE HAD BUTTONS WITH IMAGES ON THE FORM
+//
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
