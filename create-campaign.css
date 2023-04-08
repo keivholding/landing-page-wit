@@ -338,8 +338,9 @@ span.text-below-btn {
 
 .submit-container {
   position: fixed;
+  font-size: 1.2rem;
   width: 100%;
-  height: 50px;
+  height: 75px;
   bottom: 0;
   right: 0;
   left: 0;
@@ -375,8 +376,33 @@ span.text-below-btn {
   transform: scale(1);
 }
 
-.campaign-text-btn {
-  font-size: 1.2rem;
+.progress-bar-form-container {
+  position: relative;
+}
+
+.progress-bar-form {
+  position: relative;
+  width: 200px;
+  height: 10px;
+  background: var(--color-white);
+  border-radius: 50px;
+}
+
+.progress-bar-form::after {
+  content: "";
+  position: absolute;
+  background: var(--background-gradient);
+  border-radius: 50px;
+  height: 10px;
+  width: 0px;
+  left: 0;
+}
+
+.progress-bar-desc-form {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 17px;
 }
 
 /* <--------- SECTION 2 FORM ---------> */

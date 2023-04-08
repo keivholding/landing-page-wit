@@ -149,6 +149,7 @@ const valueProps = document.querySelector("#value-props");
 const painPoints = document.querySelector("#pain-points");
 const submitFormBtn = document.querySelector(".submit-button");
 const textCampaign = document.querySelector(".campaign-text-btn");
+const progressBarAfter = document.querySelector(".progress-bar-form::after");
 
 const incompleteForm = [
   industry,
@@ -181,6 +182,7 @@ const checkFormStatus = function () {
     }
   });
 
+  // if the completed form array length is 9 (all fields answered), then the user can create the campaign
   if (completedForm.length === 9) {
     submitFormBtn.classList.remove("disabled");
     textCampaign.textContent = "You're ready to launch your campaign!";
@@ -188,6 +190,8 @@ const checkFormStatus = function () {
     submitFormBtn.classList.add("disabled");
     textCampaign.textContent = "Make sure to fill in every part of the form!";
   }
+
+  // const percentComplete = `${(completedForm.length / 9) * 100}px`;
 };
 
 // we are checking the form status every second
