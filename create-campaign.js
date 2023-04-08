@@ -194,10 +194,10 @@ const checkFormStatus = function () {
     textCampaign.textContent = "Make sure to fill in every part of the form!";
   }
 
+  // calculates current completed percentage
   const percentComplete = (completedForm.length / 9) * 100;
 
   progressBarComplete.style.width = `${percentComplete}%`;
-
   percentDescription.textContent = `${percentComplete.toFixed(0)}% Complete`;
 };
 
@@ -276,12 +276,12 @@ setInterval(() => {
 //
 //
 
-
 // TEMPORARY FORM SUBMISSION
 var form = document.getElementById("create-campaign");
 
 // Add a submit event listener to the form
 form.addEventListener("submit", function (event) {
   // Prevent the default form submission behavior
-  window.location.href = "https://salesmachineai.io/launch-campaign.html?campaignID=11";
+  window.location.href =
+    "https://salesmachineai.io/launch-campaign.html?campaignID=11";
 });
