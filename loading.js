@@ -11,7 +11,7 @@ const html = `
 <div class="loading">
      <div class="logo-container">
           <img class="wit-image" src="wit-logo.png" style="max-width: 35px;"></img>
-          <div class="wit-logo-text header-text">wit.</div>
+          <div class="wit-logo-text header-text">sales machine.</div>
      </div>
      <div class="progress">
           <div class="progress-value"></div>
