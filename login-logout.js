@@ -1,3 +1,20 @@
+const logInStuff = document.querySelectorAll(".log-in");
+const logOutStuff = document.querySelectorAll(".log-out");
+const logOutBtn = document.querySelector(".log-out-button");
+
+if (localStorage.getItem("witSMAccessToken")) {
+  logInStuff.forEach((item) => (item.style.display = "none"));
+} else {
+  logOutStuff.forEach((item) => (item.style.display = "none"));
+}
+
+logOutBtn.addEventListener("click", function () {
+  localStorage.removeItem("witSMAccessToken");
+  localStorage.removeItem("witSMRefreshToken");
+  localStorage.removeItem("witSMProvider");
+  window.href = "https://salesmachineai.io/index.html";
+});
+
 //
 //
 // REDIRECT TO LOG IN PAGE
