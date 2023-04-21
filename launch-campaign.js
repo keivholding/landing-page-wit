@@ -25,7 +25,7 @@ fetch(`https://sales-machine.vercel.app/api/getTemplates`, {
   .then((response) => response.json())
   .then((data) => {
     if (data.data === "login-redirect-user") {
-      window.location.href = "http://www.example.com";
+      window.location.href = "https://salesmachineai.io/login-page.html";
     } else {
       showTemplates(data.data);
     }
@@ -127,7 +127,7 @@ const showTemplates = function (templates) {
         .then((response) => response.json())
         .then((data) => {
           if (data.data === "login-redirect-user") {
-            window.location.href = "http://www.example.com";
+            window.location.href = "https://salesmachineai.io/login-page.html";
           }
         });
     });

@@ -241,7 +241,7 @@ submitFormBtn.addEventListener("click", function (e) {
     .then((response) => response.json())
     .then((data) => {
       if (data.data === "login-redirect-user") {
-        window.location.href = "http://www.example.com";
+        window.location.href = "https://salesmachineai.io/login-page.html";
       } else {
         const campaignID = data.data[0].id;
         window.location.href =

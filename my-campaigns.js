@@ -17,7 +17,7 @@ fetch(url, {
   .then((response) => response.json())
   .then((data) => {
     if (data.data === "login-redirect-user") {
-      window.location.href = "http://www.example.com";
+      window.location.href = "https://salesmachineai.io/login-page.html";
     } else {
       showCampaignsAndAnalytics(data.data);
     }
