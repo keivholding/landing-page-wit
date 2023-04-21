@@ -1,3 +1,7 @@
+if (!localStorage.getItem("witSMAccessToken")) {
+  window.location.href = "https://salesmachineai.io/login-page.html";
+}
+
 //
 // Makes it so that the textarea height changes based on how tall the inner content it
 //
