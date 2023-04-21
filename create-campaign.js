@@ -246,8 +246,7 @@ submitFormBtn.addEventListener("click", function (e) {
         const campaignID = data.data[0].id;
         window.location.href =
           "https://salesmachineai.io/launch-campaign.html" +
-          window.location.search +
-          `&campaignID=${campaignID}`;
+          `?campaignID=${campaignID}`;
       }
     });
 });
