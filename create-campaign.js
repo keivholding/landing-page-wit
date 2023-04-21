@@ -252,6 +252,8 @@ submitFormBtn.addEventListener("click", function (e) {
     });
 });
 
+console.log(true);
+
 //
 // when form is submitted
 //
