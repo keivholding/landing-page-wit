@@ -1,6 +1,10 @@
+// If user is not logged in
+
 if (!localStorage.getItem("witSMAccessToken")) {
   window.location.href = "https://salesmachineai.io/login-page.html";
 }
+
+// If user is not logged in
 
 //
 // Makes it so that the textarea height changes based on how tall the inner content it
