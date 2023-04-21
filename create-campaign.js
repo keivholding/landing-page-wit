@@ -211,6 +211,52 @@ setInterval(() => {
 //
 
 //
+// When form is submitted
+//
+
+submitFormBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log(`clicked`);
+
+  const endpoint = "https://sales-machine.vercel.app/api/campaigns/insert";
+
+  fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      accessToken: localStorage.getItem("witSMAccessToken"),
+      industry: industry.value,
+      numberOfEmployees: employees.value,
+      revenue: revenue.value,
+      customerLocation: locationInput.value,
+      whereCanCustomersBeFound: targeting.value,
+      otherCustomerDetails: other.value,
+      productDescription: productDesc.value,
+      uniqueValueProps: valueProps.value,
+      painPoints: painPoints.value,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.data === "login-redirect-user") {
+        window.location.href = "http://www.example.com";
+      } else {
+        const campaignID = data.data[0].id;
+        window.location.href =
+          "https://salesmachineai.io/launch-campaign.html" +
+          window.location.search +
+          `&campaignID=${campaignID}`;
+      }
+    });
+});
+
+//
+// when form is submitted
+//
+
+//
 //
 //
 //
@@ -264,24 +310,3 @@ setInterval(() => {
 //
 // THIS IS FOR WHEN WE HAD BUTTONS WITH IMAGES ON THE FORM
 //
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-// TEMPORARY FORM SUBMISSION
-var form = document.getElementById("create-campaign");
-
-// Add a submit event listener to the form
-form.addEventListener("submit", function (event) {
-  // Prevent the default form submission behavior
-  window.location.href =
-    "https://salesmachineai.io/launch-campaign.html?campaignID=11";
-});

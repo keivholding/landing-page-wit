@@ -1,3 +1,5 @@
+// Log out function //
+
 const logInStuff = document.querySelectorAll(".log-in");
 const logOutStuff = document.querySelectorAll(".log-out");
 const logOutBtn = document.querySelector(".log-out-button");
@@ -12,8 +14,10 @@ logOutBtn.addEventListener("click", function () {
   localStorage.removeItem("witSMAccessToken");
   localStorage.removeItem("witSMRefreshToken");
   localStorage.removeItem("witSMProvider");
-  window.href = "https://salesmachineai.io/index.html";
+  window.location.href = "http://127.0.0.1:8080/";
 });
+
+// Log out function //
 
 //
 //
