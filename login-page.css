@@ -17,6 +17,7 @@
 
 .social-buttons {
   border: 1px solid #bfc0c6;
+  position: relative;
 }
 
 .social-buttons-container {
