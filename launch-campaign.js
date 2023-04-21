@@ -32,7 +32,6 @@ fetch(`https://sales-machine.vercel.app/api/getTemplates`, {
   });
 
 const showTemplates = function (templates) {
-  console.log(templates);
   //
   //
   // SHOWING THE EMAIL TEMPLATES
@@ -472,6 +471,7 @@ const showTemplates = function (templates) {
         campaignID: campaignID,
         accessToken: localStorage.getItem("witSMAccessToken"),
         refreshToken: localStorage.getItem("witSMRefreshToken"),
+        provider: localStorage.getItem("witSMProvider"),
       }),
     }).then(() =>
       window.location.replace(

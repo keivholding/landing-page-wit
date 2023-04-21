@@ -413,6 +413,7 @@ setInterval(() => {
     body: JSON.stringify({
       accessToken: localStorage.getItem("witSMAccessToken"),
       refreshToken: localStorage.getItem("witSMRefreshToken"),
+      provider: localStorage.getItem("witSMProvider"),
     }),
   })
     .then((response) => response.json())

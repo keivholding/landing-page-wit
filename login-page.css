@@ -1,0 +1,26 @@
+.login-box {
+  width: 400px;
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.social-buttons {
+  border: 1px solid #bfc0c6;
+}
+
+.social-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
