@@ -1,14 +1,8 @@
-// Log out function //
-
 const logInStuff = document.querySelectorAll(".log-in");
 const logOutStuff = document.querySelectorAll(".log-out");
 const logOutBtn = document.querySelector(".log-out-button");
 
-if (localStorage.getItem("witSMAccessToken")) {
-  logInStuff.forEach((item) => (item.style.display = "none"));
-} else {
-  logOutStuff.forEach((item) => (item.style.display = "none"));
-}
+// Log out function //
 
 logOutBtn.addEventListener("click", function () {
   localStorage.removeItem("witSMAccessToken");
@@ -47,3 +41,9 @@ getTokensFromUrl();
 // this gets the accesstoken / refresh token and stores it in the user's local storage
 //
 //
+
+if (localStorage.getItem("witSMAccessToken")) {
+  logInStuff.forEach((item) => (item.style.display = "none"));
+} else {
+  logOutStuff.forEach((item) => (item.style.display = "none"));
+}
