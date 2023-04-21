@@ -32,6 +32,7 @@ fetch(`https://sales-machine.vercel.app/api/getTemplates`, {
   });
 
 const showTemplates = function (templates) {
+  console.log(templates);
   //
   //
   // SHOWING THE EMAIL TEMPLATES
