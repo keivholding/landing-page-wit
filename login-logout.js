@@ -14,7 +14,7 @@ logOutBtn.addEventListener("click", function () {
   localStorage.removeItem("witSMAccessToken");
   localStorage.removeItem("witSMRefreshToken");
   localStorage.removeItem("witSMProvider");
-  window.location.href = "http://127.0.0.1:8080/";
+  window.location.href = "https://salesmachineai.io/index.html";
 });
 
 // Log out function //
