@@ -16,12 +16,49 @@
 }
 
 .social-buttons {
-  border: 1px solid #bfc0c6;
   position: relative;
+  border-radius: 7px;
+  box-shadow: var(--box-shadow);
+  border: none;
+  padding: 15px 0;
 }
 
 .social-buttons-container {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.company-logo {
+  position: absolute;
+  margin: auto 0;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+}
+
+.or {
+  position: relative;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.or::before,
+.or::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 40%;
+  background: #8c8c8c;
+}
+
+.or::before {
+  left: 0;
+}
+
+.or::after {
+  right: 0;
 }
