@@ -155,6 +155,9 @@ const other = document.querySelector("#other");
 const productDesc = document.querySelector("#product-description");
 const valueProps = document.querySelector("#value-props");
 const painPoints = document.querySelector("#pain-points");
+const yourName = document.querySelector("#your-name");
+const yourCompanyName = document.querySelector("#your-company-name");
+const yourMeetingLink = document.querySelector("#your-meeting-link");
 const submitFormBtn = document.querySelector(".submit-button");
 const textCampaign = document.querySelector(".campaign-text-btn");
 const progressBarComplete = document.querySelector(
@@ -172,6 +175,9 @@ const incompleteForm = [
   productDesc,
   valueProps,
   painPoints,
+  yourName,
+  yourCompanyName,
+  yourMeetingLink,
 ];
 
 const completedForm = [];
@@ -194,7 +200,7 @@ const checkFormStatus = function () {
   });
 
   // if the completed form array length is 9 (all fields answered), then the user can create the campaign
-  if (completedForm.length === 9) {
+  if (completedForm.length === 12) {
     submitFormBtn.classList.remove("disabled");
     textCampaign.textContent = "You're ready to launch your campaign!";
   } else {
@@ -203,7 +209,7 @@ const checkFormStatus = function () {
   }
 
   // calculates current completed percentage
-  const percentComplete = (completedForm.length / 9) * 100;
+  const percentComplete = (completedForm.length / 12) * 100;
 
   progressBarComplete.style.width = `${percentComplete}%`;
   percentDescription.textContent = `${percentComplete.toFixed(0)}% Complete`;
@@ -224,7 +230,6 @@ setInterval(() => {
 
 submitFormBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  console.log(`clicked`);
 
   const endpoint = "https://sales-machine.vercel.app/api/campaigns/create";
 
@@ -258,8 +263,6 @@ submitFormBtn.addEventListener("click", function (e) {
       }
     });
 });
-
-console.log(false);
 
 //
 // when form is submitted
