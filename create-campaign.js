@@ -249,6 +249,9 @@ submitFormBtn.addEventListener("click", function (e) {
       productDescription: productDesc.value,
       uniqueValueProps: valueProps.value,
       painPoints: painPoints.value,
+      yourName: yourName.value,
+      yourCompanyName: yourCompanyName.value,
+      yourMeetingLink: yourMeetingLink.value,
     }),
   })
     .then((response) => response.json())
