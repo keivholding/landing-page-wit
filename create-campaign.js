@@ -226,7 +226,7 @@ submitFormBtn.addEventListener("click", function (e) {
   e.preventDefault();
   console.log(`clicked`);
 
-  const endpoint = "https://sales-machine.vercel.app/api/campaigns/insert";
+  const endpoint = "https://sales-machine.vercel.app/api/campaigns/create";
 
   fetch(endpoint, {
     method: "POST",

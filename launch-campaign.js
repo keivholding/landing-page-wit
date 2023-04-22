@@ -11,7 +11,7 @@ function campaignIdUrl() {
 const campaignID = campaignIdUrl();
 
 // Get Templates
-fetch(`https://sales-machine.vercel.app/api/getTemplates`, {
+fetch(`https://sales-machine.vercel.app/api/templates/get`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -309,7 +309,7 @@ const showTemplates = function (templates) {
       emailTemplate.style.minHeight = `${emailHeight + 120}px`;
 
       // Update Backend when email is edited and saved
-      const url = "https://sales-machine.vercel.app/api/upsertTemplate";
+      const url = "https://sales-machine.vercel.app/api/templates/upsert";
       const data = {
         subject: subjectTextEdit.value,
         body: bodyTextEdit.value,

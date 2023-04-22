@@ -4,7 +4,7 @@
 //
 //
 
-const url = "https://sales-machine.vercel.app/api/getCampaigns";
+const url = "https://sales-machine.vercel.app/api/campaigns/get";
 fetch(url, {
   method: "POST",
   headers: {
