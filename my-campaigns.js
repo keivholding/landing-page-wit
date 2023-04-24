@@ -19,7 +19,7 @@ fetch(url, {
     if (data.data === "login-redirect-user") {
       window.location.href = "https://salesmachineai.io/login-page.html";
     } else {
-      console.log({data})
+      console.log(data.data);
       showCampaignsAndAnalytics(data.data);
     }
   });
