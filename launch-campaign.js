@@ -550,7 +550,7 @@ const showTemplates = function (templates) {
 
   rejectTemplateBtn.forEach((btn) =>
     btn.addEventListener("click", function () {
-      const template = btn.closest(".email-template");
+      const template = btn.closest(".warning-and-email");
       const areYouSure = template.querySelector(".are-you-sure");
 
       btn.style.display = "none";
