@@ -429,3 +429,83 @@ ol.popup-paragraph {
 }
 
 /* <--------- EDIT EMAIL POPUP ---------> */
+
+/* <--------- SECTION 2 ---------> */
+
+.add-contacts-container {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.contact-form {
+  margin-bottom: 20px;
+}
+
+.titles {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+ol {
+  list-style: none;
+  counter-reset: counterName;
+}
+
+.person-count li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  position: relative;
+  counter-increment: counterName;
+  margin-bottom: 35px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #474747;
+}
+
+.person-count li:last-of-type {
+  border: none;
+  margin-bottom: 0px;
+}
+
+.person-count li:before {
+  content: counter(counterName) ".";
+  position: absolute;
+  left: -50px;
+  font-family: OutfitMedium;
+  font-size: 1.6rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 1.4rem;
+}
+
+.contact {
+  min-height: 35px;
+  background: transparent;
+  border: none;
+  box-shadow: inset -2px -2px 4px #2a2d2f, inset 2px 2px 4px #18191b;
+  border-radius: 5px;
+  padding: 5px;
+  color: var(--color-white);
+  outline: none;
+}
+
+.add-more-contacts {
+  display: block;
+  margin: 0 auto;
+  border-color: var(--color-white);
+  opacity: 0.5;
+}
+
+.add-more-contacts:hover {
+  background: var(--color-white) !important;
+  color: var(--color-charcoal);
+  opacity: 1;
+}
+
+/* <--------- SECTION 2 ---------> */

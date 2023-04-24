@@ -497,6 +497,24 @@ const showTemplates = function (templates) {
 
   // this sends the emails out
   officialLaunchBtn.addEventListener("click", function () {
+    const contactsArr = [];
+
+    document.querySelectorAll(".person-count li").forEach((contact) => {
+      const name = contact.querySelector("#name").value;
+      const title = contact.querySelector("#title").value;
+      const email = contact.querySelector("#email").value;
+      const reason = contact.querySelector("#reason").value;
+
+      contactsArr.push({
+        name: name,
+        title: title,
+        email: email,
+        reason: reason,
+      });
+    });
+
+    console.log(contactsArr);
+
     fetch(`https://sales-machine.vercel.app/api/createEmails`, {
       method: "POST",
       headers: {
@@ -507,6 +525,7 @@ const showTemplates = function (templates) {
         accessToken: localStorage.getItem("witSMAccessToken"),
         refreshToken: localStorage.getItem("witSMRefreshToken"),
         provider: localStorage.getItem("witSMProvider"),
+        contacts: contactsArr,
       }),
     }).then(() =>
       window.location.replace(
@@ -603,3 +622,41 @@ const showTemplates = function (templates) {
       });
   };
 };
+
+//
+//
+// MORE CONTACTS
+//
+//
+
+const addMoreContactsBtn = document.querySelector(".add-more-contacts");
+const contactList = document.querySelector(".person-count");
+
+addMoreContactsBtn.addEventListener("click", function () {
+  const html = `<li>
+                            <div class="field subheader-text">
+                                <label for="name">Name:</label>
+                                <input class="contact paragraph-text" type="text" id="name" name="name" required>
+                            </div>
+                            <div class="field subheader-text">
+                                <label for="email">Email:</label>
+                                <input class="contact paragraph-text" type="email" id="email" name="email" required>
+                            </div>
+                            <div class="field subheader-text">
+                                <label for="title">Title:</label>
+                                <input class="contact paragraph-text" type="text" id="title" name="title" required>
+                            </div>
+                            <div class="field subheader-text">
+                                <label for="reason">Reason why this person is good to email:</label>
+                                <textarea class="contact paragraph-text" id="reason" name="reason" required></textarea>
+                            </div>
+                        </li>`;
+
+  contactList.insertAdjacentHTML("beforeend", html);
+});
+
+//
+//
+// MORE CONTACTS
+//
+//
