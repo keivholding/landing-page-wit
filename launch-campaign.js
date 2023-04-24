@@ -17,9 +17,9 @@ fetch(`https://sales-machine.vercel.app/api/templates/get`, {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    campaignID: campaignID,
     accessToken: localStorage.getItem("witSMAccessToken"),
     refreshToken: localStorage.getItem("witSMRefreshToken"),
+    campaignID: campaignID,
   }),
 })
   .then((response) => response.json())
@@ -27,6 +27,7 @@ fetch(`https://sales-machine.vercel.app/api/templates/get`, {
     if (data.data === "login-redirect-user") {
       window.location.href = "https://salesmachineai.io/login-page.html";
     } else {
+      console.log(data);
       showTemplates(data.data);
     }
   });
