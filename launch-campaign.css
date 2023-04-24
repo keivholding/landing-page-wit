@@ -92,15 +92,32 @@
 
 .email-template {
   position: relative;
-  width: 75%;
   min-height: 100px;
   margin: 0 auto;
   box-shadow: var(--box-shadow);
   border-radius: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
   font-size: 2.5rem;
   transition: all 0.5s ease-in-out;
   overflow: hidden;
+}
+
+.warning-and-email {
+  width: 75%;
+  margin: 0 auto 50px auto;
+}
+
+.warning {
+  font-size: 1.4rem;
+  color: #8c8c8c;
+}
+
+.warning span {
+  font-family: OutfitBold;
+}
+
+.warning span:first-of-type {
+  text-decoration: underline;
 }
 
 .email-template:hover {

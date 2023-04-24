@@ -43,7 +43,8 @@ const showTemplates = function (templates) {
   const insertEmails = document.querySelector(".emails-entered-here");
 
   templates.forEach((template) => {
-    const html = `<div class="email-template" data-approved="false" data-campaign-id="${template.campaign_id}" data-template-id="${template.id}">
+    const html = `<div class="warning-and-email">
+    <div class="email-template" data-approved="false" data-campaign-id="${template.campaign_id}" data-template-id="${template.id}">
                 <div class="email-description">
                     <div class="email-left header-text">Style: <span class="gradient style-data">${template.style}</span></div>
                     <div class="email-right">
@@ -84,7 +85,10 @@ const showTemplates = function (templates) {
                         </div>
                     </div>
                 </div>
-            </div>`;
+            </div>
+              <p class="paragraph-text warning">*<span>Make sure</span> this email template has these variables: <span>[contact name]</span>, <span>[meeting link]</span>, <span>[your company name]</span>, <span>[reason to outreach]</span>. Any misspelled variables will not update correctly.*
+                </p>
+                </div>`;
 
     insertEmails.insertAdjacentHTML("afterbegin", html);
   });
