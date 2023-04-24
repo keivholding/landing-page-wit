@@ -513,8 +513,6 @@ const showTemplates = function (templates) {
       });
     });
 
-    console.log(contactsArr);
-
     fetch(`https://sales-machine.vercel.app/api/createEmails`, {
       method: "POST",
       headers: {
