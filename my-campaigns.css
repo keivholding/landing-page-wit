@@ -309,11 +309,11 @@ tr:hover .campaign-buttons {
   box-shadow: 0px 0px 10px var(--color-violet);
 }
 
-.download-csv {
+.relaunch-btn {
   background: var(--color-deepblue);
 }
 
-.download-csv:hover {
+.relaunch-btn:hover {
   box-shadow: 0px 0px 10px var(--color-deepblue);
 }
 

@@ -135,7 +135,7 @@ const showCampaignsAndAnalytics = function (campaigns) {
                                 <a href="#">
                                     <div class="btn view-btn primary">View Campaign</div>
                                 </a>
-                                <div class="btn download-csv secondary">Download CSV</div>
+                                <div class="btn relaunch-btn secondary">Relaunch Campaign</div>
                             </div>
                         </td>
                     </tr>`;
@@ -400,6 +400,28 @@ const showCampaignsAndAnalytics = function (campaigns) {
   //
   //
   // FILTERING THE CAMPAIGNS
+  //
+  //
+
+  //
+  //
+  // RELAUNCH CAMPAIGN
+  //
+  //
+
+  const relaunchBtn = document.querySelectorAll(".relaunch-btn");
+
+  relaunchBtn.forEach((btn) =>
+    btn.addEventListener("click", function () {
+      const campaignID = btn.closest(".table-row").dataset.campaignId;
+
+      window.location.href = `https://salesmachineai.io/launch-campaign.html?campaignID=${campaignID}`;
+    })
+  );
+
+  //
+  //
+  // RELAUNCH CAMPAIGN
   //
   //
 };
