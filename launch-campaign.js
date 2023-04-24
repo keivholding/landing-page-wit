@@ -39,17 +39,33 @@ const showTemplates = function (templates) {
   //
   //
 
+  console.log(templates);
   const insertEmails = document.querySelector(".emails-entered-here");
 
   templates.forEach((template) => {
-    const html = `<div class="email-template" data-approved="false" data-campaign-id="${template.campaign_id}" data-template-id="${template.template_id}">
+    const html = `<div class="email-template" data-approved="false" data-campaign-id="${template.campaign_id}" data-template-id="${template.id}">
                 <div class="email-description">
                     <div class="email-left header-text">Style: <span class="gradient style-data">${template.style}</span></div>
                     <div class="email-right">
-                        <div class="email-recipients paragraph-text">1 recipient</div>
+                        <!-- <div class="email-recipients paragraph-text">1 recipient</div> -->
                         <button class="btn secondary view-email closed paragraph-text">View Email</button>
                         <button class="btn primary approve-email paragraph-text">Approve Email</button>
-                    </div>
+                        <button class="btn primary reject-email paragraph-text">Reject Email</button>
+                      </div>
+
+                        <div class="are-you-sure">
+
+                          <div class="confirm-container">
+                            <i class="fa fa-check you-sure yes" aria-hidden="true"></i>
+                            <p class="paragraph-text">Confirm</p>
+                          </div>
+
+                          <div class="confirm-container">
+                            <i class="fa fa-times you-sure no" aria-hidden="true"></i>
+                            <p class="paragraph-text">Go Back</p>
+                          </div>
+
+                        </div>
                 </div>
 
                 <div class="divider-email"></div>
@@ -257,6 +273,20 @@ const showTemplates = function (templates) {
     }
 
     canLaunchCampaign();
+
+    const templateID = emailTemplate.dataset.templateId;
+    const subjectText = emailTemplate.querySelector(".subject-text").innerHTML;
+    const bodyText = emailTemplate.querySelector(".body-text").innerHTML;
+    const style = emailTemplate.querySelector(".style-data").innerHTML;
+
+    myObj = {
+      templateID: templateID,
+      subjectText: subjectText,
+      bodyText: bodyText,
+      style: style,
+    };
+
+    updateTemplates(myObj, false);
   };
 
   //
@@ -486,4 +516,86 @@ const showTemplates = function (templates) {
   // WHEN LAUNCH CAMPAIGN IS CLICKED (EMAILS SENT)
   //
   //
+
+  //
+  //
+  // DELETE TEMPLATE
+  //
+  //
+
+  const rejectTemplateBtn = document.querySelectorAll(".reject-email");
+
+  rejectTemplateBtn.forEach((btn) =>
+    btn.addEventListener("click", function () {
+      const template = btn.closest(".email-template");
+      const areYouSure = template.querySelector(".are-you-sure");
+
+      btn.style.display = "none";
+      areYouSure.style.display = "flex";
+
+      areYouSure.addEventListener("click", function (e) {
+        const clicked = e.target.closest(".you-sure");
+
+        if (!clicked) return;
+
+        if (clicked.classList.contains("yes")) {
+          const templateID = template.dataset.templateId;
+          const subjectText = template.querySelector(".subject-text").innerHTML;
+          const bodyText = template.querySelector(".body-text").innerHTML;
+          const style = template.querySelector(".style-data").innerHTML;
+
+          const myObj = {
+            templateID: templateID,
+            subjectText: subjectText,
+            bodyText: bodyText,
+            style: style,
+          };
+
+          updateTemplates(myObj, true);
+
+          template.style.display = "none";
+        } else {
+          areYouSure.style.display = "none";
+          btn.style.display = "block";
+        }
+      });
+    })
+  );
+
+  //
+  //
+  // DELETE TEMPLATE
+  //
+  //
+
+  const updateTemplates = function (obj, deleteTemplate) {
+    // Update Backend when email is edited and saved
+    const url = "https://sales-machine.vercel.app/api/templates/upsert";
+    const data = {
+      subject: obj.subjectText,
+      body: obj.bodyText,
+      style: obj.style,
+      campaignID: obj.campaignID,
+      templateID: obj.templateID,
+      isDeleted: deleteTemplate,
+    };
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        accessToken: localStorage.getItem("witSMAccessToken"),
+        data,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
 };

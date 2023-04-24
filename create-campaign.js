@@ -39,10 +39,12 @@ const targetingBtns = document.querySelectorAll(".targeting-btn");
 socialButtonsContainer.addEventListener("click", function (e) {
   e.preventDefault();
 
+  const clickedBtn = e.target.closest(".targeting-btn");
+
+  if (!clickedBtn) return;
+
   // this makes it so that the input value is reset each time there is a new click so that we don't get duplicates when we loop through the active classes at the bottom
   targetingInput.value = "";
-
-  const clickedBtn = e.target.closest(".targeting-btn");
 
   // If the clicked button is the not important button, then we remove the active classes from all of the other buttons
   if (clickedBtn === notImportantTargeting) {
@@ -259,7 +261,7 @@ submitFormBtn.addEventListener("click", function (e) {
       if (data.data === "login-redirect-user") {
         window.location.href = "https://salesmachineai.io/login-page.html";
       } else {
-        console.log({data})
+        console.log({ data });
         const campaignID = data.data.campaignId;
         window.location.href =
           "https://salesmachineai.io/launch-campaign.html" +
