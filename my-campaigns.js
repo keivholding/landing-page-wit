@@ -426,8 +426,6 @@ const showCampaignsAndAnalytics = function (campaigns) {
   //
 };
 
-//
-
 setInterval(() => {
   // check threads for new replies
   fetch(`https://sales-machine.vercel.app/api/checkThreads`, {
